@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Workflow</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+      <h1>Git & GitHub Guide</h1>
+      <nav>
+          <a href="../index.html">Home</a>
+          <a href="index.html">Introduction</a>
+          <a href="setup.html">Setup</a>
+          <a href="commands.html">Commands</a>
+          <a href="workflow.html" class="current">Workflow</a>
+      </nav>
+    </header>
+    
+    <main>
+        <h2>🚀 Understanding the Git Workflow</h2>
+        <p>
+            Git helps track changes in your code. Understanding its workflow is crucial for using Git effectively.
+            Below is the basic workflow you’ll follow when working with Git.
+        </p>
+        
+        <h3>📌 The Three Areas of Git</h3>
+        <ul>
+            <li><strong>Working Directory</strong>: Where you edit files.</li>
+            <li><strong>Staging Area (Index)</strong>: Where changes are prepared before committing.</li>
+            <li><strong>Repository</strong>: The history of all committed changes (local & remote).</li>
+        </ul>
+        
+        <h3>🚀 Basic Workflow Steps</h3>
+        <ol>
+            <li><code>git init</code> – Initialize a new Git repository.</li>
+            <li><code>git add &lt;file&gt;</code> – Stage changes for commit.</li>
+            <li><code>git commit -m "message"</code> – Save changes.</li>
+            <li><code>git push</code> – Upload to remote repository.</li>
+            <li><code>git pull</code> – Get the latest changes from remote.</li>
+            <li><code>git merge</code> – Combine branches.</li>
+        </ol>
+        
+        <h3>🌿 Branching Workflow</h3>
+        <p>
+            Using branches allows you to work on new features without affecting the main code.
+        </p>
+        <ul>
+            <li><code>git branch feature-branch</code> – Create a new branch.</li>
+            <li><code>git checkout feature-branch</code> – Switch to that branch.</li>
+            <li><code>git merge feature-branch</code> – Merge it back to main.</li>
+        </ul>
+        
+        <h3>👥 Collaborative Workflow</h3>
+        <p>
+            When working with others, you’ll use remote repositories:
+        </p>
+        <ul>
+            <li><code>git clone &lt;repo-url&gt;</code> – Copy a remote repository.</li>
+            <li><code>git remote -v</code> – Check remote URLs.</li>
+            <li><code>git fetch</code> – Get latest remote changes without merging.</li>
+        </ul>
+    </main>
+</body>
+</html>
