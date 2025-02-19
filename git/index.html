@@ -53,6 +53,26 @@
             background: #333;
             color: #fff;
         }
+        .command {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-left: 5px solid #007acc;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+pre {
+    background-color: #282c34;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+code {
+    font-family: "Courier New", Courier, monospace;
+}
+
     </style>
 </head>
 <body>
@@ -116,7 +136,111 @@ git add .
 git commit -m "Initial commit"
             </pre></div>
         </section>
+
+        <section id="commands">
+            <h2>Git Commands</h2>
+            <p>Below are some essential Git commands that every beginner should know.</p>
+        
+            <div class="command">
+                <h3>1. git init</h3>
+                <p><strong>Explanation:</strong> Initializes a new Git repository in the current directory.</p>
+                <pre><code>git init</code></pre>
+            </div>
+        
+            <div class="command">
+                <h3>2. git clone</h3>
+                <p><strong>Explanation:</strong> Creates a local copy of a remote repository.</p>
+                <pre><code>git clone [repository URL]</code></pre>
+                <p><strong>Usage Example:</strong></p>
+                <pre><code>$ git clone https://github.com/user/repo.git</code></pre>
+            </div>
+        
+            <div class="command">
+                <h3>3. git add</h3>
+                <p><strong>Explanation:</strong> Adds changes to the staging area.</p>
+                <pre><code>git add [file]</code></pre>
+            </div>
+        
+            <div class="command">
+                <h3>4. git commit</h3>
+                <p><strong>Explanation:</strong> Saves staged changes with a message.</p>
+                <pre><code>git commit -m "Your commit message"</code></pre>
+            </div>
+        
+            <div class="command">
+                <h3>5. git push</h3>
+                <p><strong>Explanation:</strong> Uploads local commits to a remote repository.</p>
+                <pre><code>git push origin [branch]</code></pre>
+            </div>
+        
+            <div class="command">
+                <h3>6. git pull</h3>
+                <p><strong>Explanation:</strong> Fetches and merges updates from a remote repository.</p>
+                <pre><code>git pull origin [branch]</code></pre>
+            </div>
+        
+            <div class="command">
+                <h3>7. git branch</h3>
+                <p><strong>Explanation:</strong> Lists, creates, or deletes branches.</p>
+                <pre><code>git branch</code></pre>
+            </div>
+        
+            <div class="command">
+                <h3>8. git checkout</h3>
+                <p><strong>Explanation:</strong> Switches to another branch.</p>
+                <pre><code>git checkout [branch]</code></pre>
+            </div>
+        
+            <div class="command">
+                <h3>9. git merge</h3>
+                <p><strong>Explanation:</strong> Merges changes from one branch into another.</p>
+                <pre><code>git merge [branch]</code></pre>
+                <p><strong>Usage Example:</strong></p>
+                <pre><code>$ git checkout main
+        $ git merge feature-branch</code></pre>
+                <p><strong>Tip:</strong> Resolve conflicts if Git cannot merge automatically.</p>
+            </div>
+        
+            <div class="command">
+                <h3>10. git remote</h3>
+                <p><strong>Explanation:</strong> Manages remote repositories.</p>
+                <pre><code>git remote -v</code></pre>
+            </div>
+        
+            <div class="command">
+                <h3>11. git log</h3>
+                <p><strong>Explanation:</strong> Displays commit history.</p>
+                <pre><code>git log</code></pre>
+            </div>
+        
+            <div class="command">
+                <h3>12. git diff</h3>
+                <p><strong>Explanation:</strong> Shows differences between commits, branches, or working directory.</p>
+                <pre><code>git diff</code></pre>
+            </div>
+        
+            <div class="command">
+                <h3>13. git reset</h3>
+                <p><strong>Explanation:</strong> Undoes commits or unstages files.</p>
+                <pre><code>git reset [commit]</code></pre>
+            </div>
+        
+            <div class="command">
+                <h3>14. git stash</h3>
+                <p><strong>Explanation:</strong> Temporarily saves changes without committing.</p>
+                <pre><code>git stash</code></pre>
+                <p><strong>Usage Example:</strong></p>
+                <pre><code>$ git stash save "Temporary work"</code></pre>
+                <p><strong>Tip:</strong> Use <code>git stash pop</code> to restore changes.</p>
+            </div>
+        
+        </section>
+                
+
     </div>
+
+
+
     <footer>
         &copy; 2025 Git Guide. All rights reserved.
     </footer>
