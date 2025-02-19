@@ -6,6 +6,7 @@ body {
   background: #f4f4f4;
 }
 
+
 header {
   background: #333;
   color: #fff;
@@ -77,4 +78,32 @@ pre {
 code {
   font-family: "Courier New", monospace;
   color: #ffcc00;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: left;
+}
+.code-block {
+  background: #272822;
+  color: #f8f8f2;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: monospace;
+}
+.code-block pre {
+  margin: 0;
+}
+footer {
+  margin-top: 20px;
+  padding: 10px;
+  background: #333;
+  color: #fff;
+  text-align: center;
 }

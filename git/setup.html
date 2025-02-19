@@ -19,18 +19,19 @@
       </nav>
     </header>
 
+    <div class="container">
 
-    <section id="setup">
-      <h3>Setup: Installing Git & Configuring GitHub</h3>
+    <section>
+      <h2>Setup: Installing Git & Configuring GitHub</h2>
       <p>To start using Git, follow these steps:</p>
       
-      <h4>1. Install Git</h4>
+      <h3>1. Install Git</h3>
       <p>Download and install Git from the official website:</p>
       <p><a href="https://git-scm.com/downloads" target="_blank">Download Git</a></p>
       <p>After installation, verify it by running the following command:</p>
       <div class="code-block"><pre>git --version</pre></div>
       
-      <h4>2. Configure Git</h4>
+      <h3>2. Configure Git</h3>
       <p>Set up your username and email:</p>
       <div class="code-block"><pre>
 git config --global user.name "Your Name"
@@ -39,56 +40,19 @@ git config --global user.email "your-email@example.com"
       <p>Check your settings:</p>
       <div class="code-block"><pre>git config --list</pre></div>
       
-      <h4>3. Create a GitHub Account</h4>
+      <h3>3. Create a GitHub Account</h3>
       <p>Go to <a href="https://github.com/" target="_blank">GitHub</a> and sign up.</p>
       
-      <h4>4. Set Up SSH Key (Optional, Recommended)</h4>
+      <h3>4. Set Up SSH Key (Optional, Recommended)</h3>
       <p>To avoid entering your password every time, set up an SSH key:</p>
       <div class="code-block"><pre>ssh-keygen -t ed25519 -C "your-email@example.com"</pre></div>
       <p>Then add the key to GitHub under <b>Settings → SSH and GPG keys</b>.</p>
       
-      <h4>5. Clone an Existing Repository</h4>
-      <p>To download a repository from GitHub:</p>
-      <div class="code-block"><pre>git clone https://github.com/user/repository.git</pre></div>
-      
-      <h4>6. Initialize a Local Repository</h4>
-      <p>To start a new Git project:</p>
-      <div class="code-block"><pre>
-git init
-git add .
-git commit -m "Initial commit"
-      </pre></div>
   </section>
+</div>
 
-    <main>
-        <h2>🔧 Setting Up Git</h2>
-        <p>Before using Git, you need to configure some settings.</p>
-
-        <div class="command">
-            <h3>1. Set Your Name</h3>
-            <p><strong>Explanation:</strong> Set your name for commits.</p>
-            <pre><code>git config --global user.name "Your Name"</code></pre>
-        </div>
-
-        <div class="command">
-            <h3>2. Set Your Email</h3>
-            <p><strong>Explanation:</strong> Set your email for commits.</p>
-            <pre><code>git config --global user.email "your@email.com"</code></pre>
-        </div>
-
-        <div class="command">
-            <h3>3. Check Configuration</h3>
-            <p><strong>Explanation:</strong> View current Git settings.</p>
-            <pre><code>git config --list</code></pre>
-        </div>
-
-        <div class="command">
-            <h3>4. Initialize a Repository</h3>
-            <p><strong>Explanation:</strong> Create a new Git repository.</p>
-            <pre><code>git init</code></pre>
-        </div>
-
-    </main>
-
+    <footer>
+      &copy; 2025 Git Guide. All rights reserved.
+  </footer>
 </body>
 </html>
