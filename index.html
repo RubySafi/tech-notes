@@ -1,12 +1,49 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech-Notes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Multi-language Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .hidden { display: none; }
+    </style>
+    <script>
+        function getUserLanguage() {
+            const params = new URLSearchParams(window.location.search);
+            const lang = params.get("lang") || navigator.language.substring(0, 2);
+            return lang === "ja" ? "ja" : "en"; // Default to English
+        }
+
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll("[data-lang]").forEach(el => {
+                el.style.display = el.getAttribute("data-lang") === lang ? "block" : "none";
+            });
+            history.replaceState(null, "", "?lang=" + lang); // Update URL
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            changeLanguage(getUserLanguage());
+        });
+    </script>
 </head>
 <body>
-  <h1>Welcome to My Tech-Notes</h1>
-  <p>This is a homepage for reviewing programming usage.</p>
+    <h1>My Homepage</h1>
+    <button onclick="changeLanguage('en')">English</button>
+    <button onclick="changeLanguage('ja')">日本語</button>
+
+    <div data-lang="en">
+      <h2>Welcome to My Tech-Notes</h2>
+      <p>This is a homepage with English and Japanese language support for reviewing programming usage.</p>
+    </div>
+    <div data-lang="ja" class="hidden">
+        <h2>ようこそ！</h2>
+        <p>このホームページは英語と日本語をサポートしています。</p>
+    </div>
 </body>
 </html>
