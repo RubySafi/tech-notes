@@ -36,6 +36,24 @@
           following command:
         </p>
         <div class="code-block"><pre>git --version</pre></div>
+        <!-- Link to toggle explanation -->
+        <a
+          href="javascript:void(0);"
+          onclick="toggleExplanation('explanation1')"
+          >[What does this command do?]</a
+        >
+
+        <!-- Explanation block (hidden by default) -->
+        <div
+          id="explanation1"
+          style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+        >
+          <p>
+            The command <code>git --version</code> displays the installed
+            version of Git. This allows you to verify whether Git has been
+            successfully installed on your system.
+          </p>
+        </div>
 
         <h3>2. Configure Git</h3>
         <p>Set up your username and email:</p>
@@ -45,8 +63,55 @@ git config --global user.name "Your Name"
 git config --global user.email "your-email@example.com"</pre
           >
         </div>
+        <!-- Link to toggle explanation -->
+        <a
+          href="javascript:void(0);"
+          onclick="toggleExplanation('explanation2')"
+          >[What does this command do?]</a
+        >
+
+        <!-- Explanation block (hidden by default) -->
+        <div
+          id="explanation2"
+          style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+        >
+          <p>
+            The command <code>git config</code> is used to set configuration
+            values for Git. The flag <code>--global</code> specifies that the
+            configuration applies globally, meaning the setting will affect all
+            Git repositories on your system. The general syntax is:
+            <code>git config --global &lt;parameter&gt; &lt;value&gt;</code>,
+            where <code>parameter</code> is the name of the configuration option
+            you want to set, and <code>value</code> is the value you want to
+            assign to it.
+          </p>
+        </div>
+
         <p>To confirm your settings, run:</p>
         <div class="code-block"><pre>git config --list</pre></div>
+        <!-- Link to toggle explanation -->
+        <a
+          href="javascript:void(0);"
+          onclick="toggleExplanation('explanation3')"
+          >[What does this command do?]</a
+        >
+
+        <!-- Explanation block (hidden by default) -->
+        <div
+          id="explanation3"
+          style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+        >
+          <p>
+            The command <code>git config --list</code> displays all the Git
+            configuration settings currently in use, including both global and
+            local configurations. You can check whether your settings are
+            properly reflected as part of the process described above.<br />
+            <b>Note:</b> If there are many parameters, they may be displayed in
+            multiple pages. If the display stops, press <b>Enter</b> to
+            continue. To return to the usual console mode, press <b>q</b> to
+            quit the pager.
+          </p>
+        </div>
 
         <h3>3. Create a GitHub Account</h3>
         <p>
@@ -72,6 +137,24 @@ git config --global user.email "your-email@example.com"</pre
         </p>
         <div class="code-block">
           <pre>ssh-keygen -t ed25519 -C "your-email@example.com"</pre>
+        </div>
+        <!-- Link to toggle explanation -->
+        <a
+          href="javascript:void(0);"
+          onclick="toggleExplanation('explanation4')"
+          >[What does this command do?]</a
+        >
+
+        <!-- Explanation block (hidden by default) -->
+        <div
+          id="explanation4"
+          style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+        >
+          <p>
+            The command <code>git --version</code> displays the installed
+            version of Git. This allows you to verify whether Git has been
+            successfully installed on your system.
+          </p>
         </div>
 
         <p>You may be prompted with the following:</p>
@@ -102,16 +185,26 @@ Enter passphrase for "~/.ssh/id_ed25519" (empty for no passphrase):</pre
         </p>
         <div class="code-block"><pre>cat ~/.ssh/id_ed25519.pub</pre></div>
         <!-- Link to toggle explanation -->
-        <a href="javascript:void(0);" onclick="toggleExplanation()"
+        <a
+          href="javascript:void(0);"
+          onclick="toggleExplanation('explanation5')"
           >[What does this command do?]</a
         >
 
         <!-- Explanation block (hidden by default) -->
         <div
-          id="explanation"
+          id="explanation5"
           style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
         >
-          <p>The command <code>cat file1 file2 ...</code> is used to concatenate and display the contents of one or more files. In this case, since only one file is specified, no concatenation occurs, and it simply displays the contents of that file. <br><b>Note:</b> The command name <code>cat</code> is derived from the word "concatenate," which means to link things together. <br><b>Note:</b> If you chose a custom directory for your SSH key in the previous step, make sure to update the file path accordingly.
+          <p>
+            The command <code>cat file1 file2 ...</code> is used to concatenate
+            and display the contents of one or more files. In this case, since
+            only one file is specified, no concatenation occurs, and it simply
+            displays the contents of that file. <br /><b>Note:</b> The command
+            name <code>cat</code> is derived from the word "concatenate," which
+            means to link things together. <br /><b>Note:</b> If you chose a
+            custom directory for your SSH key in the previous step, make sure to
+            update the file path accordingly.
           </p>
         </div>
 

@@ -1,14 +1,9 @@
 // toggleExplanation.js
-function toggleExplanation() {
-  var explanation = document.getElementById("explanation");
-  var link = document.getElementById("toggleLink");
-
-  // Toggle explanation visibility
-  if (explanation.style.display === "none") {
-    explanation.style.display = "block";
-    link.textContent = "Hide explanation";
+function toggleExplanation(explanationId) {
+  var explanationElement = document.getElementById(explanationId);
+  if (explanationElement.style.display === "none") {
+    explanationElement.style.display = "block";
   } else {
-    explanation.style.display = "none";
-    link.textContent = "Show explanation";
+    explanationElement.style.display = "none";
   }
 }
