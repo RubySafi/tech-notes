@@ -151,9 +151,22 @@ git config --global user.email "your-email@example.com"</pre
           style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
         >
           <p>
-            The command <code>git --version</code> displays the installed
-            version of Git. This allows you to verify whether Git has been
-            successfully installed on your system.
+            The command
+            <code>ssh-keygen -t ed25519 -C "your-email@example.com"</code> is
+            used to generate a new SSH key pair on your computer. Each time you
+            run this command, a new key is created with a unique "seed" (private
+            key).<br />
+            The flag <code>-t</code> specifies the type of key to create. In
+            this case, <code>ed25519</code> is selected, which refers to a
+            special elliptic curve that provides strong security. The name
+            <code>ed25519</code> represents the specific elliptic curve
+            algorithm used, and this value <b>cannot</b> be changed to something
+            else, such as <code>ed34567</code>.<br />
+            The flag <code>-C</code> allows you to add a comment to the key.
+            Typically, this comment is used to associate an email address with
+            the key to help identify it later. In this example, the email
+            address <code>"your-email@example.com"</code> is used as the
+            comment.
           </p>
         </div>
 
