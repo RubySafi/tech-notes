@@ -3,49 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Multi-language Homepage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        .hidden { display: none; }
-    </style>
-    <script>
-        function getUserLanguage() {
-            const params = new URLSearchParams(window.location.search);
-            const lang = params.get("lang") || navigator.language.substring(0, 2);
-            return lang === "ja" ? "ja" : "en"; // Default to English
-        }
-
-        function changeLanguage(lang) {
-            document.documentElement.lang = lang;
-            document.querySelectorAll("[data-lang]").forEach(el => {
-                el.style.display = el.getAttribute("data-lang") === lang ? "block" : "none";
-            });
-            history.replaceState(null, "", "?lang=" + lang); // Update URL
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            changeLanguage(getUserLanguage());
-        });
-    </script>
+    <title>Git & GitHub Guide</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>My Homepage</h1>
-    <button onclick="changeLanguage('en')">English</button>
-    <button onclick="changeLanguage('ja')">日本語</button>
+    <header>
+        <h1>Tech Notes</h1>
+    </header>
 
-    <div data-lang="en">
-      <h2>Welcome to My Tech-Notes</h2>
-      <p>This is a homepage with English and Japanese language support for reviewing programming usage.</p>
-    </div>
-    <div data-lang="ja" class="hidden">
-        <h2>ようこそ！</h2>
-        <p>このホームページは英語と日本語をサポートしています。</p>
+    <div class="container">
+        <h2>Welcome to My Tech-Notes!</h2>
+        </section>
+
+        <h3><a href=git/index.html>Git & GitHub Guide</a></h3>
     </div>
 
-    <a href = "git/index.html">About Git</a>
+    <footer>
+        &copy; 2025 Tech-Notes. All rights reserved.
+    </footer>
 </body>
 </html>
