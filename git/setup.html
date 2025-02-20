@@ -1,58 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Git Setup</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="styles.css" />
+    <script src="toggleExplanation.js"></script>
+  </head>
+  <body>
     <header>
       <h1>Git & GitHub Guide</h1>
       <nav>
-          <a href="../index.html">Home</a>
-          <a href="index.html">Introduction</a>
-          <a href="setup.html" class="current">Setup</a>
-          <a href="commands.html">Commands</a>
-          <a href="workflow.html">Workflow</a>
+        <a href="../index.html">Home</a>
+        <a href="index.html">Introduction</a>
+        <a href="setup.html" class="current">Setup</a>
+        <a href="commands.html">Commands</a>
+        <a href="workflow.html">Workflow</a>
       </nav>
     </header>
 
     <div class="container">
+      <section>
+        <h2>Setup: Installing Git & Configuring GitHub</h2>
+        <p>To start using Git, follow these steps:</p>
 
-    <section>
-      <h2>Setup: Installing Git & Configuring GitHub</h2>
-      <p>To start using Git, follow these steps:</p>
-      
-      <h3>1. Install Git</h3>
-      <p>Download and install Git from the official website:</p>
-      <p><a href="https://git-scm.com/downloads" target="_blank">Download Git</a></p>
-      <p>After installation, verify it by running the following command:</p>
-      <div class="code-block"><pre>git --version</pre></div>
-      
-      <h3>2. Configure Git</h3>
-      <p>Set up your username and email:</p>
-      <div class="code-block"><pre>
+        <h3>1. Install Git</h3>
+        <p>Download and install Git from the official website:</p>
+        <p>
+          <a href="https://git-scm.com/downloads" target="_blank">
+            Download Git
+          </a>
+        </p>
+        <p>
+          After installation, verify that Git is installed by running the
+          following command:
+        </p>
+        <div class="code-block"><pre>git --version</pre></div>
+
+        <h3>2. Configure Git</h3>
+        <p>Set up your username and email:</p>
+        <div class="code-block">
+          <pre>
 git config --global user.name "Your Name"
-git config --global user.email "your-email@example.com"
-      </pre></div>
-      <p>Check your settings:</p>
-      <div class="code-block"><pre>git config --list</pre></div>
-      
-      <h3>3. Create a GitHub Account</h3>
-      <p>Go to <a href="https://github.com/" target="_blank">GitHub</a> and sign up.</p>
-      
-      <h3>4. Set Up SSH Key (Optional, Recommended)</h3>
-      <p>To avoid entering your password every time, set up an SSH key:</p>
-      <div class="code-block"><pre>ssh-keygen -t ed25519 -C "your-email@example.com"</pre></div>
-      <p>Then add the key to GitHub under <b>Settings → SSH and GPG keys</b>.</p>
-      
-  </section>
-</div>
+git config --global user.email "your-email@example.com"</pre
+          >
+        </div>
+        <p>To confirm your settings, run:</p>
+        <div class="code-block"><pre>git config --list</pre></div>
 
-    <footer>
-      &copy; 2025 Git Guide. All rights reserved.
-  </footer>
-</body>
+        <h3>3. Create a GitHub Account</h3>
+        <p>
+          Go to <a href="https://github.com/" target="_blank">GitHub</a> and
+          sign up for an account.
+        </p>
+
+        <h2>SSH Key Setup (Optional)</h2>
+        <p>
+          There are multiple ways to clone a repository from GitHub to your
+          local PC: <b>HTTPS, SSH, and GitHub CLI</b>. You can start with HTTPS,
+          but setting up SSH provides a more secure and convenient way to
+          authenticate.
+        </p>
+        <p>
+          This step is optional, and you can do it anytime. Feel free to set it
+          up after gaining a deeper understanding of Git and GitHub.
+        </p>
+        <h3>4. Generate an SSH Key (Optional)</h3>
+        <p>
+          To avoid entering your password every time you interact with GitHub,
+          generate an SSH key:
+        </p>
+        <div class="code-block">
+          <pre>ssh-keygen -t ed25519 -C "your-email@example.com"</pre>
+        </div>
+
+        <p>You may be prompted with the following:</p>
+        <div class="code-block">
+          <pre>Enter file in which to save the key (~/.ssh/id_ed25519):</pre>
+        </div>
+        <p>
+          This is the default location where the generated key will be saved.
+          <b>Press Enter</b> unless you want to choose a different location.
+        </p>
+        <p>You may then be prompted with:</p>
+        <div class="code-block">
+          <pre>
+Enter passphrase for "~/.ssh/id_ed25519" (empty for no passphrase):</pre
+          >
+        </div>
+        <p>
+          This step adds an extra layer of security to your SSH key.
+          <b>Press Enter</b> to leave it empty and skip setting a passphrase, or
+          enter a passphrase for added security. If you enter a passphrase, you
+          will be asked to confirm it by entering it again.
+        </p>
+
+        <h3>5. Add Your SSH Key to GitHub</h3>
+        <p>
+          After generating the key, display the public key with the following
+          command:
+        </p>
+        <div class="code-block"><pre>cat ~/.ssh/id_ed25519.pub</pre></div>
+        <!-- Link to toggle explanation -->
+        <a href="javascript:void(0);" onclick="toggleExplanation()"
+          >[What does this command do?]</a
+        >
+
+        <!-- Explanation block (hidden by default) -->
+        <div
+          id="explanation"
+          style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+        >
+          <p>The command <code>cat file1 file2 ...</code> is used to concatenate and display the contents of one or more files. In this case, since only one file is specified, no concatenation occurs, and it simply displays the contents of that file. <br><b>Note:</b> The command name <code>cat</code> is derived from the word "concatenate," which means to link things together. <br><b>Note:</b> If you chose a custom directory for your SSH key in the previous step, make sure to update the file path accordingly.
+          </p>
+        </div>
+
+        <p>Copy the output, then add the key to GitHub:</p>
+        <ol>
+          <li>Go to <b>Settings → SSH and GPG keys</b>.</li>
+          <li>Click <b>New SSH key</b>.</li>
+          <li>
+            Paste the copied key and give it a recognizable name (e.g.,
+            <b>"My PC"</b>).
+          </li>
+          <li>Click <b>Add SSH key</b> to save it.</li>
+        </ol>
+
+        <h3>SSH Setup Complete!</h3>
+        <p>
+          Congratulations! You've successfully set up SSH authentication for
+          GitHub.
+        </p>
+        <p>
+          Now, let's move forward! In the next section, we'll create a new
+          repository and start working with Git.
+        </p>
+      </section>
+    </div>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
 </html>
