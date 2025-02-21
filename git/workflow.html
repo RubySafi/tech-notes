@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Git Workflow</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="toggleExplanation.js"></script>
   </head>
   <body>
     <header>
@@ -27,9 +28,12 @@
       </p>
 
       <h3>Git Terminologies and Workflow Overview</h3>
-      <p>Before start to explain workflow, I recommend you to know basic terminologies and its relationship.
-        Below are brief explanation and ilustrated their relationship.
-        It may be not accurate, strictly speaking, but it help you understand the Git Workflow at the beginning.
+      <p>
+        Before explaining the workflow, I recommend familiarizing yourself with
+        some basic terminologies and their relationships. Below are brief
+        explanations and illustrations of these concepts. While they may not be
+        strictly accurate in every technical sense, they will help you grasp the
+        Git workflow in the beginning.
       </p>
       <ul>
         <li>
@@ -38,9 +42,9 @@
           remote and local.
         </li>
         <li>
-          <strong>Working place</strong>: A local area where we edit source
-          code/projects. It always contains the latest version. No approval is
-          needed.
+          <strong>Working Directory</strong>: A local area where you edit your
+          source code/projects. It always contains the latest version, and no
+          approval is needed.
         </li>
         <li>
           <strong>Staging Area (Index)</strong>: A temporary area where source
@@ -48,7 +52,7 @@
         </li>
         <li>
           <strong>Staging</strong>: The process of moving a file from the
-          working place to the staging area.
+          working directory to the staging area.
         </li>
         <li>
           <strong>Commit</strong>: The process of approving and saving changes
@@ -60,11 +64,311 @@
           repository with the latest version from the local repository.
         </li>
       </ul>
-      <figure style="text-align: center;">
+      <figure style="text-align: center">
         <img src="img/GitHubFlow_1.svg" alt="Git Terminologies Diagram" />
-        <figcaption>Understanding Git: Repository, Staging, and Commit Flow</figcaption>
-    </figure>
+        <figcaption>
+          Understanding Git: Repository, Staging, and Commit Flow
+        </figcaption>
+      </figure>
 
+      <h2>First Example: Git Environment with VSCode</h2>
+      <p>
+        This first example of a Git workflow consists of the following steps:
+      </p>
+      <ol>
+        <li>Create a repository on GitHub.</li>
+        <li>Clone the remote repository to your working directory.</li>
+        <li>Freely create/edit files inside your working directory.</li>
+        <li>After making some edits, stage the changes and commit them.</li>
+        <li>
+          Synchronize your changes with the remote repository. Then return to
+          step 3.
+        </li>
+      </ol>
+      <p>
+        This approach requires only a few commands, making it beginner-friendly.
+        It's the best starting point to explore the world of Git. Let's break
+        down the process.
+      </p>
+
+      <h3>1. Create a repository on GitHub</h3>
+      Go to GitHub and log into your account. Once logged in, click the + sign
+      in the top-right corner and select <b>New repository</b>. (You can also
+      create a new repository from the "Repositories" tab.)
+      <figure style="text-align: center">
+        <img
+          src="img/git_exam1_1.png"
+          alt="Create a new repository"
+          style="width: 90%; height: auto"
+        />
+      </figure>
+      Do the following setup:
+      <ul>
+        <li>Choose a name for your repository, such as my-first-repo.</li>
+        <li>
+          Leave the description field empty for now, but it's always helpful to
+          add one later to explain what your project is about.
+        </li>
+        <li>
+          Toggle the repository type to Private.
+          <!-- Link to toggle explanation -->
+          <a
+            href="javascript:void(0);"
+            onclick="toggleExplanation('explanation1')"
+            >[What is Public?]</a
+          >
+
+          <!-- Explanation block (hidden by default) -->
+          <div
+            id="explanation1"
+            style="
+              display: none;
+              margin-top: 10px;
+              font-size: 0.9em;
+              color: #555;
+            "
+          >
+            <p>
+              "Public" means anyone can view your code, so avoid including
+              sensitive or private information. In the future, you can adjust
+              this setting according to your needs.
+            </p>
+          </div>
+        </li>
+        <li>
+          Check the box to Initialize this repository with a README to add a
+          basic file that explains your project.
+        </li>
+        <li>
+          Leave the .gitignore and license options set to None.
+          <!-- Link to toggle explanation -->
+          <a
+            href="javascript:void(0);"
+            onclick="toggleExplanation('explanation2')"
+            >[What is them?]</a
+          >
+
+          <!-- Explanation block (hidden by default) -->
+          <div
+            id="explanation2"
+            style="
+              display: none;
+              margin-top: 10px;
+              font-size: 0.9em;
+              color: #555;
+            "
+          >
+            <ul>
+              <li>
+                A .gitignore file specifies which files should be excluded from
+                version control. This is useful for automatically generated
+                files, compiled outputs, or private configuration files. You can
+                add a .gitignore file manually at any time, but it's an advanced
+                setting.
+              </li>
+              <li>
+                A license defines how others can use your repository. For
+                example, the MIT License allows free use with minimal
+                restrictions. This is an advanced topic, as understanding the
+                details of a license requires some legal knowledge. If you're
+                interested, take some time to research licenses before making
+                your repository public. It's not essential for beginners, but
+                it's good to understand the basics as you grow in your coding
+                journey.
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      After configuring these settings, click <b>Create repository</b>. Then,
+      you can move to the step to clone repository.
+
+      <h3>2. Clone the remote repository to your working directory</h3>
+      <p>
+        The next step is to bring the new repository to your local machine so
+        you can work on it. This is called "<b>cloning</b>" the repository.
+      </p>
+
+      On the repository page on GitHub, click the green <b>Code</b> button, then
+      copy the URL under Clone with HTTPS. (You can also clone using SSH if you
+      have set up SSH authentication.)
+      <figure style="text-align: center">
+        <img
+          src="img/git_exam1_2.png"
+          alt="Create a new repository"
+          style="width: 40%; height: auto"
+        />
+      </figure>
+
+      <p>
+        Open Git Bash. Change your current directory to the place where you want
+        to save the repository.
+      </p>
+
+      <p>
+        Next, type the following command. Since you have already copied the
+        repository URL, you can paste it after <code>git clone</code>:
+      </p>
+
+      <div class="code-block">
+        <pre>git clone https://github.com/your-username/my-first-repo.git</pre>
+      </div>
+      <!-- Link to toggle explanation -->
+      <a href="javascript:void(0);" onclick="toggleExplanation('explanation5')"
+        >[What does this command do?]</a
+      >
+
+      <!-- Explanation block (hidden by default) -->
+      <div
+        id="explanation5"
+        style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+      >
+        <p>
+          The <code>git clone</code> command copies the specified repository (in
+          this case, from GitHub) to your local machine. Git automatically sets
+          up everything, so this is the only command needed for cloning.
+        </p>
+      </div>
+
+      <p>
+        Finally, navigate to the newly created repository folder and open it in
+        VSCode. The following code helps you to do this process:
+      </p>
+
+      <div class="code-block">
+        <pre>
+cd my-first-repo
+code .</pre
+        >
+      </div>
+      <!-- Link to toggle explanation -->
+      <a href="javascript:void(0);" onclick="toggleExplanation('explanation3')"
+        >[What does this command do?]</a
+      >
+
+      <!-- Explanation block (hidden by default) -->
+      <div
+        id="explanation3"
+        style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+      >
+        <ul>
+          <li>
+            The <code>cd [directory]</code> command changes the current
+            directory to the specified location. This exapmle is supposed to set
+            the project name as my-first-repo.
+          </li>
+          <li>
+            The <code>code .</code> command opens VSCode in the current
+            directory.
+          </li>
+        </ul>
+      </div>
+
+      <p>
+        <b>Tip:</b> You can use Git Bash as a terminal inside VSCode, which is
+        useful for executing Git commands.
+        <!-- Link to toggle explanation -->
+        <a
+          href="javascript:void(0);"
+          onclick="toggleExplanation('explanation4')"
+          >[How to open it?]</a
+        >
+      </p>
+
+      <!-- Explanation block (hidden by default) -->
+      <div
+        id="explanation4"
+        style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+      >
+        <ol>
+          <li>Open VSCode and go to View → Terminal.</li>
+          <li>
+            If the default terminal is not Bash, click the + button in the
+            terminal panel and select <b>Bash</b>.
+            <figure style="text-align: center">
+              <img
+                src="img/git_exam1_3.png"
+                alt="Create a new repository"
+                style="width: 70%; height: auto"
+              />
+            </figure>
+          </li>
+        </ol>
+      </div>
+
+      <h3>3. Freely create/edit files inside your working directory</h3>
+      You can now create or edit files freely. In the example below, we created
+      two text files: test1.txt and test2.txt inside the working directory.
+      <figure style="text-align: center">
+        <img
+          src="img/git_exam1_4.png"
+          alt="Create a new repository"
+          style="width: 70%; height: auto"
+        />
+      </figure>
+
+      <h3>4. After making some edits, stage the changes and commit them</h3>
+
+      Open the Source Control panel in VSCode by clicking the Source Control
+      icon in the left sidebar.
+      <figure style="text-align: center">
+        <img
+          src="img/git_exam1_5.png"
+          alt="Create a new repository"
+          style="width: 40%; height: auto"
+        />
+      </figure>
+      Click the <b>Stage All Changes</b> button to stage all modified files.
+      This button appears when you hover your mouse over the Changes section.
+      See the following image for details:
+      <figure style="text-align: center">
+        <img
+          src="img/git_exam1_6.png"
+          alt="Create a new repository"
+          style="width: 40%; height: auto"
+        />
+      </figure>
+      <p>
+        You can also stage files individually by clicking the + icon next to
+        each file name.
+      </p>
+      <p>
+        <b>Before clicking the Commit button</b>, remember to add a commit
+        message explaining your modifications, such as "Version 1.1", or a brief
+        description of the changes. (If you accidentally click the button
+        without adding a message, you can write one in the newly opened tab and
+        then close it.)
+      </p>
+      <figure style="text-align: center">
+        <img
+          src="img/git_exam1_7.png"
+          alt="Create a new repository"
+          style="width: 40%; height: auto"
+        />
+      </figure>
+      <p>Finally, click <b>blue Commit button</b>.</p>
+      <figure style="text-align: center">
+        <img
+          src="img/git_exam1_8.png"
+          alt="Create a new repository"
+          style="width: 40%; height: auto"
+        />
+      </figure>
+
+      <h3>5. Synchronize your changes with the remote repository</h3>
+      After committing your changes, the <b>blue Commit button</b> will change to a
+      <b>blue Sync button</b>. Click the Sync button to push your changes to the remote
+      repository.
+      <figure style="text-align: center">
+        <img
+          src="img/git_exam1_9.png"
+          alt="Create a new repository"
+          style="width: 40%; height: auto"
+        />
+      </figure>
+      To confirm that your changes were successfully updated, check your repository on GitHub.
+
+      <h2>hogehoge</h2>
       <h3>Basic Workflow Steps</h3>
       <ol>
         <li><code>git init</code> - Initialize a new Git repository.</li>
