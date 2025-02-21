@@ -1,72 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Git Workflow</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header>
       <h1>Git & GitHub Guide</h1>
       <nav>
-          <a href="../index.html">Home</a>
-          <a href="index.html">Introduction</a>
-          <a href="setup.html">Setup</a>
-          <a href="workflow.html" class="current">Workflow</a>
-          <a href="commands.html">Commands</a>
+        <a href="../index.html">Home</a>
+        <a href="index.html">Introduction</a>
+        <a href="setup.html">Setup</a>
+        <a href="workflow.html" class="current">Workflow</a>
+        <a href="commands.html">Commands</a>
       </nav>
     </header>
-    
+
     <main>
-        <h2>Understanding the Git Workflow</h2>
-        <p>
-            Git helps track changes in your code. Understanding its workflow is crucial for using Git effectively.
-            Below is the basic workflow you'll follow when working with Git.
-        </p>
-        
-        <h3>Terminologies To Help You Understand the Git Workflow</h3>
-        <ul>
-            <li><strong>Repository</strong>: A place to store source code/projects, including all approved versions. There are two types of repositories: remote and local.</li>
-            <li><strong>Working place</strong>: A local area where we edit source code/projects. It always contains the latest version. No approval is needed.</li>
-            <li><strong>Staging Area (Index)</strong>: A temporary area where source code/projects are stored before approval.</li>
-            <li><strong>Commit</strong>:  The action of approving all files in the staging area and then storing them in the local repository. After that, the staging area is cleared.</li>
-            <li><strong>Synchronize</strong>: The process of updating the remote repository with the latest version from the local repository.</li>
-        </ul>
-        
-        <h3>Basic Workflow Steps</h3>
-        <ol>
-            <li><code>git init</code> - Initialize a new Git repository.</li>
-            <li><code>git add &lt;file&gt;</code> – Stage changes for commit.</li>
-            <li><code>git commit -m "message"</code> – Save changes.</li>
-            <li><code>git push</code> – Upload to remote repository.</li>
-            <li><code>git pull</code> – Get the latest changes from remote.</li>
-            <li><code>git merge</code> – Combine branches.</li>
-        </ol>
-        
-        <h3>Branching Workflow</h3>
-        <p>
-            Using branches allows you to work on new features without affecting the main code.
-        </p>
-        <ul>
-            <li><code>git branch feature-branch</code> – Create a new branch.</li>
-            <li><code>git checkout feature-branch</code> – Switch to that branch.</li>
-            <li><code>git merge feature-branch</code> – Merge it back to main.</li>
-        </ul>
-        
-        <h3>Collaborative Workflow</h3>
-        <p>
-            When working with others, you’ll use remote repositories:
-        </p>
-        <ul>
-            <li><code>git clone &lt;repo-url&gt;</code> – Copy a remote repository.</li>
-            <li><code>git remote -v</code> – Check remote URLs.</li>
-            <li><code>git fetch</code> – Get latest remote changes without merging.</li>
-        </ul>
+      <h2>Understanding the Git Workflow</h2>
+      <p>
+        Git helps track changes in your code. Understanding its workflow is
+        crucial for using Git effectively. Below is the basic workflow you'll
+        follow when working with Git.
+      </p>
+
+      <h3>Git Terminologies and Workflow Overview</h3>
+      <p>Before start to explain workflow, I recommend you to know basic terminologies and its relationship.
+        Below are brief explanation and ilustrated their relationship.
+        It may be not accurate, strictly speaking, but it help you understand the Git Workflow at the beginning.
+      </p>
+      <ul>
+        <li>
+          <strong>Repository</strong>: A place to store source code/projects,
+          including all approved versions. There are two types of repositories:
+          remote and local.
+        </li>
+        <li>
+          <strong>Working place</strong>: A local area where we edit source
+          code/projects. It always contains the latest version. No approval is
+          needed.
+        </li>
+        <li>
+          <strong>Staging Area (Index)</strong>: A temporary area where source
+          code/projects are stored before approval.
+        </li>
+        <li>
+          <strong>Staging</strong>: The process of moving a file from the
+          working place to the staging area.
+        </li>
+        <li>
+          <strong>Commit</strong>: The process of approving and saving changes
+          from the staging area to the local repository. After committing, the
+          staging area is cleared.
+        </li>
+        <li>
+          <strong>Synchronize</strong>: The process of updating the remote
+          repository with the latest version from the local repository.
+        </li>
+      </ul>
+      <figure style="text-align: center;">
+        <img src="img/GitHubFlow_1.svg" alt="Git Terminologies Diagram" />
+        <figcaption>Understanding Git: Repository, Staging, and Commit Flow</figcaption>
+    </figure>
+
+      <h3>Basic Workflow Steps</h3>
+      <ol>
+        <li><code>git init</code> - Initialize a new Git repository.</li>
+        <li><code>git add &lt;file&gt;</code> – Stage changes for commit.</li>
+        <li><code>git commit -m "message"</code> – Save changes.</li>
+        <li><code>git push</code> – Upload to remote repository.</li>
+        <li><code>git pull</code> – Get the latest changes from remote.</li>
+        <li><code>git merge</code> – Combine branches.</li>
+      </ol>
+
+      <h3>Branching Workflow</h3>
+      <p>
+        Using branches allows you to work on new features without affecting the
+        main code.
+      </p>
+      <ul>
+        <li><code>git branch feature-branch</code> – Create a new branch.</li>
+        <li>
+          <code>git checkout feature-branch</code> – Switch to that branch.
+        </li>
+        <li><code>git merge feature-branch</code> – Merge it back to main.</li>
+      </ul>
+
+      <h3>Collaborative Workflow</h3>
+      <p>When working with others, you’ll use remote repositories:</p>
+      <ul>
+        <li>
+          <code>git clone &lt;repo-url&gt;</code> – Copy a remote repository.
+        </li>
+        <li><code>git remote -v</code> – Check remote URLs.</li>
+        <li>
+          <code>git fetch</code> – Get latest remote changes without merging.
+        </li>
+      </ul>
     </main>
-    
-    <footer>
-      &copy; 2025 Tech-Notes. All rights reserved.
-  </footer>
-</body>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
 </html>
