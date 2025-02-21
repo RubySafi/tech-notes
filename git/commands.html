@@ -19,7 +19,40 @@
 </header>
 
 
-    <main>
+    <main><h3>Basic Workflow Steps</h3>
+        <ol>
+          <li><code>git init</code> - Initialize a new Git repository.</li>
+          <li><code>git add &lt;file&gt;</code> – Stage changes for commit.</li>
+          <li><code>git commit -m "message"</code> – Save changes.</li>
+          <li><code>git push</code> – Upload to remote repository.</li>
+          <li><code>git pull</code> – Get the latest changes from remote.</li>
+          <li><code>git merge</code> – Combine branches.</li>
+        </ol>
+  
+        <h3>Branching Workflow</h3>
+        <p>
+          Using branches allows you to work on new features without affecting the
+          main code.
+        </p>
+        <ul>
+          <li><code>git branch feature-branch</code> – Create a new branch.</li>
+          <li>
+            <code>git checkout feature-branch</code> – Switch to that branch.
+          </li>
+          <li><code>git merge feature-branch</code> – Merge it back to main.</li>
+        </ul>
+  
+        <h3>Collaborative Workflow</h3>
+        <p>When working with others, you’ll use remote repositories:</p>
+        <ul>
+          <li>
+            <code>git clone &lt;repo-url&gt;</code> – Copy a remote repository.
+          </li>
+          <li><code>git remote -v</code> – Check remote URLs.</li>
+          <li>
+            <code>git fetch</code> – Get latest remote changes without merging.
+          </li>
+        </ul>
         <section>
             <h2>Preface</h2>
             This page just explain git commands. 

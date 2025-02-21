@@ -26,6 +26,23 @@
         crucial for using Git effectively. Below is the basic workflow you'll
         follow when working with Git.
       </p>
+      <ul>
+        <li>
+          <a href="#Example1">First Example: Git Environment with VSCode</a>
+        </li>
+        <li>
+          <a href="#Example2"
+            >Second Example: Git Environment with VSCode without remote
+            repository</a
+          >
+        </li>
+        <li>
+          <a href="#Example3"
+            >Third Example: How to Link a Local Git Repository to GitHub with
+            VSCode</a
+          >
+        </li>
+      </ul>
 
       <h3>Git Terminologies and Workflow Overview</h3>
       <p>
@@ -71,7 +88,7 @@
         </figcaption>
       </figure>
 
-      <h2>First Example: Git Environment with VSCode</h2>
+      <h2 id="Example1">First Example: Git Environment with VSCode</h2>
       <p>
         This first example of a Git workflow consists of the following steps:
       </p>
@@ -99,7 +116,7 @@
         <img
           src="img/git_exam1_1.png"
           alt="Create a new repository"
-          style="width: 90%; height: auto"
+          style="max-width: 60%; height: auto"
         />
       </figure>
       Do the following setup:
@@ -196,7 +213,7 @@
         <img
           src="img/git_exam1_2.png"
           alt="Create a new repository"
-          style="width: 40%; height: auto"
+          style="max-width: 50%; height: auto"
         />
       </figure>
 
@@ -289,7 +306,7 @@ code .</pre
               <img
                 src="img/git_exam1_3.png"
                 alt="Create a new repository"
-                style="width: 70%; height: auto"
+                style="max-width: 40%; height: auto"
               />
             </figure>
           </li>
@@ -299,11 +316,12 @@ code .</pre
       <h3>3. Freely create/edit files inside your working directory</h3>
       You can now create or edit files freely. In the example below, we created
       two text files: test1.txt and test2.txt inside the working directory.
+      Don't forget to save your files before moving to the next step.
       <figure style="text-align: center">
         <img
           src="img/git_exam1_4.png"
           alt="Create a new repository"
-          style="width: 70%; height: auto"
+          style="max-width: 50%; height: auto"
         />
       </figure>
 
@@ -315,17 +333,17 @@ code .</pre
         <img
           src="img/git_exam1_5.png"
           alt="Create a new repository"
-          style="width: 40%; height: auto"
+          style="max-width: 35%; height: auto"
         />
       </figure>
-      Click the <b>Stage All Changes</b> button to stage all modified files.
-      This button appears when you hover your mouse over the Changes section.
-      See the following image for details:
+      Click the <b>Stage All Changes</b> button to add all modified files to the
+      staging area. This button appears when you hover over the
+      <b>Changes</b> section. See the following image for details:
       <figure style="text-align: center">
         <img
           src="img/git_exam1_6.png"
           alt="Create a new repository"
-          style="width: 40%; height: auto"
+          style="max-width: 35%; height: auto"
         />
       </figure>
       <p>
@@ -333,9 +351,9 @@ code .</pre
         each file name.
       </p>
       <p>
-        <b>Before clicking the Commit button</b>, remember to add a commit
-        message explaining your modifications, such as "Version 1.1", or a brief
-        description of the changes. (If you accidentally click the button
+        <b>Before clicking the Commit</b> button, be sure to enter a commit
+        message describing your changes, such as 'Version 1.1' or a brief
+        summary of the modifications. (If you accidentally click the button
         without adding a message, you can write one in the newly opened tab and
         then close it.)
       </p>
@@ -343,7 +361,7 @@ code .</pre
         <img
           src="img/git_exam1_7.png"
           alt="Create a new repository"
-          style="width: 40%; height: auto"
+          style="max-width: 35%; height: auto"
         />
       </figure>
       <p>Finally, click <b>blue Commit button</b>.</p>
@@ -351,58 +369,234 @@ code .</pre
         <img
           src="img/git_exam1_8.png"
           alt="Create a new repository"
-          style="width: 40%; height: auto"
+          style="max-width: 35%; height: auto"
         />
       </figure>
 
       <h3>5. Synchronize your changes with the remote repository</h3>
-      After committing your changes, the <b>blue Commit button</b> will change to a
-      <b>blue Sync button</b>. Click the Sync button to push your changes to the remote
-      repository.
+      After committing your changes, the <b>blue Commit button</b> will change
+      to a <b>blue Sync button</b>. Click the Sync button to push your changes
+      to the remote repository.
       <figure style="text-align: center">
         <img
           src="img/git_exam1_9.png"
           alt="Create a new repository"
-          style="width: 40%; height: auto"
+          style="max-width: 35%; height: auto"
         />
       </figure>
-      To confirm that your changes were successfully updated, check your repository on GitHub.
+      To confirm that your changes were successfully updated, check your
+      repository on GitHub.
 
-      <h2>hogehoge</h2>
-      <h3>Basic Workflow Steps</h3>
-      <ol>
-        <li><code>git init</code> - Initialize a new Git repository.</li>
-        <li><code>git add &lt;file&gt;</code> – Stage changes for commit.</li>
-        <li><code>git commit -m "message"</code> – Save changes.</li>
-        <li><code>git push</code> – Upload to remote repository.</li>
-        <li><code>git pull</code> – Get the latest changes from remote.</li>
-        <li><code>git merge</code> – Combine branches.</li>
-      </ol>
-
-      <h3>Branching Workflow</h3>
+      <h2 id="Example2">
+        Second Example: Git Environment with VSCode without remote repository
+      </h2>
       <p>
-        Using branches allows you to work on new features without affecting the
-        main code.
+        This example demonstrates how to set up a Git environment without a
+        remote repository. Some developers want to use Git for version control
+        without uploading their code to GitHub. This could be due to security
+        policies that prohibit internet access or simply because the project is
+        too small to require remote management. In such cases, we cannot use
+        GitHub, so we need to set up Git locally. Before starting, it's helpful
+        to know how to open Bash in VSCode.
+        <a
+          href="javascript:void(0);"
+          onclick="toggleExplanation('explanation6')"
+          >[How to open it?]</a
+        >
       </p>
-      <ul>
-        <li><code>git branch feature-branch</code> – Create a new branch.</li>
-        <li>
-          <code>git checkout feature-branch</code> – Switch to that branch.
-        </li>
-        <li><code>git merge feature-branch</code> – Merge it back to main.</li>
-      </ul>
 
-      <h3>Collaborative Workflow</h3>
-      <p>When working with others, you’ll use remote repositories:</p>
-      <ul>
+      <!-- Explanation block (hidden by default) -->
+      <div
+        id="explanation6"
+        style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+      >
+        <ol>
+          <li>Open VSCode and go to View → Terminal.</li>
+          <li>
+            If the default terminal is not Bash, click the + button in the
+            terminal panel and select <b>Bash</b>.
+            <figure style="text-align: center">
+              <img
+                src="img/git_exam1_3.png"
+                alt="Create a new repository"
+                style="max-width: 40%; height: auto"
+              />
+            </figure>
+          </li>
+        </ol>
+      </div>
+      <p>This example follows these steps:</p>
+      <ol>
         <li>
-          <code>git clone &lt;repo-url&gt;</code> – Copy a remote repository.
+          Create or choose a working directory that is not yet set up with Git.
         </li>
-        <li><code>git remote -v</code> – Check remote URLs.</li>
+        <li>Run the command <code>git init</code>.</li>
+        <li>Edit your files and write code as needed.</li>
         <li>
-          <code>git fetch</code> – Get latest remote changes without merging.
+          Stage and commit your changes. Then, repeat from step 3 as needed.
         </li>
-      </ul>
+      </ol>
+      <p>Let's break down the process.</p>
+
+      <h3>1. Create or Choose a Working Directory</h3>
+      <p>
+        First, decide where you want to store your project. You can create a new
+        folder or use an existing one.
+      </p>
+      <p>
+        Open a Bash terminal in VSCode, then navigate to the directory you want
+        to use as your working directory. Use the following command to navigate
+        to your chosen directory:
+      </p>
+
+      <div class="code-block">
+        <pre>cd path/to/your/project</pre>
+      </div>
+      <!-- Link to toggle explanation -->
+      <a href="javascript:void(0);" onclick="toggleExplanation('explanation7')"
+        >[What does this command do?]</a
+      >
+
+      <!-- Explanation block (hidden by default) -->
+      <div
+        id="explanation7"
+        style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+      >
+        <p>
+          The <code>cd [directory]</code> command changes the current directory
+          to the specified location. Please change the path to your working
+          directory.
+        </p>
+      </div>
+
+      <h3>2. Initialize a Git Repository</h3>
+      <p>To initialize Git in this directory, run:</p>
+      <div class="code-block">
+        <pre>
+git init
+code .</pre
+        >
+      </div>
+      <!-- Link to toggle explanation -->
+      <a href="javascript:void(0);" onclick="toggleExplanation('explanation8')"
+        >[What does this command do?]</a
+      >
+
+      <!-- Explanation block (hidden by default) -->
+      <div
+        id="explanation8"
+        style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+      >
+        <ul>
+          <li>
+            This initializes a hidden .git folder inside your project, which
+            stores all version history and Git settings.
+          </li>
+          <li>
+            The <code>code .</code> command opens VSCode in the current
+            directory with Git enabled.
+          </li>
+        </ul>
+      </div>
+
+      <h3>3. Edit and Modify Files</h3>
+      Now you can create or edit files in your project as needed. In the example
+      below, we created two text files: test1.txt and test2.txt inside the
+      working directory.
+      <figure style="text-align: center">
+        <img
+          src="img/git_exam1_10.png"
+          alt="Create a new repository"
+          style="max-width: 50%; height: auto"
+        />
+      </figure>
+      Don't forget to save your files before moving to the next step.
+
+      <h3>4. Stage and Commit Changes</h3>
+
+      Open the Source Control panel in VSCode by clicking the Source Control
+      icon in the left sidebar.
+      <figure style="text-align: center">
+        <img
+          src="img/git_exam1_11.png"
+          alt="Create a new repository"
+          style="max-width: 35%; height: auto"
+        />
+      </figure>
+      Click the <b>Stage All Changes</b> button to add all modified files to the
+      staging area. This button appears when you hover over the
+      <b>Changes</b> section. See the following image for details:
+      <figure style="text-align: center">
+        <img
+          src="img/git_exam1_12.png"
+          alt="Create a new repository"
+          style="max-width: 35%; height: auto"
+        />
+      </figure>
+      <p>
+        You can also stage files individually by clicking the + icon next to
+        each file name.
+      </p>
+      <p>
+        <b>Before clicking the Commit</b> button, be sure to enter a commit
+        message describing your changes, such as 'Version 1.1' or a brief
+        summary of the modifications. (If you accidentally click the button
+        without adding a message, you can write one in the newly opened tab and
+        then close it.)
+      </p>
+      <figure style="text-align: center">
+        <img
+          src="img/git_exam1_13.png"
+          alt="Create a new repository"
+          style="max-width: 35%; height: auto"
+        />
+      </figure>
+      <p>Finally, click <b>blue Commit button</b>.</p>
+      <figure style="text-align: center">
+        <img
+          src="img/git_exam1_14.png"
+          alt="Create a new repository"
+          style="max-width: 35%; height: auto"
+        />
+      </figure>
+      The <b>blue Commit button</b> changes to
+      <b>blue Publish Branch button</b>, but no need to click. Go back to step 3
+      and continue coding.
+
+      <h2 id="Example3">
+        Third Example: How to Link a Local Git Repository to GitHub with VSCode
+      </h2>
+      <p>
+        In the second example, we added Git to an existing local project. In
+        this final example, we will show you how to connect a local Git
+        repository to GitHub. If you use VSCode, the process is quite simple.
+      </p>
+      <p>This can be achieved by following these steps:</p>
+      <ol>
+        <li>
+          Initialize Git for the project if you haven’t already (follow the
+          steps in Example 2).
+        </li>
+        <li>Open the project in VSCode (with Git enabled).</li>
+        <li>
+          Click the <b>blue Publish Branch</b> button and follow the prompts.
+        </li>
+      </ol>
+      <p>
+        Once these steps are completed, your project will be successfully linked
+        to GitHub, and you can manage it as shown in Example 1.
+      </p>
+      <h2>Summary</h2>
+      <p>
+        The examples above cover the basic fundamentals of using Git and GitHub. Since I demonstrated the process using VSCode, most of the commands are simplified and hidden behind the VSCode UI. However, you can accomplish the same tasks using the command line without relying on any UI. This means you can use any text editor, such as Emacs, to manage your Git repository.
+      </p>
+      <p>
+        Additionally, I haven't covered some important concepts like <b>branching</b> and <b>merging</b>, which are essential features of Git and GitHub.
+      </p>
+      <p>
+        In the next section, we will translate each UI operation into its corresponding command-line operation.
+      </p>
+      
     </main>
 
     <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
