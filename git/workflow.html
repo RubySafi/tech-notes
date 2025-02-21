@@ -13,8 +13,8 @@
           <a href="../index.html">Home</a>
           <a href="index.html">Introduction</a>
           <a href="setup.html">Setup</a>
-          <a href="commands.html">Commands</a>
           <a href="workflow.html" class="current">Workflow</a>
+          <a href="commands.html">Commands</a>
       </nav>
     </header>
     
@@ -22,19 +22,21 @@
         <h2>Understanding the Git Workflow</h2>
         <p>
             Git helps track changes in your code. Understanding its workflow is crucial for using Git effectively.
-            Below is the basic workflow you’ll follow when working with Git.
+            Below is the basic workflow you'll follow when working with Git.
         </p>
         
-        <h3>The Three Areas of Git</h3>
+        <h3>Terminologies To Help You Understand the Git Workflow</h3>
         <ul>
-            <li><strong>Working Directory</strong>: Where you edit files.</li>
-            <li><strong>Staging Area (Index)</strong>: Where changes are prepared before committing.</li>
-            <li><strong>Repository</strong>: The history of all committed changes (local & remote).</li>
+            <li><strong>Repository</strong>: A place to store source code/projects, including all approved versions. There are two types of repositories: remote and local.</li>
+            <li><strong>Working place</strong>: A local area where we edit source code/projects. It always contains the latest version. No approval is needed.</li>
+            <li><strong>Staging Area (Index)</strong>: A temporary area where source code/projects are stored before approval.</li>
+            <li><strong>Commit</strong>:  The action of approving all files in the staging area and then storing them in the local repository. After that, the staging area is cleared.</li>
+            <li><strong>Synchronize</strong>: The process of updating the remote repository with the latest version from the local repository.</li>
         </ul>
         
         <h3>Basic Workflow Steps</h3>
         <ol>
-            <li><code>git init</code> – Initialize a new Git repository.</li>
+            <li><code>git init</code> - Initialize a new Git repository.</li>
             <li><code>git add &lt;file&gt;</code> – Stage changes for commit.</li>
             <li><code>git commit -m "message"</code> – Save changes.</li>
             <li><code>git push</code> – Upload to remote repository.</li>
