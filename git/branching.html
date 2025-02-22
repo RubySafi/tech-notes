@@ -53,10 +53,19 @@
         </ul>
 
         <p>
-          Next, we'll cover the Git commands used for branching and merging. For
-          Git commands related to branching and merging, see
-          <a href="#commands">here</a>.
+          Next, we'll cover Git commands used for branching and merging. You can
+          find them below:
         </p>
+        <ul>
+          <li>
+            <a href="#commands1">Commands: branch, checkout, and switch</a>
+          </li>
+          <li>
+            <a href="#commands2">Commands: merge, push, pull, and remote</a>
+          </li>
+          <li><a href="#commands3">The command: fetch</a></li>
+          <li><a href="#commands4">Commands: diff and log</a></li>
+        </ul>
       </section>
 
       <h2>Key Terminologies for Understanding Branching in Git</h2>
@@ -163,8 +172,22 @@
       <figure style="text-align: center">
         <img src="img/GitHubBranch_2_5.svg" alt="Git Terminologies Diagram" />
       </figure>
-      <h2 id="commands">Git Commands Used for Branching and Merging</h2>
-      <h3>
+      <h2>Git Commands for Branching and Merging</h2>
+      <p>
+        In this section, we will explain Git commands related to
+        <b>branching</b> and <b>merging</b>. You will learn about the following
+        commands:
+      </p>
+      <ul>
+        <li><a href="#commands1">Commands: branch, checkout, and switch</a></li>
+        <li>
+          <a href="#commands2">Commands: merge, push, pull, and remote</a>
+        </li>
+        <li><a href="#commands3">The command: fetch</a></li>
+        <li><a href="#commands4">Commands: diff and log</a></li>
+      </ul>
+
+      <h3 id="commands1">
         Commands <code>branch</code>, <code>checkout</code>, and
         <code>switch</code>
       </h3>
@@ -280,9 +303,9 @@
         The asterisk (<code>*</code>) marks the current branch you are working
         on.
       </p>
-
-      <h3>
-        Commands <code>merge</code>, <code>push</code>, and <code>pull</code>
+      <h3 id="commands2">
+        Commands <code>merge</code>, <code>push</code>, <code>pull</code>, and
+        <code>remote</code>
       </h3>
       <p>
         These commands are fundamental for working with remote repositories and
@@ -306,10 +329,37 @@
         </tr>
         <tr class="line">
           <td>
+            <div class="code-block-narrow">
+              <pre>git push "remote-name" "branch-name"</pre>
+            </div>
+          </td>
+          <td class="indent">
+            Push the local commits to the specified remote repository. The name
+            "origin" is commonly used for the remote repository. For example:
+            <br />
+            <code>git push origin "branch-name"</code>
+          </td>
+        </tr>
+        <tr class="line">
+          <td>
             <div class="code-block-narrow"><pre>git push</pre></div>
           </td>
           <td class="indent">
-            Push the local commits to the remote repository.
+            Push the local commits to the default remote repository.
+          </td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow">
+              <pre>git pull "remote-name" "branch-name"</pre>
+            </div>
+          </td>
+          <td class="indent">
+            Fetch and merge the changes from the specified remote repository
+            into your local branch. The name "origin" is commonly used for the
+            remote repository. For example:
+            <br />
+            <code>git pull origin "branch-name"</code>
           </td>
         </tr>
         <tr class="line">
@@ -317,63 +367,235 @@
             <div class="code-block-narrow"><pre>git pull</pre></div>
           </td>
           <td class="indent">
-            Fetch and merge the changes from the remote repository into your
-            local branch.
+            Fetch and merge the changes from the default remote repository into
+            your current branch.
+          </td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow"><pre>git remote -v</pre></div>
+          </td>
+          <td class="indent">
+            Show the remote repositories, including the default repository used
+            for <code>pull</code> and <code>push</code> commands.
+          </td>
+        </tr>
+      </table>
+      <h3 id="commands3">The command <code>fetch</code></h3>
+      <p>
+        As explained above, the command <code>git pull</code> is a sequence of
+        the commands <code>fetch</code> followed by <code>merge</code>.
+      </p>
+      <p>
+        The fundamental usage is as follows. Here, we use
+        <code>origin</code> as the name of the remote repository.
+      </p>
+      <div class="code-block"><pre>git fetch origin</pre></div>
+      <p>
+        This command copies all branches from the remote repository
+        <code>origin</code> to the local repository without any merging. For
+        example, consider the following situation.
+      </p>
+      <table style="border-collapse: collapse; width: 100%">
+        <tr>
+          <th style="border-right: 2px solid black">[Local repository]</th>
+          <th>[Remote repository]</th>
+        </tr>
+        <tr>
+          <td style="border-right: 2px solid black">
+            <ul>
+              <li><code>main</code>: v1 -> v2 -> v3</li>
+              <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><code>main</code>: v1 -> v2 -> v3 -> v4a</li>
+              <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
+            </ul>
           </td>
         </tr>
       </table>
 
-      <p>Let's break down each of these commands in more detail:</p>
-
-      <h4>git merge</h4>
       <p>
-        The <code>git merge</code> command is used to bring together changes
-        from one branch into another. It is commonly used to integrate the work
-        of different team members or to update the main branch with changes from
-        feature branches.
-      </p>
-      <p>Example:</p>
-      <div class="code-block">
-        <pre>git merge feature-branch</pre>
-      </div>
-      <p>
-        In this example, the changes from <code>feature-branch</code> are merged
-        into the current branch.
-      </p>
-
-      <h4>git push</h4>
-      <p>
-        The <code>git push</code> command uploads your local changes to a remote
-        repository. This is commonly used after committing changes locally to
-        make them available for others in the project.
-      </p>
-      <p>Example:</p>
-      <div class="code-block">
-        <pre>git push origin main</pre>
-      </div>
-      <p>
-        This will push your local <code>main</code> branch to the remote
-        repository named <code>origin</code>.
-      </p>
-
-      <h4>git pull</h4>
-      <p>
-        The <code>git pull</code> command fetches the changes from the remote
-        repository and merges them into your local branch. It’s often used to
-        keep your local repository up-to-date with the remote repository.
-      </p>
-      <p>Example:</p>
-      <div class="code-block">
-        <pre>git pull origin main</pre>
-      </div>
-      <p>
-        This will fetch the latest changes from the remote
-        <code>main</code> branch and merge them into your current branch.
+        The <code>main</code> branch on the remote repository has been updated
+        by someone and now includes a new version, v4a. The
+        <code>feature</code> branch remains unchanged.
       </p>
 
       <p>
-        We hope this helps clarify the purpose of these Git commands for
-        managing your project’s history and collaboration.
+        If we run the command <code>git fetch origin</code>, the repositories
+        will change as follows:
+      </p>
+      <table style="border-collapse: collapse; width: 100%">
+        <tr>
+          <th style="border-right: 2px solid black">[Local repository]</th>
+          <th>[Remote repository]</th>
+        </tr>
+        <tr>
+          <td style="border-right: 2px solid black">
+            [local branch]
+            <ul>
+              <li><code>main</code>: v1 -> v2 -> v3</li>
+              <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
+            </ul>
+            [remote-tracking repository]
+            <ul>
+              <li><code>origin/main</code>: v1 -> v2 -> v3 -> v4a</li>
+              <li><code>origin/feature</code>: v1 -> v2 -> v3 -> v4</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><code>main</code>: v1 -> v2 -> v3 -> v4a</li>
+              <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+
+      <p>
+        If we <code>merge</code> the branches <code>main</code> and
+        <code>origin/main</code> (similarly for <code>feature</code>), the local
+        repository will change to:
+      </p>
+
+      <table style="border-collapse: collapse; width: 100%">
+        <tr>
+          <th style="border-right: 2px solid black">[Local repository]</th>
+          <th>[Remote repository]</th>
+        </tr>
+        <tr>
+          <td style="border-right: 2px solid black">
+            [local branch]
+            <ul>
+              <li><code>main</code>: v1 -> v2 -> v3 -> v4a</li>
+              <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
+            </ul>
+            [remote-tracking repository]
+            <ul>
+              <li><code>origin/main</code>: v1 -> v2 -> v3 -> v4a</li>
+              <li><code>origin/feature</code>: v1 -> v2 -> v3 -> v4</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><code>main</code>: v1 -> v2 -> v3 -> v4a</li>
+              <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+
+      <p>The result will be the same as if we ran <code>git pull</code>.</p>
+      <p>
+        Note that when we run the command <code>git branch</code>, it shows all
+        <u>local</u> branches, not <u>remote-tracking branches</u>. Therefore,
+        only the branches <code>main</code> and <code>feature</code> will be
+        displayed. To view the list of remote-tracking branches, run the command
+        <code>git branch -r</code>.
+      </p>
+      <h3 id="commands4">
+        The Commands <code>diff</code> and <code>log</code>
+      </h3>
+      <p>
+        The <code>git diff</code> command shows the differences between various
+        states of the repository. It's useful for reviewing changes before
+        committing them or for comparing different branches or commits. By
+        default, it compares the working directory with the staging area (index)
+        or the last commit.
+      </p>
+      <p>Here are some common usages of the <code>git diff</code> command:</p>
+
+      <table class="git-commands-table">
+        <tr class="type1">
+          <th>Code</th>
+          <th>Meaning</th>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow"><pre>git diff</pre></div>
+          </td>
+          <td class="indent">
+            Show the differences between the working directory and the staging
+            area.
+          </td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow"><pre>git diff --staged</pre></div>
+          </td>
+          <td class="indent">
+            Show the differences between the staging area and the last commit.
+          </td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow">
+              <pre>git diff "branch-name"</pre>
+            </div>
+          </td>
+          <td class="indent">
+            Show the differences between the specified branch and the current
+            working directory.
+          </td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow">
+              <pre>git diff <em>commit-id</em> <em>commit-id</em></pre>
+            </div>
+          </td>
+          <td class="indent">Show the differences between two commits.</td>
+        </tr>
+      </table>
+
+      <p>
+        To find a commit ID, you can use the <code>git log</code> or
+        <code>git log --oneline</code> commands. Both provide commit IDs.
+      </p>
+
+      <table class="git-commands-table">
+        <tr class="type1">
+          <th>Code</th>
+          <th>Meaning</th>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow"><pre>git log</pre></div>
+          </td>
+          <td class="indent">
+            Shows the commit history with detailed information, including the
+            full commit ID.
+          </td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow"><pre>git log --oneline</pre></div>
+          </td>
+          <td class="indent">
+            Shows all commits in a compact format, providing a short commit ID.
+          </td>
+        </tr>
+      </table>
+
+      <p>
+        By using <code>git diff</code>, you can review changes before
+        committing, ensuring that only the desired updates are pushed to the
+        repository.
+      </p>
+      <h2>Summary</h2>
+      <p>
+        In this page, we've covered some of the most common Git commands used
+        for branching and merging. These commands provide a solid foundation for
+        development, whether you're working solo or on a team project.
+      </p>
+      <p>
+        While we've focused on a few key commands here, there are many more Git
+        commands available to help you manage your projects. If you're
+        interested in learning more, feel free to explore them on your own. If
+        you need additional information, don't hesitate to search for more Git
+        commands.
       </p>
     </main>
 
