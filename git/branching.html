@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git Branching</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Git & GitHub Guide</h1>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="index.html">Introduction</a>
+        <a href="setup.html">Setup</a>
+        <a href="workflow.html">Workflow</a>
+        <a href="commands.html">Commands</a>
+        <a href="branching.html" class="current">Branching</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Preface</h2>
+        <p>
+          Imagine you're writing a story in a notebook. At first, you write a
+          simple draft from beginning to end. But then, you get a new idea—you
+          want to try a different plot twist without erasing your original
+          draft.
+        </p>
+
+        <p>
+          To do this, you grab another notebook and start writing a new version
+          while keeping the old one safe. Now, you have two versions of your
+          story: the original and the new one.
+        </p>
+
+        <p>
+          In Git, a branch works the same way. It allows you to create a
+          separate version of your project where you can experiment with new
+          ideas without modifying the original. You can always return to the
+          original, and if you like the changes, you can merge them back into
+          the main version.
+        </p>
+
+        <p>
+          First, we'll introduce key terminologies and provide examples to
+          illustrate how branching works in development:
+        </p>
+        <ul>
+          <li><a href="#Example1">Example 1: Understanding Branches</a></li>
+          <li><a href="#Example2">Example 2: Branching in Development</a></li>
+        </ul>
+
+        <p>
+          Next, we'll cover the Git commands used for branching and merging. For
+          Git commands related to branching and merging, see
+          <a href="#commands">here</a>.
+        </p>
+      </section>
+
+      <h2>Key Terminologies for Understanding Branching in Git</h2>
+      <p>
+        Below are key terminologies to help you understand the concept of
+        branches in Git.
+      </p>
+      <ol>
+        <li><b>Branch</b></li>
+        <p>
+          A branch in Git represents a "history of all versions" of your
+          project, rather than individual versions themselves. A branch in the
+          local repository is called a <b>local branch</b>, while a branch in
+          the remote repository is called a <b>remote branch</b>.
+        </p>
+        <li><b>Main Branch (main/master)</b></li>
+        <p>
+          The primary branch in a Git project, typically containing the stable
+          version of the code. In modern Git, the default branch is often named
+          <code>main</code>, but some projects still use <code>master</code>.
+        </p>
+        <li><b>origin</b></li>
+        <p>
+          The default name Git assigns to the remote repository when you clone
+          it. When running commands like <code>git push origin main</code>,
+          "origin" refers to the remote repository.
+        </p>
+        <li><b>Merge</b></li>
+        <p>
+          The process of combining changes from one branch into another,
+          typically used to incorporate updates from a feature branch into the
+          main branch.
+        </p>
+      </ol>
+
+      <h3 id="Example1">Example 1: Understanding Branches</h3>
+      <p>
+        The figure below illustrates a scenario where a <code>main</code> branch
+        exists in the local repository, alongside a corresponding
+        <code>main</code> branch in the remote repository, referred to as
+        <code>origin/main</code>. The local <code>main</code> branch has three
+        versions: ver. 1.0, ver. 1.1, and ver. 1.2. However, the remote
+        <code>origin/main</code> branch does not yet include ver. 1.2. This
+        situation is common when working locally before pushing updates to the
+        remote repository.
+      </p>
+      <figure style="text-align: center">
+        <img src="img/GitHubBranch_1.svg" alt="Git Terminologies Diagram" />
+      </figure>
+
+      <h3 id="Example2">Example 2: Branching in Development</h3>
+      <p>
+        The following sequence of figures illustrates a development workflow:
+      </p>
+      <p>
+        (i) Initially, the <code>main</code> branch contains releases up to ver.
+        1.2.
+      </p>
+      <figure style="text-align: center">
+        <img src="img/GitHubBranch_2_1.svg" alt="Git Terminologies Diagram" />
+      </figure>
+
+      <p>
+        As an update, we consider adding a new feature, but there are multiple
+        candidates.
+      </p>
+      <p>
+        (ii) To explore these options, we create branches
+        <code>branch-A</code> and <code>branch-B</code> from the
+        <code>main</code> branch.
+      </p>
+      <figure style="text-align: center">
+        <img src="img/GitHubBranch_2_2.svg" alt="Git Terminologies Diagram" />
+      </figure>
+
+      <p>
+        (iii) Development continues separately on each branch, producing ver.
+        1.3a and ver. 1.3b. This allows us to evaluate which update should be
+        released.
+      </p>
+      <figure style="text-align: center">
+        <img src="img/GitHubBranch_2_3.svg" alt="Git Terminologies Diagram" />
+      </figure>
+
+      <p>
+        This branching approach keeps the <code>main</code> branch unchanged,
+        ensuring stability. If a critical error occurs during the development of
+        ver. 1.3a or ver. 1.3b, the <code>main</code> branch remains unaffected.
+      </p>
+
+      <p>
+        (iv) After evaluation, we decide to release ver. 1.3b and
+        <code>merge</code> it into the <code>main</code> branch.
+      </p>
+      <figure style="text-align: center">
+        <img src="img/GitHubBranch_2_4.svg" alt="Git Terminologies Diagram" />
+      </figure>
+
+      <p>
+        (v) Now that the <code>main</code> branch has been updated, the branches
+        <code>branch-A</code> and <code>branch-B</code>
+        are no longer needed and can be deleted.
+      </p>
+      <figure style="text-align: center">
+        <img src="img/GitHubBranch_2_5.svg" alt="Git Terminologies Diagram" />
+      </figure>
+      <h2 id="commands">Git Commands Used for Branching and Merging</h2>
+      <h3>
+        Commands <code>branch</code>, <code>checkout</code>, and
+        <code>switch</code>
+      </h3>
+      <p>
+        The fundamental usage is as follows. Here, we provide an example by
+        rephrasing the concept of a branch as a "directory." This analogy helps
+        you understand the meaning of the commands.
+      </p>
+
+      <table class="git-commands-table">
+        <tr class="type1">
+          <th>Code</th>
+          <th>Meaning</th>
+          <th>Similar to?</th>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow">
+              <pre>git branch --show-current</pre>
+            </div>
+          </td>
+          <td class="indent">Show the current branch name</td>
+          <td>Current directory</td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow">
+              <pre>git branch "branch-name"</pre>
+            </div>
+          </td>
+          <td class="indent">
+            Create a new branch as a copy of the current branch, named as
+            specified. The current branch does not change.
+          </td>
+          <td><code>mkdir</code></td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow">
+              <pre>git branch -d "branch-name"</pre>
+            </div>
+          </td>
+          <td class="indent">
+            Delete the specified branch. Note that you cannot delete the current
+            branch. You need to switch to a different branch first.
+          </td>
+          <td><code>rmdir</code></td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow">
+              <pre>git checkout "branch-name"</pre>
+            </div>
+            <div class="code-block-narrow">
+              <pre>git switch "branch-name"</pre>
+            </div>
+          </td>
+          <td class="indent">Switch to the specified branch.</td>
+          <td><code>chdir</code></td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow">
+              <pre>git branch -b "branch-name"</pre>
+            </div>
+            <div class="code-block-narrow">
+              <pre>git switch -c "branch-name"</pre>
+            </div>
+          </td>
+          <td class="indent">
+            Create a new branch, then switch to the new branch.
+          </td>
+          <td>
+            <code>mkdir<br />chdir</code>
+          </td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow"><pre>git branch</pre></div>
+          </td>
+          <td class="indent">List all local branches</td>
+          <td><code>dir</code></td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow"><pre>git branch -v</pre></div>
+          </td>
+          <td class="indent">
+            List all local branches with additional information
+          </td>
+          <td><code>dir</code> + &#945;</td>
+        </tr>
+      </table>
+
+      <p>
+        We provide a clarification for the command <code>git branch -v</code>.
+        The <code>-v</code> flag stands for <b>"verbose"</b> and displays
+        additional details, such as the latest commit hash and message for each
+        branch.
+      </p>
+
+      <p>Example output:</p>
+
+      <div class="code-block">
+        <pre>
+        main       1a2b3c4 version 1.2
+      * feature-A  5d6e7f8 version 1.2a
+        feature-B  9g0h1i2 version 1.2b</pre
+        >
+      </div>
+
+      <p>
+        The asterisk (<code>*</code>) marks the current branch you are working
+        on.
+      </p>
+
+      <h3>
+        Commands <code>merge</code>, <code>push</code>, and <code>pull</code>
+      </h3>
+      <p>
+        These commands are fundamental for working with remote repositories and
+        managing changes in Git.
+      </p>
+
+      <table class="git-commands-table">
+        <tr class="type1">
+          <th>Code</th>
+          <th>Meaning</th>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow">
+              <pre>git merge "branch-name"</pre>
+            </div>
+          </td>
+          <td class="indent">
+            Merge the changes from the specified branch into the current branch.
+          </td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow"><pre>git push</pre></div>
+          </td>
+          <td class="indent">
+            Push the local commits to the remote repository.
+          </td>
+        </tr>
+        <tr class="line">
+          <td>
+            <div class="code-block-narrow"><pre>git pull</pre></div>
+          </td>
+          <td class="indent">
+            Fetch and merge the changes from the remote repository into your
+            local branch.
+          </td>
+        </tr>
+      </table>
+
+      <p>Let's break down each of these commands in more detail:</p>
+
+      <h4>git merge</h4>
+      <p>
+        The <code>git merge</code> command is used to bring together changes
+        from one branch into another. It is commonly used to integrate the work
+        of different team members or to update the main branch with changes from
+        feature branches.
+      </p>
+      <p>Example:</p>
+      <div class="code-block">
+        <pre>git merge feature-branch</pre>
+      </div>
+      <p>
+        In this example, the changes from <code>feature-branch</code> are merged
+        into the current branch.
+      </p>
+
+      <h4>git push</h4>
+      <p>
+        The <code>git push</code> command uploads your local changes to a remote
+        repository. This is commonly used after committing changes locally to
+        make them available for others in the project.
+      </p>
+      <p>Example:</p>
+      <div class="code-block">
+        <pre>git push origin main</pre>
+      </div>
+      <p>
+        This will push your local <code>main</code> branch to the remote
+        repository named <code>origin</code>.
+      </p>
+
+      <h4>git pull</h4>
+      <p>
+        The <code>git pull</code> command fetches the changes from the remote
+        repository and merges them into your local branch. It’s often used to
+        keep your local repository up-to-date with the remote repository.
+      </p>
+      <p>Example:</p>
+      <div class="code-block">
+        <pre>git pull origin main</pre>
+      </div>
+      <p>
+        This will fetch the latest changes from the remote
+        <code>main</code> branch and merge them into your current branch.
+      </p>
+
+      <p>
+        We hope this helps clarify the purpose of these Git commands for
+        managing your project’s history and collaboration.
+      </p>
+    </main>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>
