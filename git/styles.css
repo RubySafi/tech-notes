@@ -148,3 +148,21 @@ footer {
   border: 1px solid #ddd;
 }
 
+
+.scroll-container {
+  overflow-x: scroll;
+  scrollbar-width: thin;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 12px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
