@@ -29,3 +29,26 @@ footer {
   color: #fff;
   text-align: center;
 }
+
+
+.breadcrumb {
+  max-width: 800px;
+  margin: 0 auto 10px auto;
+  padding-left: 20px;
+  text-align: left;
+  font-size: 0.9em;
+}
+
+.breadcrumb a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.breadcrumb span {
+  color: #000000;
+}
+
+.breadcrumb a:not(:last-child)::after {
+  content:  " > " ;
+  color: #000000;
+}
