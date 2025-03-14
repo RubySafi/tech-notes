@@ -405,7 +405,8 @@
       </p>
 
       
-      <table style="border-collapse: collapse; width: 100%">
+      <div style="overflow-x: auto;">
+        <table style="border-collapse: collapse; width: 100%; min-width: 600px;">
         <tr>
           <th style="border-right: 2px solid black">[Local repository]</th>
           <th>[Remote repository]</th>
@@ -425,6 +426,7 @@
           </td>
         </tr>
       </table>
+      </div>
 
       <p>
         The <code>main</code> branch on the remote repository has been updated
@@ -436,7 +438,9 @@
         If we run the command <code>git fetch origin</code>, the repositories
         will change as follows:
       </p>
-      <table style="border-collapse: collapse; width: 100%">
+      
+      <div style="overflow-x: auto;">
+      <table style="border-collapse: collapse; width: 100%; min-width: 600px;">
         <tr>
           <th style="border-right: 2px solid black">[Local repository]</th>
           <th>[Remote repository]</th>
@@ -462,14 +466,15 @@
           </td>
         </tr>
       </table>
-
+</div>
       <p>
         If we <code>merge</code> the branches <code>main</code> and
         <code>origin/main</code> (similarly for <code>feature</code>), the local
         repository will change to:
       </p>
 
-      <table style="border-collapse: collapse; width: 100%">
+      <div style="overflow-x: auto;">
+      <table style="border-collapse: collapse; width: 100%; min-width: 600px;">
         <tr>
           <th style="border-right: 2px solid black">[Local repository]</th>
           <th>[Remote repository]</th>
@@ -495,6 +500,7 @@
           </td>
         </tr>
       </table>
+    </div>
 
       <p>The result will be the same as if we ran <code>git pull</code>.</p>
       <p>
