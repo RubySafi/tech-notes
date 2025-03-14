@@ -132,3 +132,18 @@ footer {
   color: #fff;
   text-align: center;
 }
+
+.table-container {
+  overflow-x: auto; /* Enables horizontal scrolling */
+}
+
+.git-commands-table {
+  min-width: 600px; /* Prevents columns from squeezing too tightly */
+  border-collapse: collapse;
+}
+
+.git-commands-table th,
+.git-commands-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
