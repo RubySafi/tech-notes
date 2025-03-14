@@ -157,7 +157,6 @@ footer {
 .scroll-container::-webkit-scrollbar {
   height: 12px;
 }
-
 .scroll-container::-webkit-scrollbar-thumb {
   background-color: #bbb;
   border-radius: 6px;

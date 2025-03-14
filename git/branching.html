@@ -113,7 +113,11 @@
         remote repository.
       </p>
       <figure style="text-align: center">
-        <img src="img/GitHubBranch_1.svg" alt="Understanding branches" style="max-width: 100%; height: auto;"/>
+        <img
+          src="img/GitHubBranch_1.svg"
+          alt="Understanding branches"
+          style="max-width: 100%; height: auto"
+        />
       </figure>
 
       <h3 id="Example2">Example 2: Branching in Development</h3>
@@ -125,7 +129,11 @@
         1.2.
       </p>
       <figure style="text-align: center">
-        <img src="img/GitHubBranch_2_1.svg" alt="main branch" style="max-width: 100%; height: auto;"/>
+        <img
+          src="img/GitHubBranch_2_1.svg"
+          alt="main branch"
+          style="max-width: 100%; height: auto"
+        />
       </figure>
 
       <p>
@@ -138,7 +146,11 @@
         <code>main</code> branch.
       </p>
       <figure style="text-align: center">
-        <img src="img/GitHubBranch_2_2.svg" alt="create branches" style="max-width: 100%; height: auto;"/>
+        <img
+          src="img/GitHubBranch_2_2.svg"
+          alt="create branches"
+          style="max-width: 100%; height: auto"
+        />
       </figure>
 
       <p>
@@ -147,7 +159,11 @@
         released.
       </p>
       <figure style="text-align: center">
-        <img src="img/GitHubBranch_2_3.svg" alt="coding branches" style="max-width: 100%; height: auto;"/>
+        <img
+          src="img/GitHubBranch_2_3.svg"
+          alt="coding branches"
+          style="max-width: 100%; height: auto"
+        />
       </figure>
 
       <p>
@@ -161,7 +177,11 @@
         <code>merge</code> it into the <code>main</code> branch.
       </p>
       <figure style="text-align: center">
-        <img src="img/GitHubBranch_2_4.svg" alt="merge branch" style="max-width: 100%; height: auto;"/>
+        <img
+          src="img/GitHubBranch_2_4.svg"
+          alt="merge branch"
+          style="max-width: 100%; height: auto"
+        />
       </figure>
 
       <p>
@@ -170,7 +190,11 @@
         are no longer needed and can be deleted.
       </p>
       <figure style="text-align: center">
-        <img src="img/GitHubBranch_2_5.svg" alt="delete branch" style="max-width: 100%; height: auto;"/>
+        <img
+          src="img/GitHubBranch_2_5.svg"
+          alt="delete branch"
+          style="max-width: 100%; height: auto"
+        />
       </figure>
       <h2>Git Commands for Branching and Merging</h2>
       <p>
@@ -198,91 +222,91 @@
       </p>
 
       <div class="table-container">
-      <table class="git-commands-table">
-        <tr class="type1">
-          <th>Code</th>
-          <th>Meaning</th>
-          <th>Similar to?</th>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow">
-              <pre>git branch --show-current</pre>
-            </div>
-          </td>
-          <td class="indent">Show the current branch name</td>
-          <td>Current directory</td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow">
-              <pre>git branch "branch-name"</pre>
-            </div>
-          </td>
-          <td class="indent">
-            Create a new branch as a copy of the current branch, named as
-            specified. The current branch does not change.
-          </td>
-          <td><code>mkdir</code></td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow">
-              <pre>git branch -d "branch-name"</pre>
-            </div>
-          </td>
-          <td class="indent">
-            Delete the specified branch. Note that you cannot delete the current
-            branch. You need to switch to a different branch first.
-          </td>
-          <td><code>rmdir</code></td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow">
-              <pre>git checkout "branch-name"</pre>
-            </div>
-            <div class="code-block-narrow">
-              <pre>git switch "branch-name"</pre>
-            </div>
-          </td>
-          <td class="indent">Switch to the specified branch.</td>
-          <td><code>chdir</code></td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow">
-              <pre>git branch -b "branch-name"</pre>
-            </div>
-            <div class="code-block-narrow">
-              <pre>git switch -c "branch-name"</pre>
-            </div>
-          </td>
-          <td class="indent">
-            Create a new branch, then switch to the new branch.
-          </td>
-          <td>
-            <code>mkdir<br />chdir</code>
-          </td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow"><pre>git branch</pre></div>
-          </td>
-          <td class="indent">List all local branches</td>
-          <td><code>dir</code></td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow"><pre>git branch -v</pre></div>
-          </td>
-          <td class="indent">
-            List all local branches with additional information
-          </td>
-          <td><code>dir</code> + &#945;</td>
-        </tr>
-      </table>
-    </div>
+        <table class="git-commands-table">
+          <tr class="type1">
+            <th>Code</th>
+            <th>Meaning</th>
+            <th>Similar to?</th>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow">
+                <pre>git branch --show-current</pre>
+              </div>
+            </td>
+            <td class="indent">Show the current branch name</td>
+            <td>Current directory</td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow">
+                <pre>git branch "branch-name"</pre>
+              </div>
+            </td>
+            <td class="indent">
+              Create a new branch as a copy of the current branch, named as
+              specified. The current branch does not change.
+            </td>
+            <td><code>mkdir</code></td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow">
+                <pre>git branch -d "branch-name"</pre>
+              </div>
+            </td>
+            <td class="indent">
+              Delete the specified branch. Note that you cannot delete the
+              current branch. You need to switch to a different branch first.
+            </td>
+            <td><code>rmdir</code></td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow">
+                <pre>git checkout "branch-name"</pre>
+              </div>
+              <div class="code-block-narrow">
+                <pre>git switch "branch-name"</pre>
+              </div>
+            </td>
+            <td class="indent">Switch to the specified branch.</td>
+            <td><code>chdir</code></td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow">
+                <pre>git branch -b "branch-name"</pre>
+              </div>
+              <div class="code-block-narrow">
+                <pre>git switch -c "branch-name"</pre>
+              </div>
+            </td>
+            <td class="indent">
+              Create a new branch, then switch to the new branch.
+            </td>
+            <td>
+              <code>mkdir<br />chdir</code>
+            </td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow"><pre>git branch</pre></div>
+            </td>
+            <td class="indent">List all local branches</td>
+            <td><code>dir</code></td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow"><pre>git branch -v</pre></div>
+            </td>
+            <td class="indent">
+              List all local branches with additional information
+            </td>
+            <td><code>dir</code> + &#945;</td>
+          </tr>
+        </table>
+      </div>
 
       <p>
         We provide a clarification for the command <code>git branch -v</code>.
@@ -315,77 +339,77 @@
       </p>
 
       <div class="table-container">
-      
-
-      <table class="git-commands-table">
-        <tr class="type1">
-          <th>Code</th>
-          <th>Meaning</th>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow">
-              <pre>git merge "branch-name"</pre>
-            </div>
-          </td>
-          <td class="indent">
-            Merge the changes from the specified branch into the current branch.
-          </td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow">
-              <pre>git push "remote-name" "branch-name"</pre>
-            </div>
-          </td>
-          <td class="indent">
-            Push the local commits to the specified remote repository. The name
-            "origin" is commonly used for the remote repository. For example:
-            <br />
-            <code>git push origin "branch-name"</code>
-          </td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow"><pre>git push</pre></div>
-          </td>
-          <td class="indent">
-            Push the local commits to the default remote repository.
-          </td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow">
-              <pre>git pull "remote-name" "branch-name"</pre>
-            </div>
-          </td>
-          <td class="indent">
-            Fetch and merge the changes from the specified remote repository
-            into your local branch. The name "origin" is commonly used for the
-            remote repository. For example:
-            <br />
-            <code>git pull origin "branch-name"</code>
-          </td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow"><pre>git pull</pre></div>
-          </td>
-          <td class="indent">
-            Fetch and merge the changes from the default remote repository into
-            your current branch.
-          </td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow"><pre>git remote -v</pre></div>
-          </td>
-          <td class="indent">
-            Show the remote repositories, including the default repository used
-            for <code>pull</code> and <code>push</code> commands.
-          </td>
-        </tr>
-      </table>
+        <table class="git-commands-table">
+          <tr class="type1">
+            <th>Code</th>
+            <th>Meaning</th>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow">
+                <pre>git merge "branch-name"</pre>
+              </div>
+            </td>
+            <td class="indent">
+              Merge the changes from the specified branch into the current
+              branch.
+            </td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow">
+                <pre>git push "remote-name" "branch-name"</pre>
+              </div>
+            </td>
+            <td class="indent">
+              Push the local commits to the specified remote repository. The
+              name "origin" is commonly used for the remote repository. For
+              example:
+              <br />
+              <code>git push origin "branch-name"</code>
+            </td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow"><pre>git push</pre></div>
+            </td>
+            <td class="indent">
+              Push the local commits to the default remote repository.
+            </td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow">
+                <pre>git pull "remote-name" "branch-name"</pre>
+              </div>
+            </td>
+            <td class="indent">
+              Fetch and merge the changes from the specified remote repository
+              into your local branch. The name "origin" is commonly used for the
+              remote repository. For example:
+              <br />
+              <code>git pull origin "branch-name"</code>
+            </td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow"><pre>git pull</pre></div>
+            </td>
+            <td class="indent">
+              Fetch and merge the changes from the default remote repository
+              into your current branch.
+            </td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow"><pre>git remote -v</pre></div>
+            </td>
+            <td class="indent">
+              Show the remote repositories, including the default repository
+              used for <code>pull</code> and <code>push</code> commands.
+            </td>
+          </tr>
+        </table>
       </div>
 
       <h3 id="commands3">The command <code>fetch</code></h3>
@@ -406,26 +430,26 @@
 
       abcdefg
       <div class="scroll-container">
-        <table style="border-collapse: collapse; width: 100%; min-width: 600px;">
-        <tr>
-          <th style="border-right: 2px solid black">[Local repository]</th>
-          <th>[Remote repository]</th>
-        </tr>
-        <tr>
-          <td style="border-right: 2px solid black">
-            <ul>
-              <li><code>main</code>: v1 -> v2 -> v3</li>
-              <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
-            </ul>
-          </td>
-          <td>
-            <ul>
-              <li><code>main</code>: v1 -> v2 -> v3 -> v4a</li>
-              <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
-            </ul>
-          </td>
-        </tr>
-      </table>
+        <table style="border-collapse: collapse; width: 100%; min-width: 600px">
+          <tr>
+            <th style="border-right: 2px solid black">[Local repository]</th>
+            <th>[Remote repository]</th>
+          </tr>
+          <tr>
+            <td style="border-right: 2px solid black">
+              <ul>
+                <li><code>main</code>: v1 -> v2 -> v3</li>
+                <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li><code>main</code>: v1 -> v2 -> v3 -> v4a</li>
+                <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
       </div>
 
       <p>
@@ -438,69 +462,81 @@
         If we run the command <code>git fetch origin</code>, the repositories
         will change as follows:
       </p>
-      
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin;">
-      <table style="border-collapse: collapse; width: 100%; min-width: 600px;">
-        <tr>
-          <th style="border-right: 2px solid black">[Local repository]</th>
-          <th>[Remote repository]</th>
-        </tr>
-        <tr>
-          <td style="border-right: 2px solid black">
-            [local branch]
-            <ul>
-              <li><code>main</code>: v1 -> v2 -> v3</li>
-              <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
-            </ul>
-            [remote-tracking repository]
-            <ul>
-              <li><code>origin/main</code>: v1 -> v2 -> v3 -> v4a</li>
-              <li><code>origin/feature</code>: v1 -> v2 -> v3 -> v4</li>
-            </ul>
-          </td>
-          <td>
-            <ul>
-              <li><code>main</code>: v1 -> v2 -> v3 -> v4a</li>
-              <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
-            </ul>
-          </td>
-        </tr>
-      </table>
-</div>
+
+      <div
+        style="
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: thin;
+        "
+      >
+        <table style="border-collapse: collapse; width: 100%; min-width: 600px">
+          <tr>
+            <th style="border-right: 2px solid black">[Local repository]</th>
+            <th>[Remote repository]</th>
+          </tr>
+          <tr>
+            <td style="border-right: 2px solid black">
+              [local branch]
+              <ul>
+                <li><code>main</code>: v1 -> v2 -> v3</li>
+                <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
+              </ul>
+              [remote-tracking repository]
+              <ul>
+                <li><code>origin/main</code>: v1 -> v2 -> v3 -> v4a</li>
+                <li><code>origin/feature</code>: v1 -> v2 -> v3 -> v4</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li><code>main</code>: v1 -> v2 -> v3 -> v4a</li>
+                <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
       <p>
         If we <code>merge</code> the branches <code>main</code> and
         <code>origin/main</code> (similarly for <code>feature</code>), the local
         repository will change to:
       </p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin;">
-      <table style="border-collapse: collapse; width: 100%; min-width: 600px;">
-        <tr>
-          <th style="border-right: 2px solid black">[Local repository]</th>
-          <th>[Remote repository]</th>
-        </tr>
-        <tr>
-          <td style="border-right: 2px solid black">
-            [local branch]
-            <ul>
-              <li><code>main</code>: v1 -> v2 -> v3 -> v4a</li>
-              <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
-            </ul>
-            [remote-tracking repository]
-            <ul>
-              <li><code>origin/main</code>: v1 -> v2 -> v3 -> v4a</li>
-              <li><code>origin/feature</code>: v1 -> v2 -> v3 -> v4</li>
-            </ul>
-          </td>
-          <td>
-            <ul>
-              <li><code>main</code>: v1 -> v2 -> v3 -> v4a</li>
-              <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
-            </ul>
-          </td>
-        </tr>
-      </table>
-    </div>
+      <div
+        style="
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: thin;
+        "
+      >
+        <table style="border-collapse: collapse; width: 100%; min-width: 600px">
+          <tr>
+            <th style="border-right: 2px solid black">[Local repository]</th>
+            <th>[Remote repository]</th>
+          </tr>
+          <tr>
+            <td style="border-right: 2px solid black">
+              [local branch]
+              <ul>
+                <li><code>main</code>: v1 -> v2 -> v3 -> v4a</li>
+                <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
+              </ul>
+              [remote-tracking repository]
+              <ul>
+                <li><code>origin/main</code>: v1 -> v2 -> v3 -> v4a</li>
+                <li><code>origin/feature</code>: v1 -> v2 -> v3 -> v4</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li><code>main</code>: v1 -> v2 -> v3 -> v4a</li>
+                <li><code>feature</code>: v1 -> v2 -> v3 -> v4</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
 
       <p>The result will be the same as if we ran <code>git pull</code>.</p>
       <p>
@@ -523,49 +559,49 @@
       <p>Here are some common usages of the <code>git diff</code> command:</p>
 
       <div class="table-container">
-      <table class="git-commands-table">
-        <tr class="type1">
-          <th>Code</th>
-          <th>Meaning</th>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow"><pre>git diff</pre></div>
-          </td>
-          <td class="indent">
-            Show the differences between the working directory and the staging
-            area.
-          </td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow"><pre>git diff --staged</pre></div>
-          </td>
-          <td class="indent">
-            Show the differences between the staging area and the last commit.
-          </td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow">
-              <pre>git diff "branch-name"</pre>
-            </div>
-          </td>
-          <td class="indent">
-            Show the differences between the specified branch and the current
-            working directory.
-          </td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow">
-              <pre>git diff <em>commit-id</em> <em>commit-id</em></pre>
-            </div>
-          </td>
-          <td class="indent">Show the differences between two commits.</td>
-        </tr>
-      </table>
-    </div>
+        <table class="git-commands-table">
+          <tr class="type1">
+            <th>Code</th>
+            <th>Meaning</th>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow"><pre>git diff</pre></div>
+            </td>
+            <td class="indent">
+              Show the differences between the working directory and the staging
+              area.
+            </td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow"><pre>git diff --staged</pre></div>
+            </td>
+            <td class="indent">
+              Show the differences between the staging area and the last commit.
+            </td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow">
+                <pre>git diff "branch-name"</pre>
+              </div>
+            </td>
+            <td class="indent">
+              Show the differences between the specified branch and the current
+              working directory.
+            </td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow">
+                <pre>git diff <em>commit-id</em> <em>commit-id</em></pre>
+              </div>
+            </td>
+            <td class="indent">Show the differences between two commits.</td>
+          </tr>
+        </table>
+      </div>
 
       <p>
         To find a commit ID, you can use the <code>git log</code> or
@@ -573,30 +609,31 @@
       </p>
 
       <div class="table-container">
-      <table class="git-commands-table">
-        <tr class="type1">
-          <th>Code</th>
-          <th>Meaning</th>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow"><pre>git log</pre></div>
-          </td>
-          <td class="indent">
-            Shows the commit history with detailed information, including the
-            full commit ID.
-          </td>
-        </tr>
-        <tr class="line">
-          <td>
-            <div class="code-block-narrow"><pre>git log --oneline</pre></div>
-          </td>
-          <td class="indent">
-            Shows all commits in a compact format, providing a short commit ID.
-          </td>
-        </tr>
-      </table>
-    </div>
+        <table class="git-commands-table">
+          <tr class="type1">
+            <th>Code</th>
+            <th>Meaning</th>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow"><pre>git log</pre></div>
+            </td>
+            <td class="indent">
+              Shows the commit history with detailed information, including the
+              full commit ID.
+            </td>
+          </tr>
+          <tr class="line">
+            <td>
+              <div class="code-block-narrow"><pre>git log --oneline</pre></div>
+            </td>
+            <td class="indent">
+              Shows all commits in a compact format, providing a short commit
+              ID.
+            </td>
+          </tr>
+        </table>
+      </div>
 
       <p>
         By using <code>git diff</code>, you can review changes before
