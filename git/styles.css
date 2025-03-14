@@ -147,3 +147,8 @@ footer {
   padding: 8px;
   border: 1px solid #ddd;
 }
+
+div::-webkit-scrollbar {
+  height: 8px; /* Makes the scrollbar visible but not too large */
+  display: block; /* Ensures visibility */
+}
