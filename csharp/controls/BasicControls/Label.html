@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UI Controls in C# (VSCode)</title>
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../../styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
@@ -13,68 +13,42 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
   </head>
   <body>
-
     <div class="container">
       <!-- Short introductory message -->
-      <p>This section introduces how to work with UI controls in C# using Visual Studio Code. Click on each control category to explore its features and usage.</p>
+      <h2>Label</h2>
+      <h3>Template</h3>
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+  using System.Windows.Forms;
+  using System.Drawing;
 
-      <a href="#explain">Introduction to UI Controls</a>
-
-      
-
-  
-          <h3>Example: Adding a Label and a Button</h3>
-  
-          <h4>1. Modify <code>Form.Designer.cs</code></h4>
-          <pre><code class="language-csharp">
-  private System.Windows.Forms.Label label1;
-  private System.Windows.Forms.Button button1;
+  private Label label1;
   
   private void InitializeComponent()
   {
-      this.label1 = new System.Windows.Forms.Label();
-      this.button1 = new System.Windows.Forms.Button();
+      label1 = new Label();
       
       // Label properties
-      this.label1.Text = "Hello, VSCode!";
-      this.label1.Location = new System.Drawing.Point(20, 20);
+      label1.AutoSize = true;
+      label1.Location = new Point(20, 20);
+      label1.Name = "label1";
+      label1.TabIndex = 0;
+      label1.Text = "Hello, VSCode!";
       
-      // Button properties
-      this.button1.Text = "Click Me";
-      this.button1.Location = new System.Drawing.Point(20, 60);
-      this.button1.Click += new System.EventHandler(this.Button1_Click);
-  
       // Add controls to the form
-      this.Controls.Add(this.label1);
-      this.Controls.Add(this.button1);
+      Controls.Add(this.label1);
   }
           </code></pre>
-  
-          <h4>2. Modify <code>Form.cs</code> (Event Handler)</h4>
-          <pre><code class="language-csharp">
-  private void Button1_Click(object sender, EventArgs e)
-  {
-      this.label1.Text = "Button Clicked!";
-  }
-          </code></pre>
-  
 
-  
-          <h3>Example: Adding a NumericUpDown Control</h3>
-          <pre><code class="language-csharp">
-  private System.Windows.Forms.NumericUpDown numericUpDown1;
-  
-  private void InitializeComponent()
-  {
-      this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-      
-      this.numericUpDown1.Location = new System.Drawing.Point(20, 100);
-      this.numericUpDown1.Minimum = 0;
-      this.numericUpDown1.Maximum = 100;
-      
-      this.Controls.Add(this.numericUpDown1);
-  }
-          </code></pre>
+      <h3>Other famous properties</h3>
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+      label1.BackColor = SystemColors.ActiveCaption;
+      label1.BorderStyle = BorderStyle.FixedSingle;
+      label1.ForeColor = Color.Red;
+      label1.Visible = false;
+  </code></pre>
+    </div>
     <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
   </body>
 </html>
