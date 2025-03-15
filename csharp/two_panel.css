@@ -54,10 +54,11 @@
       /* Fixed Collapse Button */
       .collapse-btn {
         position: absolute;
-        top: 10px;
+        z-index: 100;
+        top: 4px;
         left: 10px;
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
         background-color: #f0f0f0;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -71,9 +72,35 @@
         left: 260px;
       }
 
+
+      .control-menu {
+        padding-left: 40px;
+      }
+      .control-menu h4{
+        margin-bottom: 0px;
+      }
+
       .left-panel.overlay {
         position: absolute;
         width: 260px;
         z-index: 10;
         box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
       }
+
+      .left-panel li {
+        cursor: pointer;
+        list-style:none;
+        padding-left: 10px;
+        border-bottom: 1px solid #ddd;
+    
+      }
+      
+      .left-panel li:hover {
+        background-color: #ddd;
+      }
+      
+      .left-panel li.active {
+        background-color: #bbb;
+        font-weight: bold;
+      }
+      

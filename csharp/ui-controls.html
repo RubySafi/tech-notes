@@ -12,7 +12,6 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
-    
   </head>
   <body>
     <header>
@@ -26,6 +25,7 @@
         <a href="ui-controls.html" class="current">UI Controls</a>
       </nav>
     </header>
+    <!-- Collapse Button -->
     <div class="breadcrumb">
       <a href="../index.html">Home</a>
       <a href="index.html">C# Guide</a>
@@ -34,140 +34,184 @@
 
     <!-- Main Content Section -->
     <div class="main-container">
+      <button class="collapse-btn" onclick="toggleLeftPanel()">☰</button>
       <!-- Left Panel (Repository Structure) -->
       <div class="left-panel">
-        <h3>Repository Structure</h3>
-        <ul>
-          <li>src/</li>
-          <li>README.md</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-          <li>index.html</li>
-        </ul>
-      </div>
+        <div class="control-menu">
+          <h4>Controls</h4>
+          <li
+          data-file="controls/About.html"
+          onclick="loadContent(this)"
+          style="padding-left: 10px;"
+        >
+          About
+        </li>
+          <h4>Basic Controls</h4>
+          <li
+            data-file="controls/BasicControls/Label.html"
+            onclick="loadContent(this)"
+          >
+            Label
+          </li>
+          <li
+            data-file="controls/BasicControls/Button.html"
+            onclick="loadContent(this)"
+          >
+            Button
+          </li>
+          <li
+            data-file="controls/BasicControls/TextBox.html"
+            onclick="loadContent(this)"
+          >
+            TextBox
+          </li>
+          <li
+            data-file="controls/BasicControls/CheckBox.html"
+            onclick="loadContent(this)"
+          >
+            CheckBox
+          </li>
+          <li
+            data-file="controls/BasicControls/RadioButton.html"
+            onclick="loadContent(this)"
+          >
+            RadioButton
+          </li>
+          <li
+            data-file="controls/BasicControls/ComboBox.html"
+            onclick="loadContent(this)"
+          >
+            ComboBox
+          </li>
+          <li
+            data-file="controls/BasicControls/ListBox.html"
+            onclick="loadContent(this)"
+          >
+            ListBox
+          </li>
 
+          <h4>Container Controls</h4>
+          <li
+            data-file="controls/ContainerControls/Panel.html"
+            onclick="loadContent(this)"
+          >
+            Panel
+          </li>
+          <li
+            data-file="controls/ContainerControls/GroupBox.html"
+            onclick="loadContent(this)"
+          >
+            GroupBox
+          </li>
+          <li
+            data-file="controls/ContainerControls/TabControl.html"
+            onclick="loadContent(this)"
+          >
+            TabControl
+          </li>
+
+          <h4>Menu and Toolbar Controls</h4>
+          <li
+            data-file="controls/MenuToolbarControls/MenuStrip.html"
+            onclick="loadContent(this)"
+          >
+            MenuStrip
+          </li>
+          <li
+            data-file="controls/MenuToolbarControls/ContextMenuStrip.html"
+            onclick="loadContent(this)"
+          >
+            ContextMenuStrip
+          </li>
+          <li
+            data-file="controls/MenuToolbarControls/ToolStrip.html"
+            onclick="loadContent(this)"
+          >
+            ToolStrip
+          </li>
+          <li
+            data-file="controls/MenuToolbarControls/StatusStrip.html"
+            onclick="loadContent(this)"
+          >
+            StatusStrip
+          </li>
+
+          <h4>Data and Grid Controls</h4>
+          <li
+            data-file="controls/DataGridControls/DataGridView.html"
+            onclick="loadContent(this)"
+          >
+            DataGridView
+          </li>
+          <li
+            data-file="controls/DataGridControls/ListView.html"
+            onclick="loadContent(this)"
+          >
+            ListView
+          </li>
+          <li
+            data-file="controls/DataGridControls/NumericUpDown.html"
+            onclick="loadContent(this)"
+          >
+            NumericUpDown
+          </li>
+          <li
+            data-file="controls/DataGridControls/DateTimePicker.html"
+            onclick="loadContent(this)"
+          >
+            DateTimePicker
+          </li>
+
+          <h4>File and Dialog Controls</h4>
+          <li
+            data-file="controls/FileDialogControls/OpenFileDialog.html"
+            onclick="loadContent(this)"
+          >
+            OpenFileDialog
+          </li>
+          <li
+            data-file="controls/FileDialogControls/SaveFileDialog.html"
+            onclick="loadContent(this)"
+          >
+            SaveFileDialog
+          </li>
+          <li
+            data-file="controls/FileDialogControls/FolderBrowserDialog.html"
+            onclick="loadContent(this)"
+          >
+            FolderBrowserDialog
+          </li>
+
+          <h4>Miscellaneous</h4>
+          <li
+            data-file="controls/Miscellaneous/Timer.html"
+            onclick="loadContent(this)"
+          >
+            Timer
+          </li>
+          <li
+            data-file="controls/Miscellaneous/ToolTip.html"
+            onclick="loadContent(this)"
+          >
+            ToolTip
+          </li>
+        </div>
+
+        <script src="control.js"></script>
+      </div>
       <!-- Drag Handle for Resizing Left Panel -->
+
       <div class="drag-handle" onmousedown="startResize(event)"></div>
 
       <!-- Right Panel (Source Code View) -->
       <div class="right-panel">
-        <h1>Source Code</h1>
-        <pre>
-        <code>
-          // Example code
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-          function helloWorld() {
-            console.log("Hello, World!");
-          }
-        </code>
-      </pre>
+        <h1>Controls</h1>
+        <p>I will explain about controls.</p>
       </div>
     </div>
-
-    <!-- Collapse Button -->
-    <button class="collapse-btn" onclick="toggleLeftPanel()">☰</button>
+<script>
+window.addEventListener('DOMContentLoaded', loadDefaultContent);
+</script>
 
     <script>
       // Resize Logic for Left Panel
@@ -211,14 +255,15 @@
         // If collapsed, remove the drag handle and update the layout
         if (leftPanel.classList.contains("collapsed")) {
           dragHandle.style.display = "none"; // Hide the drag handle
-          rightPanel.style.marginLeft = "0"; // No left margin when collapsed
-          // Adjust button position to stay in the same screen position
-          collapseBtn.style.left = "10px"; // Fixed at the right side now
+          rightPanel.style.marginLeft = "0px";
+          collapseBtn.style.left = "10px";
+          rightPanel.style.paddingLeft = "50px";
         } else {
           dragHandle.style.display = "block"; // Show the drag handle again
-          rightPanel.style.marginLeft = leftPanel.offsetWidth + "px"; // Restore left margin
+          rightPanel.style.marginLeft = leftPanel.offsetWidth + "px";
           // Reset button position
-          collapseBtn.style.left = "10px"; // Fixed at the left side
+          collapseBtn.style.left = "10px";
+          rightPanel.style.paddingLeft = "10px";
         }
       }
     </script>

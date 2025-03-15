@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls in C# (VSCode)</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <!-- Short introductory message -->
+      <p>
+        This section introduces how to work with UI controls in C# using Visual
+        Studio Code. Click on each control category to explore its features and
+        usage.
+      </p>
+
+
+      <h2 id="explain">Introduction to UI Controls</h2>
+      <h3>Adding UI Controls to a Windows Forms Application</h3>
+      <p>
+        In Visual Studio, you can drag and drop UI controls, but in VSCode, you
+        must manually edit the
+        <code class="language-csharp">Form.Designer.cs</code> file.
+      </p>
+      <p>
+        In Visual Studio, some code is automatically generated in the following
+        two sections:
+      </p>
+      <ul>
+        <li>
+          Inside the
+          <code class="language-csharp">InitializeComponent()</code> method to
+          describe default values for a control.
+        </li>
+        <li>
+          After the row <code class="language-csharp">#endregion</code> to
+          declare the field for the control.
+        </li>
+      </ul>
+      Below is an example of how to initialize a Label control in the
+      <code class="language-csharp">InitializeComponent()</code> method:
+      <pre><code class="language-csharp">
+ #region Windows Form Designer generated code
+ private void InitializeComponent()
+ { 
+     // 
+     // label1
+     // 
+     label1.AutoSize = true;
+     label1.Location = new Point(17, 16);
+     label1.Name = "label1";
+     label1.Size = new Size(116, 20);
+     label1.TabIndex = 6;
+     label1.Text = "Text";
+ }
+ #endregion
+
+private Label label1;
+       </code></pre>
+
+      <p>
+        On this page, we primarily explain what should be inserted inside the
+        <code class="language-csharp">InitializeComponent()</code> method.
+      </p>
+    </div>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>
