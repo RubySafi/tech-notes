@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls in C# (VSCode)</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel = "stylesheet" href = "styles_control.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>UI Controls in C# (VSCode)</h1>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="index.html">Introduction</a>
+        <a href="setup.html">Setup</a>
+        <a href="projects.html">Projects</a>
+        <a href="file-management.html">File Management</a>
+        <a href="ui-controls.html" class="current">UI Controls</a>
+      </nav>
+    </header>
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <a href="index.html">C# Guide</a>
+      <span>UI Controls</span>
+    </div>
+
+    <div class="container">
+      <!-- Short introductory message -->
+      <p>This section introduces how to work with UI controls in C# using Visual Studio Code. Click on each control category to explore its features and usage.</p>
+
+      <a href="#explain">Introduction to UI Controls</a>
+
+      
+        
+      <main class="container">
+        <div class="grid-layout">
+            <section>
+                <h2>Basic Controls</h2>
+                <ul>
+                    <li>Label</li>
+                    <li>Button</li>
+                    <li>TextBox</li>
+                    <li>CheckBox</li>
+                    <li>RadioButton</li>
+                    <li>ComboBox</li>
+                    <li>ListBox</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Container Controls</h2>
+                <ul>
+                    <li>Panel</li>
+                    <li>GroupBox</li>
+                    <li>TabControl</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Menu and Toolbar Controls</h2>
+                <ul>
+                    <li>MenuStrip</li>
+                    <li>ContextMenuStrip</li>
+                    <li>ToolStrip</li>
+                    <li>StatusStrip</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Data and Grid Controls</h2>
+                <ul>
+                    <li>DataGridView</li>
+                    <li>ListView</li>
+                    <li>NumericUpDown</li>
+                    <li>DateTimePicker</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>File and Dialog Controls</h2>
+                <ul>
+                    <li>OpenFileDialog</li>
+                    <li>SaveFileDialog</li>
+                    <li>FolderBrowserDialog</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Miscellaneous</h2>
+                <ul>
+                    <li>Timer</li>
+                    <li>ToolTip</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+
+    <ul>
+      <li><a href="#label">Label</a></li>
+      <li><a href="#button">Button</a></li>
+      <li><a href="#checkbox">CheckBox</a></li>
+      <li><a href="#combobox">ComboBox</a></li>
+  </ul>
+  
+          <h3>Example: Adding a Label and a Button</h3>
+  
+          <h4>1. Modify <code>Form.Designer.cs</code></h4>
+          <pre><code class="language-csharp">
+  private System.Windows.Forms.Label label1;
+  private System.Windows.Forms.Button button1;
+  
+  private void InitializeComponent()
+  {
+      this.label1 = new System.Windows.Forms.Label();
+      this.button1 = new System.Windows.Forms.Button();
+      
+      // Label properties
+      this.label1.Text = "Hello, VSCode!";
+      this.label1.Location = new System.Drawing.Point(20, 20);
+      
+      // Button properties
+      this.button1.Text = "Click Me";
+      this.button1.Location = new System.Drawing.Point(20, 60);
+      this.button1.Click += new System.EventHandler(this.Button1_Click);
+  
+      // Add controls to the form
+      this.Controls.Add(this.label1);
+      this.Controls.Add(this.button1);
+  }
+          </code></pre>
+  
+          <h4>2. Modify <code>Form.cs</code> (Event Handler)</h4>
+          <pre><code class="language-csharp">
+  private void Button1_Click(object sender, EventArgs e)
+  {
+      this.label1.Text = "Button Clicked!";
+  }
+          </code></pre>
+  
+          <h2>Additional Controls</h2>
+          <p>You can also add other controls in a similar way, such as:</p>
+          <ul>
+              <li><code>NumericUpDown</code></li>
+              <li><code>ListView</code></li>
+              <li><code>CheckBox</code></li>
+              <li><code>TextBox</code></li>
+          </ul>
+  
+          <h3>Example: Adding a NumericUpDown Control</h3>
+          <pre><code class="language-csharp">
+  private System.Windows.Forms.NumericUpDown numericUpDown1;
+  
+  private void InitializeComponent()
+  {
+      this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+      
+      this.numericUpDown1.Location = new System.Drawing.Point(20, 100);
+      this.numericUpDown1.Minimum = 0;
+      this.numericUpDown1.Maximum = 100;
+      
+      this.Controls.Add(this.numericUpDown1);
+  }
+          </code></pre>
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

@@ -27,7 +27,7 @@
       /* Right Panel */
       .right-panel {
         flex-grow: 1;
-        background-color: #fff;
+        background-color: #f6f8fa;
         padding: 20px;
         overflow-y: auto;
         margin-left: 250px; /* Offset for initial left panel width */
