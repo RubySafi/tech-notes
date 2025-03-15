@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Panel Layout (Debug)</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #sidePanel {
+            width: 250px;
+            background-color: #f0f0f0;
+            overflow-y: auto;
+            border-right: 1px solid #ccc;
+            transition: transform 0.3s ease;
+        }
+
+        #sidePanel.collapsed {
+            transform: translateX(-100%);
+        }
+
+        #mainPanel {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: #e0e0e0;
+        }
+
+        #toggleButton {
+            display: none;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #0078FF;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            #toggleButton {
+                display: block;
+            }
+
+            #sidePanel {
+                position: absolute;
+                height: 100%;
+                z-index: 2;
+                transform: translateX(-100%);
+            }
+
+            #sidePanel.show {
+                transform: translateX(0);
+            }
+
+            #mainPanel {
+                position: relative;
+                z-index: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button id="toggleButton">☰ Menu</button>
+
+    <div id="sidePanel" class="collapsed">
+        <ul>
+            <li onclick="showContent('Item 1 explanation')">Item 1</li>
+            <li onclick="showContent('Item 2 explanation')">Item 2</li>
+            <li onclick="showContent('Item 3 explanation')">Item 3</li>
+        </ul>
+    </div>
+
+    <div id="mainPanel" onclick="hideSidePanel()">
+        <h1>Welcome</h1>
+        <p>Select an item from the side panel to view its content here.</p>
+    </div>
+
+    <script>
+      console.log("Script loaded successfully!");
+
+        const sidePanel = document.getElementById("sidePanel");
+        const toggleButton = document.getElementById("toggleButton");
+
+        toggleButton.addEventListener("click", () => {
+            alert("Menu button clicked!");  // Debug Alert
+            console.log("Menu button clicked!");  // Console log for further inspection
+            sidePanel.classList.toggle("collapsed");
+        });
+
+        function showContent(content) {
+            document.getElementById("mainPanel").innerHTML = `<h1>${content}</h1>`;
+            if (window.innerWidth <= 768) {
+                sidePanel.classList.add("collapsed");
+            }
+        }
+
+        function hideSidePanel() {
+            if (window.innerWidth <= 768) {
+                sidePanel.classList.add("collapsed");
+            }
+        }
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 768) {
+                sidePanel.classList.remove("collapsed");
+            } else {
+                sidePanel.classList.add("collapsed");
+            }
+        });
+    </script>
+</body>
+</html>
