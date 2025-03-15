@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UI Controls in C# (VSCode)</title>
+    <title>GitHub Code View Layout</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="two_panel.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    
   </head>
   <body>
     <header>
@@ -30,67 +32,195 @@
       <span>UI Controls</span>
     </div>
 
-    <div class="container">
-      <!-- Short introductory message -->
-      <p>This section introduces how to work with UI controls in C# using Visual Studio Code. Click on each control category to explore its features and usage.</p>
+    <!-- Main Content Section -->
+    <div class="main-container">
+      <!-- Left Panel (Repository Structure) -->
+      <div class="left-panel">
+        <h3>Repository Structure</h3>
+        <ul>
+          <li>src/</li>
+          <li>README.md</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+          <li>index.html</li>
+        </ul>
+      </div>
 
-      <a href="#explain">Introduction to UI Controls</a>
-      <h3>Category 1</h3>
-      <ul>
-        <li><a href="control/button.html">Button</a></li>
-        <li><a href="control/label.html">Label</a></li>
-        <li><a href="control/textbox.html">TextBox</a></li>
-        <!-- More controls as needed -->
-      </ul>
-      <h3>Category 2</h3>
-      <ul>
-        <li><a href="control/menustrip.html">MenuStrip</a></li>
-        <li><a href="control/statusstrip.html">StatusStrip</a></li>
-        <li><a href="control/toolstrip.html">ToolStrip</a></li>
-        <!-- More controls as needed -->
-      </ul>
+      <!-- Drag Handle for Resizing Left Panel -->
+      <div class="drag-handle" onmousedown="startResize(event)"></div>
 
-      <h2 id="explain">Introduction to UI Controls</h2>
-      <h3>Adding UI Controls to a Windows Forms Application</h3>
-      <p>
-        In Visual Studio, you can drag and drop UI controls, but in VSCode, you must manually edit the <code class="language-csharp">Form.Designer.cs</code> file.
-      </p>
-      <p>
-        In Visual Studio, some code is automatically generated in the following two sections:
-      </p>
-      <ul>
-        <li>
-          Inside the <code class="language-csharp">InitializeComponent()</code> method to describe default values for a control.
-        </li>
-        <li>
-          After the row <code class="language-csharp">#endregion</code> to declare the field for the control.
-        </li>
-      </ul>
-      Below is an example of how to initialize a Label control in the <code class="language-csharp">InitializeComponent()</code> method:
-      <pre><code class="language-csharp">
-#region Windows Form Designer generated code
-private void InitializeComponent()
-{ 
-    // 
-    // label1
-    // 
-    label1.AutoSize = true;
-    label1.Location = new Point(17, 16);
-    label1.Name = "label1";
-    label1.Size = new Size(116, 20);
-    label1.TabIndex = 6;
-    label1.Text = "Text";
-}
-#endregion
-
-private Label label1;
-      </code></pre>
-
-      <p>
-        On this page, we primarily explain what should be inserted inside the <code class="language-csharp">InitializeComponent()</code> method.
-      </p>
+      <!-- Right Panel (Source Code View) -->
+      <div class="right-panel">
+        <h1>Source Code</h1>
+        <pre>
+        <code>
+          // Example code
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+          function helloWorld() {
+            console.log("Hello, World!");
+          }
+        </code>
+      </pre>
+      </div>
     </div>
 
-    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+    <!-- Collapse Button -->
+    <button class="collapse-btn" onclick="toggleLeftPanel()">☰</button>
+
+    <script>
+      // Resize Logic for Left Panel
+      let isResizing = false;
+      let leftPanel = document.querySelector(".left-panel");
+      let dragHandle = document.querySelector(".drag-handle");
+      let rightPanel = document.querySelector(".right-panel");
+      let collapseBtn = document.querySelector(".collapse-btn");
+
+      // Start Resizing
+      function startResize(e) {
+        isResizing = true;
+        document.addEventListener("mousemove", resizePanel);
+        document.addEventListener("mouseup", stopResize);
+      }
+
+      // Resizing the Left Panel
+      function resizePanel(e) {
+        if (isResizing) {
+          const newWidth = e.clientX;
+          if (newWidth > 100 && newWidth < window.innerWidth - 100) {
+            leftPanel.style.width = newWidth + "px";
+            dragHandle.style.left = newWidth + "px"; // Move the drag handle along
+            rightPanel.style.marginLeft = newWidth + "px"; // Adjust the right panel width accordingly
+          }
+        }
+      }
+
+      // Stop Resizing
+      function stopResize() {
+        isResizing = false;
+        document.removeEventListener("mousemove", resizePanel);
+        document.removeEventListener("mouseup", stopResize);
+      }
+
+      // Collapse and Expand Left Panel
+      function toggleLeftPanel() {
+        leftPanel.classList.toggle("collapsed");
+        collapseBtn.classList.toggle("collapsed");
+
+        // If collapsed, remove the drag handle and update the layout
+        if (leftPanel.classList.contains("collapsed")) {
+          dragHandle.style.display = "none"; // Hide the drag handle
+          rightPanel.style.marginLeft = "0"; // No left margin when collapsed
+          // Adjust button position to stay in the same screen position
+          collapseBtn.style.left = "10px"; // Fixed at the right side now
+        } else {
+          dragHandle.style.display = "block"; // Show the drag handle again
+          rightPanel.style.marginLeft = leftPanel.offsetWidth + "px"; // Restore left margin
+          // Reset button position
+          collapseBtn.style.left = "10px"; // Fixed at the left side
+        }
+      }
+    </script>
   </body>
 </html>
