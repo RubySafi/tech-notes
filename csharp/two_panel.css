@@ -1,0 +1,79 @@
+
+      /* General Reset */
+      * {
+        box-sizing: border-box;
+      }
+
+
+      /* Main Container (Below Header) */
+      .main-container {
+        display: flex;
+        height: calc(100vh - 60px); /* Full height minus header */
+        position: relative;
+      }
+
+      /* Left Panel */
+      .left-panel {
+        width: 250px;
+        background-color: #f6f8fa;
+        border-right: 1px solid #e1e4e8;
+        padding: 10px;
+        overflow-y: auto;
+        position: absolute;
+        top: 0px; /* Position below the header */
+        bottom: 0;
+      }
+
+      /* Right Panel */
+      .right-panel {
+        flex-grow: 1;
+        background-color: #fff;
+        padding: 20px;
+        overflow-y: auto;
+        margin-left: 250px; /* Offset for initial left panel width */
+      }
+
+      /* Drag Handle Between Panels */
+      .drag-handle {
+        width: 1px;
+        background-color: #ddd;
+        cursor: ew-resize;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 250px; /* Start at the right edge of the left panel */
+        z-index: 10;
+      }
+
+      /* Left Panel Collapsing */
+      .left-panel.collapsed {
+        width: 0;
+        display: none; /* Hide the left panel completely */
+      }
+
+      /* Fixed Collapse Button */
+      .collapse-btn {
+        position: absolute;
+        top: 10px; /* Space below the header */
+        left: 10px; /* Fixed position */
+        width: 32px; /* Square shape */
+        height: 32px; /* Square shape */
+        background-color: #f0f0f0; /* Light gray background */
+        border: 1px solid #ccc; /* Slight border for clarity */
+        border-radius: 4px; /* Slightly rounded corners for aesthetics */
+        display: flex; /* Center content vertically and horizontally */
+        align-items: center; /* Vertical centering */
+        justify-content: center; /* Horizontal centering */
+        cursor: pointer; /* Pointer cursor for better UX */
+      }
+
+      .collapse-btn.collapsed {
+        left: 260px; /* Move to the right panel's area when collapsed */
+      }
+
+      .left-panel.overlay {
+        position: absolute;
+        width: 260px;
+        z-index: 10; /* Appears above the right panel */
+        box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
+      }
