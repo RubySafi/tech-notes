@@ -20,6 +20,7 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
+  line-height: 1;
 }
 
 nav a {
