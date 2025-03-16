@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C# Guide</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <script src="toggleExplanation.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>C# Guide</h1>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="index.html">Introduction</a>
+        <a href="setup.html">Setup</a>
+        <a href="projects.html" class="current">Projects</a>
+        <a href="file-management.html">File Management</a>
+        <a href="ui-controls.html">UI Controls</a>
+      </nav>
+    </header>
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <a href="index.html">C# Guide</a>
+      <span>Projects</span>
+    </div>
+
+    <div class="container">
+      <h2>Preface</h2>
+      <p>
+        On this page, we will explain how to generate C# projects such as
+        console applications, form applications, etc. While it's possible to
+        create these projects manually by setting up directories and writing
+        default code, this approach can be time-consuming. Fortunately, the
+        <code>dotnet</code> command provides a convenient way to automatically
+        generate these templates. We will introduce the relevant commands and
+        explain their contents.
+      </p>
+      <ul>
+        <li><a href="#console_app">Console Application</a></li>
+        <li><a href="#form_app">Form Application</a></li>
+        <li><a href="#class_library">Class Library</a></li>
+        <li><a href="#solution_management">Solution Management</a></li>
+        <li><a href="#shared_project">Shared Project</a></li>
+      </ul>
+      <h2 id="console_app">Console Application</h2>
+      <p>
+        In the following explanation, we assume that the project name is
+        <strong>TestApp</strong>.
+      </p>
+
+      <h3>1. Command</h3>
+      <p>Run the following commands:</p>
+      <div class="code-block">
+        <pre>
+  dotnet new console -o TestApp
+  cd TestApp
+  code .</pre
+        >
+      </div>
+
+      <!-- Link to toggle explanation -->
+      <a href="javascript:void(0);" onclick="toggleExplanation('explanation1')">
+        [What does this command do?]
+      </a>
+
+      <!-- Explanation block (hidden by default) -->
+      <div
+        id="explanation1"
+        style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+      >
+        <p>
+          The command <code>dotnet new console -o TestApp</code> performs the
+          following:
+        </p>
+        <ul>
+          <li>
+            <code>dotnet new console</code>: Generates a new console application
+            project.
+          </li>
+          <li>
+            <code>-o TestApp</code>: Specifies the output folder name as
+            <code>TestApp</code>. This folder will contain the generated project
+            files.
+          </li>
+          <li>
+            <code>cd TestApp</code>: Changes the working directory to the newly
+            created project folder.
+          </li>
+          <li>
+            <code>code .</code>: Opens the project in Visual Studio Code
+            (assuming VSCode is installed).
+          </li>
+        </ul>
+      </div>
+
+      <h3>2. Edit Code</h3>
+      <p>
+        The auto-generated file <code>Program.cs</code> already works, but
+        modifying it slightly can improve readability and help with future
+        maintenance. Consider updating it as follows:
+      </p>
+      <code>Program.cs</code>
+      <div class="code-block">
+        <pre><code class="language-csharp">using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Hello, World!");
+    }
+}
+</code></pre>
+      </div>
+
+      <p>
+        While this updated version behaves identically to the original, it
+        follows a clearer structure with consistent indentation, making future
+        changes easier to implement.
+      </p>
+      <h2 id="form_app">Form Application</h2>
+      <p>
+        In the following explanation, we assume that the project name is
+        <strong>TestFormApp</strong>.
+      </p>
+      
+      <h3>1. Command</h3>
+      <p>Run the following commands:</p>
+      <div class="code-block">
+        <pre>
+  dotnet new winforms -o TestFormApp
+  cd TestFormApp
+  code .</pre>
+      </div>
+      
+      <!-- Link to toggle explanation -->
+      <a href="javascript:void(0);" onclick="toggleExplanation('explanation2')">
+        [What does this command do?]
+      </a>
+      
+      <!-- Explanation block (hidden by default) -->
+      <div
+        id="explanation2"
+        style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+      >
+        <p>
+          The command <code>dotnet new winforms -o TestFormApp</code> creates a new
+          Windows Forms application project named <strong>TestFormApp</strong>.  
+        </p>
+          <ul>
+            <li>
+              The <code>-o</code> option specifies the output directory. If the
+              specified folder doesn't exist, it will be created automatically.
+            </li>
+            <li>
+              The command <code>cd TestFormApp</code> changes the working directory to
+              the newly created project folder.
+            </li>
+            <li>
+              The command <code>code .</code> opens the project in Visual Studio Code.
+            </li>
+          </ul>
+      </div>
+      
+      <h3>2. Auto-Generated Structure</h3>
+      <p>
+        Below is the automatically generated top-level directory structure.  
+        Unlike the console application template, this template includes a more
+        structured set of files suited for a GUI-based project.
+      </p>
+      <div class="code-block">
+        <pre>
+  \bin
+  \obj
+  Form1.cs
+  Form1.Designer.cs
+  Program.cs
+  TestFormApp.csproj
+  TestFormApp.csproj.user</pre>
+      </div>
+      
+      <p>
+        The generated structure may vary slightly depending on your environment
+        or future .NET updates. To ensure clarity, sample source code is provided below:
+      </p>
+      
+      <!-- Program.cs -->
+      <a href="javascript:void(0);" onclick="toggleExplanation('program.cs')">
+        [+] Program.cs
+      </a>
+      <div
+        id="program.cs"
+        style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+      >
+        <div class="code-block">
+          <pre><code class="language-csharp">namespace TestFormApp;
+
+static class Program
+{
+    /// <summary>
+    ///  The main entry point for the application.
+    /// </summary>
+    [STAThread]
+    static void Main()
+    {
+        // To customize application settings like DPI awareness or default fonts,
+        // see https://aka.ms/applicationconfiguration.
+        ApplicationConfiguration.Initialize();
+        Application.Run(new Form1());
+    }    
+}</code></pre>
+        </div>
+      </div><br>
+      
+      <!-- Form1.Designer.cs -->
+      <a href="javascript:void(0);" onclick="toggleExplanation('Form1.Designer.cs')">
+        [+] Form1.Designer.cs
+      </a>
+      <div
+        id="Form1.Designer.cs"
+        style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+      >
+        <div class="code-block">
+          <pre><code class="language-csharp">namespace TestFormApp;
+
+partial class Form1
+{
+    /// <summary>
+    ///  Required designer variable.
+    /// </summary>
+    private System.ComponentModel.IContainer components = null;
+
+    /// <summary>
+    ///  Clean up any resources being used.
+    /// </summary>
+    /// <param name="disposing">
+    ///   <c>true</c> if managed resources should be disposed; otherwise <c>false</c>.
+    /// </param>
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing && (components != null))
+        {
+            components.Dispose();
+        }
+        base.Dispose(disposing);
+    }
+
+    #region Windows Form Designer generated code
+
+    /// <summary>
+    ///  Required method for Designer support - do not modify
+    ///  the contents of this method with the code editor.
+    /// </summary>
+    private void InitializeComponent()
+    {
+        this.components = new System.ComponentModel.Container();
+        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        this.ClientSize = new System.Drawing.Size(800, 450);
+        this.Text = "Form1";
+    }
+
+    #endregion
+}</code></pre>
+        </div>
+      </div><br>
+      
+      <!-- Form1.cs -->
+      <a href="javascript:void(0);" onclick="toggleExplanation('Form1.cs')">
+        [+] Form1.cs
+      </a>
+      <div
+        id="Form1.cs"
+        style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+      >
+        <div class="code-block">
+          <pre><code class="language-csharp">namespace TestFormApp;
+      
+public partial class Form1 : Form
+{
+    public Form1()
+    {
+        InitializeComponent();
+    }
+}</code></pre>
+        </div>
+      </div>
+      
+      <h3>3. Additional Edits (Recommended)</h3>
+      <p>
+        For improved clarity and consistency in future coding, consider adding the
+        following <code>using</code> directives at the top of both
+        <code>Form1.cs</code> and <code>Form1.Designer.cs</code>:
+      </p>
+      <div class="code-block">
+        <pre><code class="language-csharp">using System;
+using System.Windows.Forms;
+using System.Drawing;</code></pre>
+      </div>
+      <h2 id="class_library">Class Library</h2>
+<p>
+  If you want to create a shared project intended for use in multiple projects, 
+  you need to prepare the shared project as a class library.
+  Let's assume the project name is <strong>SharedProject</strong>.
+  The process is simple — just run the following command:
+</p>
+<div class="code-block">
+  <pre>
+  dotnet new classlib -o SharedProject</pre>
+</div>
+
+<!-- Link to toggle explanation -->
+<a href="javascript:void(0);" onclick="toggleExplanation('explanation_class_library')">
+  [What does this command do?]
+</a>
+
+<!-- Explanation block (hidden by default) -->
+<div
+  id="explanation_class_library"
+  style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+>
+  <p>
+    This command creates a new class library in a folder named 
+    <code>SharedProject</code>. Inside this folder, a 
+    <code>SharedProject.csproj</code> file is created, 
+    and the default namespace is set to <code>SharedProject</code>.
+  </p>
+</div>
+
+<h2 id="solution_management">Solution Management</h2>
+<p>
+  To efficiently manage multiple projects, creating a solution file is recommended.
+  Visual Studio automatically generates a solution file, but in VSCode, 
+  we need to create it manually and add projects to the solution ourselves.
+</p>
+
+<p>
+  In this section, we'll create a solution named <strong>TestSolution</strong> 
+  with the following directory structure:
+</p>
+
+<div class="code-block">
+  <pre>
+TestSolution\
+  TestSolution.sln
+  ProjectA\
+    ProjectA.csproj
+  ProjectB\
+    ProjectB.csproj</pre>
+</div>
+
+<h3>1. Create a Solution File</h3>
+<p>
+  The following command creates a new folder named <strong>TestSolution</strong> 
+  and generates a solution file inside it.
+</p>
+<div class="code-block">
+  <pre>
+  dotnet new sln -o TestSolution</pre>
+</div>
+
+<!-- Link to toggle explanation -->
+<a href="javascript:void(0);" onclick="toggleExplanation('explanation_solution_file')">
+  [What does this command do?]
+</a>
+
+<!-- Explanation block (hidden by default) -->
+<div
+  id="explanation_solution_file"
+  style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+>
+  <p>
+    The command <code>dotnet new sln -o TestSolution</code> performs two actions:
+  </p>
+  <ul>
+    <li>
+      It creates a new folder named <strong>TestSolution</strong> if it doesn't already exist.
+    </li>
+    <li>
+      It generates a new solution file named <code>TestSolution.sln</code> inside that folder.
+    </li>
+  </ul>
+  <p>
+    This is equivalent to the following steps combined:
+  </p>
+  <div class="code-block">
+    <pre>
+  mkdir TestSolution
+  cd TestSolution
+  dotnet new sln</pre>
+  </div>
+  <p>
+    The <code>-o</code> flag is a convenient shorthand that saves you from running these steps separately.
+  </p>
+</div>
+
+
+<h3>2. Create Projects</h3>
+<p>
+  Create the projects you want to include in the solution. 
+  For example, to match the directory structure shown earlier:
+</p>
+<div class="code-block">
+  <pre>
+  cd TestSolution
+  dotnet new console -o ProjectA
+  dotnet new console -o ProjectB</pre>
+</div>
+
+<h3>3. Add Projects to the Solution File</h3>
+<p>
+  To include your projects in the solution, run the following commands:
+</p>
+<div class="code-block">
+  <pre>
+  dotnet sln TestSolution.sln add ProjectA\ProjectA.csproj
+  dotnet sln TestSolution.sln add ProjectB\ProjectB.csproj</pre>
+</div>
+
+<h2 id="shared_project">Shared Project</h2>
+<p>
+  If the solution contains multiple projects, it may be convenient to create a shared library that can be used across multiple projects. 
+  In this section, we'll explain how to set up a shared project named <strong>SharedProject</strong> to be used by ProjectA and ProjectB, 
+  with the following directory structure:
+</p>
+
+<div class="code-block">
+  <pre>
+TestSolution\
+  TestSolution.sln
+  ProjectA\
+    ProjectA.csproj
+  ProjectB\
+    ProjectB.csproj
+  SharedProject\
+    SharedProject.csproj</pre>
+</div>
+
+<h3>1. Setup the Directory Structure</h3>
+<p>
+  I will omit detailed explanations for this process, as you can follow the previous steps to set up the structure. 
+  However, to quickly set up, you can run the following commands:
+</p>
+
+<div class="code-block">
+  <pre>
+  dotnet new sln -o TestSolution
+  cd TestSolution
+  dotnet new console -o ProjectA
+  dotnet new console -o ProjectB
+  dotnet new classlib -o SharedProject
+  dotnet sln TestSolution.sln add ProjectA\ProjectA.csproj
+  dotnet sln TestSolution.sln add ProjectB\ProjectB.csproj
+  dotnet sln TestSolution.sln add SharedProject\SharedProject.csproj</pre>
+</div>
+
+<h3>2. Add SharedProject as a Reference</h3>
+<p>
+  You need to add SharedProject as a reference in both ProjectA and ProjectB. 
+  To add the reference in ProjectA, run the following command:
+</p>
+
+<div class="code-block">
+  <pre>
+  cd ProjectA
+  dotnet add reference ../SharedProject/SharedProject.csproj</pre>
+</div>
+
+<!-- Link to toggle explanation -->
+<a href="javascript:void(0);" onclick="toggleExplanation('explanation_add_reference')">
+  [What does this command do?]
+</a>
+
+<!-- Explanation block (hidden by default) -->
+<div
+  id="explanation_add_reference"
+  style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+>
+  <p>
+    This command adds a reference to the <code>SharedProject</code> library in <code>ProjectA</code>. This makes the classes and methods in <code>SharedProject</code> accessible from <code>ProjectA</code>.
+  </p>
+</div>
+
+<p>Repeat this process for ProjectB to add the reference there as well.</p>
+
+<h3>3. Add the Using Directive in ProjectA and ProjectB</h3>
+<p>
+  In both <code>ProjectA.cs</code> and <code>ProjectB.cs</code>, add the following <code>using</code> directive at the top of the file:
+</p>
+<div class="code-block">
+  <pre><code class="language-csharp">using SharedProject;</code></pre>
+</div>
+
+<h3>4. (Optional) Verify All Projects by Building</h3>
+<p>Move to the current directory <code>TestSolution</code> and run the following command. This command builds all project files that are included in the solution file. While this step is optional, it can help verify that all references and setups are correct before continuing with development.</p>
+
+<div class="code-block">
+  <pre>  dotnet build TestSolution.sln;</pre>
+</div>
+<p></p>
+
+
+    </div>
+    
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

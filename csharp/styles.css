@@ -86,3 +86,18 @@ footer {
   content:  " > " ;
   color: #000000;
 }
+
+
+code {
+  font-family: "Courier New", monospace;
+  color: #ff3700;
+}
+
+.code-block {
+  background: #272822;
+  color: #f8f8f2;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: monospace;
+}
