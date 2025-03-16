@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Code View Layout</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="two_panel.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>C# Guide</h1>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="index.html">Introduction</a>
+        <a href="setup.html">Setup</a>
+        <a href="projects.html">Projects</a>
+        <a href="workflow.html" class="current">Workflow</a>
+        <a href="ui-controls.html">UI Controls</a>
+      </nav>
+    </header>
+    <!-- Collapse Button -->
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <a href="index.html">C# Guide</a>
+      <span>Workflow</span>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-container">
+      <button class="collapse-btn" onclick="toggleLeftPanel()">☰</button>
+      <!-- Left Panel (Repository Structure) -->
+      <div class="left-panel">
+        <div class="control-menu">
+          <h4>Workflow</h4>
+          <li
+            data-file="workflow/About.html"
+            onclick="loadContent(this)"
+            style="padding-left: 10px"
+          >
+            About
+          </li>
+          <h4>Build & Run</h4>
+          <li data-file="workflow/build/debug.html" onclick="loadContent(this)">
+            Debugging Basics
+          </li>
+          <li
+            data-file="workflow/build/run-debug.html"
+            onclick="loadContent(this)"
+          >
+            Running Without Debugging
+          </li>
+          <li
+            data-file="workflow/build/run-release.html"
+            onclick="loadContent(this)"
+          >
+            Running in Release Mode
+          </li>
+          <li
+            data-file="workflow/build/publish.html"
+            onclick="loadContent(this)"
+          >
+            Publishing
+          </li>
+
+          <h4>Project Structure</h4>
+          <li
+            data-file="workflow/project/class-file.html"
+            onclick="loadContent(this)"
+          >
+            Class Files
+          </li>
+          <li
+            data-file="workflow/project/form-file.html"
+            onclick="loadContent(this)"
+          >
+            Form Files
+          </li>
+          <li
+            data-file="workflow/project/enum-file.html"
+            onclick="loadContent(this)"
+          >
+            Enum Files
+          </li>
+
+          <h4>Version Control</h4>
+          <li
+            data-file="workflow/version-control/git-init.html"
+            onclick="loadContent(this)"
+          >
+            Initializing Git
+          </li>
+        </div>
+
+        <script src="control.js"></script>
+      </div>
+      <!-- Drag Handle for Resizing Left Panel -->
+
+      <div class="drag-handle" onmousedown="startResize(event)"></div>
+
+      <!-- Right Panel (Source Code View) -->
+      <div class="right-panel">
+        <h1>Workflow</h1>
+        <p>I will explain about workflow.</p>
+      </div>
+    </div>
+    <script>
+      window.addEventListener("DOMContentLoaded", loadDefaultContent);
+    </script>
+
+    <script>
+      // Resize Logic for Left Panel
+      let isResizing = false;
+      let leftPanel = document.querySelector(".left-panel");
+      let dragHandle = document.querySelector(".drag-handle");
+      let rightPanel = document.querySelector(".right-panel");
+      let collapseBtn = document.querySelector(".collapse-btn");
+
+      // Start Resizing
+      function startResize(e) {
+        isResizing = true;
+        document.addEventListener("mousemove", resizePanel);
+        document.addEventListener("mouseup", stopResize);
+      }
+
+      // Resizing the Left Panel
+      function resizePanel(e) {
+        if (isResizing) {
+          const newWidth = e.clientX;
+          if (newWidth > 100 && newWidth < window.innerWidth - 100) {
+            leftPanel.style.width = newWidth + "px";
+            dragHandle.style.left = newWidth + "px"; // Move the drag handle along
+            rightPanel.style.marginLeft = newWidth + "px"; // Adjust the right panel width accordingly
+          }
+        }
+      }
+
+      // Stop Resizing
+      function stopResize() {
+        isResizing = false;
+        document.removeEventListener("mousemove", resizePanel);
+        document.removeEventListener("mouseup", stopResize);
+      }
+
+      // Collapse and Expand Left Panel
+      function toggleLeftPanel() {
+        leftPanel.classList.toggle("collapsed");
+        collapseBtn.classList.toggle("collapsed");
+
+        // If collapsed, remove the drag handle and update the layout
+        if (leftPanel.classList.contains("collapsed")) {
+          dragHandle.style.display = "none"; // Hide the drag handle
+          rightPanel.style.marginLeft = "0px";
+          collapseBtn.style.left = "10px";
+          rightPanel.style.paddingLeft = "50px";
+        } else {
+          dragHandle.style.display = "block"; // Show the drag handle again
+          rightPanel.style.marginLeft = leftPanel.offsetWidth + "px";
+          // Reset button position
+          collapseBtn.style.left = "10px";
+          rightPanel.style.paddingLeft = "10px";
+        }
+      }
+    </script>
+  </body>
+</html>
