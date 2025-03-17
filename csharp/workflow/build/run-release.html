@@ -3,13 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Initializing Git</title>
+    <title>Running in Release Mode</title>
     <link rel="stylesheet" href="../../styles.css" />
   </head>
 
   <body>
     <div class="container">
       <h2>Running in Release Mode</h2>
+      <p>In this section, we explain how to build and run your program without detailed debugging. 
+        This is useful for checking how your program behaves when there are no errors. It allows you to 
+        quickly view the current UI or verify that a function is working as expected.
+        This action corresponds to pressing <code>Ctrl+F5</code> in Visual Studio with the "Release" configuration.
+      </p>
+
+      <h3>Command Line Method</h3>
+      <p>Run the following command in your terminal:</p>
+      <div class="code-block">
+        <pre>  dotnet run --configuration Release</pre>
+      </div>
+
+      <h3>Other Method</h3>
+      <p>Unlike "Run Without Debugging," there is no direct GUI option for running in Release mode. 
+        To run your program in Release mode from the menu, you need to modify the `tasks.json` file. 
+        After that, you can run it via <strong>Terminal → Run Task</strong>.
+        Since this setup is more advanced compared to the command line method, details are omitted here.
+        Please search for more information if you're interested.
+      </p>
     </div>
 
     <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>

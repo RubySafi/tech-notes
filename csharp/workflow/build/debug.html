@@ -3,14 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Initializing Git</title>
+    <title>Debugging Basics</title>
     <link rel="stylesheet" href="../../styles.css" />
   </head>
 
   <body>
     <div class="container">
       <h2>Debugging Basics</h2>
+      <p>This section explains various debugging techniques, such as "Step Into," "Step Over," "Step Out," and "Continue." These actions are common debugging steps, and some are also mapped to familiar Visual Studio shortcuts like "F5." Before diving into these methods, let's first define key debugging terms:</p>
+
+      <h3>Key Debugging Terminology</h3>
+      <ul>
+        <li><strong>Step Into</strong>: This command allows you to enter a method or function and see its execution line by line. If the current line contains a function call, the debugger will "step into" that function, allowing you to inspect its contents.</li>
+        <li><strong>Step Over</strong>: This command skips over a function call and moves to the next line of code in the current function. The debugger will not enter any function calls but will execute them behind the scenes.</li>
+        <li><strong>Step Out</strong>: If you are inside a function and want to exit it, the "Step Out" command will run the remaining lines of the current function and take you back to the calling function.</li>
+        <li><strong>Continue</strong>: This command resumes execution until the next breakpoint is hit or the program finishes running.</li>
+      </ul>
+
+      <h2>Debugging Setup</h2>
+      <p>To begin debugging, you must first ensure that your environment is properly set up. 
+        In Visual Studio Code, this usually involves configuring the <code>launch.json</code> file. This file contains the settings required to start your debugging session.</p>
+
+      <p>Usually, there is no need to change this file. Visual Studio Code provides default configurations that allow debugging without modifications. However, if issues arise (though rare) or if you require advanced configurations, you can modify the JSON file accordingly.</p>
       
+      <p>Here’s a quick guide to starting your debugging session:</p>
+      <ol>
+        <li>Click the "Run and Debug" button on the left menu (triangle mark).</li>
+        <li>Click "Create a launch.json file" (only needed once).</li>
+        <li>Select ".NET Core".</li>
+        <li>Now, you're ready to start debugging. Press F5 or click the green ▶ "Run" button.</li>
+        <li>Freely debug your code!</li>
+      </ol>
+
+      <h2>How to Debug Your Code</h2>
+      <p>Once debugging starts, a toolbar appears with helpful debugging controls: Pause (F6), Step Over (F10), Step Into (F11), Step Out (Shift + F11), Restart (Ctrl + Shift + F5), and Stop (Shift + F5). 
+        These shortcut keys are similar to Visual Studio, ensuring a smooth debugging experience.
+      </p>
+
+      <p>Below are some common (and important) debugging techniques:</p>
+
+      <ul>
+        <li><strong>Setting Breakpoints</strong>: To set a breakpoint, click on the left margin of the line number where you want the execution to pause. A red dot (breakpoint) will appear, indicating that the program will halt at that point. You can set multiple breakpoints throughout your code to inspect different sections.</li>
+        
+        <li><strong>Inspecting Variables</strong>: Once your code hits a breakpoint, you can hover over any variable to see its current value. In Visual Studio Code, you can also open the "Variables" panel on the left sidebar to view and modify the values of local, global, and instance variables during execution.</li>
+        
+        <li><strong>Inspecting Objects</strong>: When debugging classes or objects, you can inspect their fields and properties. Use the "Watch" panel to add variables or expressions you want to monitor during the debugging session. In Visual Studio Code, you can also expand object properties in the Variables panel to see their values.</li>
+      </ul>
+
+      <h3>Advanced Debugging Tips</h3>
+      <ul>
+        <li><strong>Conditional Breakpoints</strong>: In some cases, you might want your program to break only when a specific condition is met. In Visual Studio Code, you can right-click on a breakpoint and set a condition that must be true for the debugger to stop at that point.</li>
+        
+        <li><strong>Logpoints</strong>: Logpoints are similar to breakpoints, but instead of pausing execution, they log a message to the console. They can be useful for tracking the flow of execution without stopping the program.</li>
+
+        <li><strong>Call Stack Inspection</strong>: The "Call Stack" panel shows the current stack of function calls leading to the breakpoint. This is useful for understanding the sequence of function calls that led to the current point in the program.</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>Debugging is a crucial skill in software development, and learning how to effectively use tools like breakpoints, variable inspection, and step commands can significantly improve your development workflow. By practicing these techniques, you can efficiently identify and resolve issues, improving your overall development workflow.</p>
     </div>
 
     <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>

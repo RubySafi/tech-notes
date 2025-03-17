@@ -3,13 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Initializing Git</title>
+    <title>Publishing</title>
     <link rel="stylesheet" href="../../styles.css" />
+    <script src="../../toggleExplanation.js"></script>
   </head>
 
   <body>
     <div class="container">
       <h2>Publishing</h2>
+      <p>This section explains how to publish your application. There are two main ways to release your app. 
+        The first is the self-contained method: although the total file size tends to be large, there is no need to install additional software. This method is beginner-friendly and ideal for users who may not have the .NET runtime installed. 
+        The second method is the framework-dependent deployment, which is smaller in size but requires the user to have the .NET runtime installed on their machine.
+      </p>
+
+      <h3>Self-Contained Method</h3>
+      <p>1. Run the following command in your terminal:</p>
+      <div class="code-block">
+        <pre>  dotnet publish -c Release -r win-x64 --self-contained</pre>
+      </div>
+      
+      <!-- Link to toggle explanation -->
+      <a href="javascript:void(0);" onclick="toggleExplanation('explanation1')">
+        [What does this command do?]
+      </a>
+      
+      <!-- Explanation block (hidden by default) -->
+      <div
+        id="explanation1"
+        style="display: none; margin-top: 10px; font-size: 0.9em; color: #555"
+      >
+        This command publishes your application in Release mode for the specified runtime (in this case, `win-x64`). The `--self-contained` flag ensures that all necessary dependencies, including the .NET runtime, are bundled with the application, so it can run independently of whether the .NET runtime is installed on the target machine.
+      </div>
+
+      <p>2. After running the command, the following directory will be automatically generated:</p>
+      <div class="code-block">
+        <pre>bin\Release\net8.0-windows\win-x64\publish\</pre>
+      </div>
+      <p>All of the files in this directory are necessary to run your application. You can distribute them as is, or compress them into a ZIP file for easier distribution.</p>
+
+      <h3>Framework-Dependent Deployment (Alternative Method)</h3>
+      <p>For smaller file sizes, you can publish your application in a framework-dependent manner. This means that the target machine must have the .NET runtime installed to run the application.</p>
+      <p>1. Run the following command in your terminal:</p>
+      <div class="code-block">
+        <pre>  dotnet publish -c Release -r win-x64</pre>
+      </div>
+      <p>This command publishes your application for the `win-x64` runtime but without bundling the .NET runtime. The user will need to have the appropriate version of the .NET runtime installed on their machine to run your application.</p>
+
+      <p>2. The following directory will be generated:</p>
+      <div class="code-block">
+        <pre>bin\Release\net8.0-windows\win-x64\publish\</pre>
+      </div>
+      <p>Like the self-contained method, you need to distribute all files from this directory. However, because the .NET runtime is not bundled, the file size will be smaller compared to the self-contained method.</p>
     </div>
 
     <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>

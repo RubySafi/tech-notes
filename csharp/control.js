@@ -16,8 +16,15 @@ function loadContent(element) {
     .then((html) => {
       const rightPanel = document.querySelector(".right-panel");
       rightPanel.innerHTML = html;
-      // Re-initialize Prism highlighting after loading the new content
+      
       Prism.highlightAll();
+
+      const script = document.createElement('script');
+      script.src = "toggleExplanation.js";
+      script.onload = function() {
+        console.log("toggleExplanation.js loaded and executed.");
+      };
+      document.body.appendChild(script);
     })
     .catch((error) => {
       document.querySelector(".right-panel").innerHTML =
