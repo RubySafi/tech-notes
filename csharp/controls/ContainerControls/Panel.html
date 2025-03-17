@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: Panel</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <style>
+      .color-box {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Panel Control in C# (WinForms)</h2>
+      <p>
+        In C# Windows Forms applications, the <code>Panel</code> control is a
+        container used to group other controls. It is particularly useful for
+        organizing the layout and improving the visual structure of your form.
+      </p>
+
+      <h3>Creating a Panel</h3>
+      <p>
+        The following code demonstrates how to create a
+        <code>Panel</code> control and add child controls to it:
+      </p>
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+using System.Drawing;
+
+private Panel panel1;
+private Button button1;
+
+private void InitializeComponent()
+{
+    panel1 = new Panel();
+    button1 = new Button();
+
+    // Panel properties
+    panel1.BackColor = SystemColors.Info;
+    panel1.Location = new Point(50, 50);
+    panel1.Name = "panel1";
+    panel1.Size = new Size(200, 150);
+    panel1.BorderStyle = BorderStyle.FixedSingle;
+
+    // Button properties
+    button1.Location = new Point(20, 20);
+    button1.Name = "button1";
+    button1.Size = new Size(100, 30);
+    button1.Text = "Click Me";
+
+    // Add the button to the panel
+    panel1.Controls.Add(button1);
+
+    // Add the panel to the form
+    Controls.Add(panel1);
+}
+      </code></pre>
+
+      <h3>Common Properties</h3>
+      <p>
+        Here are some commonly used properties for the
+        <code>Panel</code> control:
+      </p>
+      <ul>
+        <li>
+          <code>BorderStyle</code>: Sets the panel's border style (e.g.,
+          <code>FixedSingle</code> or <code>Fixed3D</code>).
+        </li>
+        <li><code>BackColor</code>: Changes the panel's background color.</li>
+      </ul>
+      <p>Example colors include:</p>
+      <ul>
+        <li>
+          <code>SystemColors.Info</code>
+        </li>
+        <li>
+          <code>SystemColors.GradientInactiveCaption</code>
+        </li>
+        <li>
+          <code>Color.MistyRose</code>
+          <span class="color-box" style="background-color: mistyrose"></span>
+        </li>
+        <li>
+          <code>Color.PapayaWhip</code>
+          <span class="color-box" style="background-color: papayawhip"></span>
+        </li>
+      </ul>
+
+      <p>Example of setting these properties:</p>
+      <pre><code class="language-csharp">
+panel1.BorderStyle = BorderStyle.Fixed3D;
+panel1.BackColor = Color.LightGray;
+      </code></pre>
+
+      <h3>Use Case Example</h3>
+      <p>
+        The <code>Panel</code> control is often used to create scrollable
+        sections, group related controls, or improve the layout structure in
+        complex forms.
+      </p>
+
+      <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+    </div>
+  </body>
+</html>

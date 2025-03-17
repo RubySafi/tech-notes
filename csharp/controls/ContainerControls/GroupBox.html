@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: GroupBox</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>GroupBox Control in C# (WinForms)</h2>
+      <p>
+        In C# Windows Forms applications, the <code>GroupBox</code> control is used to group related controls within a labeled box. It is especially useful for visually organizing controls that share similar functionality or settings.
+      </p>
+
+      <h3>Creating a GroupBox</h3>
+      <p>The following code demonstrates how to create a <code>GroupBox</code> control with child controls inside:</p>
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+using System.Drawing;
+
+private GroupBox groupBox1;
+private RadioButton radioButton1;
+private RadioButton radioButton2;
+
+private void InitializeComponent()
+{
+    groupBox1 = new GroupBox();
+    radioButton1 = new RadioButton();
+    radioButton2 = new RadioButton();
+
+    // GroupBox properties
+    groupBox1.Location = new Point(30, 30);
+    groupBox1.Size = new Size(200, 100);
+    groupBox1.Text = "Select an Option";
+
+    // RadioButton1 properties
+    radioButton1.AutoSize = true;
+    radioButton1.Location = new Point(20, 30);
+    radioButton1.Text = "Option 1";
+    radioButton1.Checked = true;
+
+    // RadioButton2 properties
+    radioButton2.AutoSize = true; 
+    radioButton2.Location = new Point(20, 60);
+    radioButton2.Text = "Option 2";
+
+    // Add radio buttons to the GroupBox
+    groupBox1.Controls.Add(radioButton1);
+    groupBox1.Controls.Add(radioButton2);
+
+    // Add the GroupBox to the form
+    Controls.Add(groupBox1);
+}
+      </code></pre>
+
+      <h3>Common Properties</h3>
+      <p>Here are some commonly used properties for the <code>GroupBox</code> control:</p>
+      <ul>
+        <li><code>Text</code>: Sets the title displayed at the top of the GroupBox.</li>
+        <li><code>Enabled</code>: Enables or disables all child controls within the GroupBox.</li>
+        <li><code>BackColor</code>: Changes the background color of the GroupBox.</li>
+      </ul>
+
+      <p>Example of setting these properties:</p>
+      <pre><code class="language-csharp">
+groupBox1.Text = "Settings";
+groupBox1.Enabled = true;
+groupBox1.BackColor = Color.LightYellow;
+      </code></pre>
+
+      <h3>Use Case Example</h3>
+      <p>
+        The <code>GroupBox</code> control is commonly used to group related options, such as form settings, user preferences, or data input fields. It helps improve readability and organization in complex forms.
+      </p>
+
+      <footer style="text-align: center;">&copy; 2025 Tech-Notes. All rights reserved.</footer>
+    </div>
+  </body>
+</html>
