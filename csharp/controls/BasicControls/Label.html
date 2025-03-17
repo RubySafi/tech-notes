@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UI Controls in C# (VSCode)</title>
+    <title>UI Controls: Label</title>
     <link rel="stylesheet" href="../../styles.css" />
     <link
       rel="stylesheet"
@@ -14,41 +14,58 @@
   </head>
   <body>
     <div class="container">
-      <!-- Short introductory message -->
-      <h2>Label</h2>
-      <h3>Template</h3>
+      <h2>Label Control</h2>
+      <p>
+        In C# Windows Forms applications, the <code>Label</code> control is commonly used 
+        to display text or provide instructions to users. Labels are non-interactive, 
+        making them ideal for static text content.
+      </p>
+
+      <h3>Label Creation Template</h3>
+      <p>
+        The following code demonstrates how to create a simple label in your form's designer file:
+      </p>
       <code>Form.Designer.cs</code>
       <pre><code class="language-csharp">
-  using System.Windows.Forms;
-  using System.Drawing;
+using System.Windows.Forms;
+using System.Drawing;
 
-  private Label label1;
-  
-  private void InitializeComponent()
-  {
-      label1 = new Label();
-      
-      // Label properties
-      label1.AutoSize = true;
-      label1.Location = new Point(20, 20);
-      label1.Name = "label1";
-      label1.TabIndex = 0;
-      label1.Text = "Hello, VSCode!";
-      
-      // Add controls to the form
-      Controls.Add(this.label1);
-  }
-          </code></pre>
+private Label label1;
 
-      <h3>Other famous properties</h3>
+private void InitializeComponent()
+{
+    label1 = new Label();
+
+    // Label properties
+    label1.AutoSize = true; // Adjusts size automatically based on text
+    label1.Location = new Point(20, 20); // Sets position on the form
+    label1.Name = "label1";
+    label1.TabIndex = 0;
+    label1.Text = "Hello, VSCode!"; // Sets the displayed text
+
+    // Add the label to the form
+    Controls.Add(this.label1);
+}
+      </code></pre>
+
+      <h3>Common Properties</h3>
+      <p>Here are some commonly used properties for the <code>Label</code> control:</p>
       <code>Form.Designer.cs</code>
       <pre><code class="language-csharp">
-      label1.BackColor = SystemColors.ActiveCaption;
-      label1.BorderStyle = BorderStyle.FixedSingle;
-      label1.ForeColor = Color.Red;
-      label1.Visible = false;
-  </code></pre>
+label1.BackColor = SystemColors.ActiveCaption; // Background color
+label1.BorderStyle = BorderStyle.FixedSingle;   // Adds a visible border
+label1.ForeColor = Color.Red;                   // Text color
+label1.Visible = false;                         // Hides the label
+      </code></pre>
+
+      <h3>Practical Tip</h3>
+      <p>
+        The <code>AutoSize</code> property is set to <code>true</code> by default, which
+        automatically adjusts the label's size based on its content. If you prefer to control
+        the size manually, set <code>AutoSize = false</code> and define the <code>Size</code> property.
+      </p>
     </div>
+
     <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
   </body>
 </html>
