@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: MenuStrip</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>MenuStrip Control in C# (WinForms)</h2>
+      <p>
+        In C# Windows Forms applications, the <code>MenuStrip</code> control is
+        used to create menus, helping you organize commands and options that the
+        user can interact with.
+      </p>
+
+      <h3>Creating a MenuStrip</h3>
+      <p>
+        The following code demonstrates how to create a
+        <code>MenuStrip</code> with a simple 'File' menu, including a few
+        options. The structure is as follows:
+      </p>
+      <div class="code-block">
+        <pre>
+File(&F)
+├── New(&N)
+└── Open(&O)
+</pre
+        >
+      </div>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+
+private MenuStrip menuStrip1;
+private ToolStripMenuItem fileToolStripMenuItem;
+private ToolStripMenuItem newToolStripMenuItem;
+private ToolStripMenuItem openToolStripMenuItem;
+
+private void InitializeComponent()
+{
+    menuStrip1 = new MenuStrip();
+    fileToolStripMenuItem = new ToolStripMenuItem();
+    newToolStripMenuItem = new ToolStripMenuItem();
+    openToolStripMenuItem = new ToolStripMenuItem();
+
+    // menuStrip1
+    menuStrip1.Items.Add(fileToolStripMenuItem);
+    menuStrip1.ImageScalingSize = new Size(20, 20);
+    menuStrip1.Location = new Point(0, 0);
+    menuStrip1.Name = "menuStrip1";
+    menuStrip1.Size = new Size(800, 28);
+    menuStrip1.TabIndex = 0;
+    menuStrip1.Text = "menuStrip1";
+
+    // fileToolStripMenuItem
+    fileToolStripMenuItem.DropDownItems.Add(newToolStripMenuItem);
+    fileToolStripMenuItem.DropDownItems.Add(openToolStripMenuItem);
+    fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+    fileToolStripMenuItem.Size = new Size(63, 24);
+    fileToolStripMenuItem.Text = "File(&F)";
+    
+    // newToolStripMenuItem
+    newToolStripMenuItem.Name = "newToolStripMenuItem";
+    newToolStripMenuItem.Size = new Size(224, 26);
+    newToolStripMenuItem.Text = "New(&N)";
+
+    // openToolStripMenuItem
+    openToolStripMenuItem.Name = "openToolStripMenuItem";
+    openToolStripMenuItem.Size = new Size(224, 26);
+    openToolStripMenuItem.Text = "Open(&O)";
+    
+    // Add the MenuStrip to the form
+    Controls.Add(menuStrip1);
+    MainMenuStrip = menuStrip1;
+}
+      </code></pre>
+
+      <h3>Setting Hotkeys</h3>
+      <p>
+        In well-designed applications, hotkeys are commonly used to allow users
+        to quickly navigate the menu. For example, "File(F)" means the user can
+        focus on this menu by pressing the "F" key. To set a hotkey, include an
+        ampersand (&) before the letter, like "File(&F)". This feature is very
+        useful for improving efficiency and accessibility. We strongly recommend
+        setting hotkeys for all menus and submenus. Most operations should be
+        performed without a mouse—only with the keyboard. Without hotkeys, an
+        application can feel cumbersome and inefficient.
+      </p>
+
+      <h3>More Complex Menu Structures</h3>
+      <p>
+        You can create nested menus by adding <code>DropDownItems</code>. Below
+        is an example of a menu structure with more levels of hierarchy.
+        Detailed menu settings are omitted for brevity.
+      </p>
+      <div class="code-block">
+        <pre>
+File(&F)
+├── New(&N)
+├── Open(&O)
+│   ├── Type1(&2)
+│   └── Type2(&3)
+└── Exit(&X)
+Tool(&T)
+└── Option(&O)
+</pre
+        >
+      </div>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+
+private MenuStrip menuStrip1;
+private ToolStripMenuItem fileToolStripMenuItem;
+private ToolStripMenuItem newToolStripMenuItem;
+private ToolStripMenuItem openToolStripMenuItem;
+private ToolStripMenuItem type1ToolStripMenuItem;
+private ToolStripMenuItem type2ToolStripMenuItem;
+private ToolStripMenuItem exitToolStripMenuItem;
+private ToolStripMenuItem toolToolStripMenuItem;
+private ToolStripMenuItem optionToolStripMenuItem;
+
+private void InitializeComponent()
+{
+  menuStrip1 = new MenuStrip();
+  fileToolStripMenuItem = new ToolStripMenuItem();
+  newToolStripMenuItem = new ToolStripMenuItem();
+  openToolStripMenuItem = new ToolStripMenuItem();
+  toolToolStripMenuItem = new ToolStripMenuItem();
+  optionToolStripMenuItem = new ToolStripMenuItem();
+  type1ToolStripMenuItem = new ToolStripMenuItem();
+  type2ToolStripMenuItem = new ToolStripMenuItem();
+  exitToolStripMenuItem = new ToolStripMenuItem();
+  
+  // menuStrip1
+  menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, toolToolStripMenuItem });
+  
+  // fileToolStripMenuItem
+  fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openToolStripMenuItem, exitToolStripMenuItem });
+  fileToolStripMenuItem.Text = "File(&F)";
+  
+  // newToolStripMenuItem
+  newToolStripMenuItem.Text = "New(&N)";
+  
+  // openToolStripMenuItem
+  openToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { type1ToolStripMenuItem, type2ToolStripMenuItem });
+  openToolStripMenuItem.Text = "Open(&O)";
+  
+  // toolToolStripMenuItem
+  toolToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { optionToolStripMenuItem });
+  toolToolStripMenuItem.Text = "Tool(&T)";
+
+  // optionToolStripMenuItem
+  optionToolStripMenuItem.Name = "optionToolStripMenuItem";
+  optionToolStripMenuItem.Text = "Option(&O)";
+  
+  // type1ToolStripMenuItem
+  type1ToolStripMenuItem.Name = "type1ToolStripMenuItem";
+  type1ToolStripMenuItem.Text = "Type1(&1)";
+  
+  // type2ToolStripMenuItem
+  type2ToolStripMenuItem.Name = "type2ToolStripMenuItem";
+  type2ToolStripMenuItem.Text = "Type2(&2)";
+  
+  // exitToolStripMenuItem
+  exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+  exitToolStripMenuItem.Text = "Exit(&X)";
+  
+  // Add MenuStrip to form
+  Controls.Add(menuStrip1);
+  MainMenuStrip = menuStrip1;
+}
+      </code></pre>
+
+      <h3>Different Types of Menu Items</h3>
+      <p>
+        There are several types of items that can be added to a menu, such as
+        separators, comboboxes, and textboxes.
+      </p>
+
+      <h4>Separator</h4>
+      <p>
+        A separator is used to divide the menu into distinct sections. Below is
+        an example of how to create a separator in a menu.
+      </p>
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+      private ToolStripSeparator toolStripSeparator1;
+      
+      private void InitializeComponent()
+      {
+          toolStripSeparator1 = new ToolStripSeparator();
+        
+          // toolStripSeparator1
+          toolStripSeparator1.Name = "toolStripSeparator1";
+          toolStripSeparator1.Size = new Size(221, 6);
+      }
+      </code></pre>
+
+      <h4>Grayed (Disabled) Menu Items</h4>
+      <p>
+        Sometimes, you may want to disable a menu item, making it unselectable.
+        This can be done by setting the
+        <code>Enabled</code> property of the menu item to <code>false</code>.
+      </p>
+
+      <h4>Checkable Menu Items</h4>
+      <p>
+        A checkable menu item can be useful in certain scenarios. You can
+        achieve this by using the following properties:
+      </p>
+      <ul>
+        <li>
+          <strong>Checked</strong>: Determines whether the menu item is checked
+          (e.g., for a checkbox item).
+        </li>
+        <li>
+          <strong>CheckOnClick</strong>: If set to <code>true</code>, the menu
+          item will be checked when clicked.
+        </li>
+      </ul>
+
+      <h4>Other Types</h4>
+      <p>
+        We do not cover all types of menu items, such as comboboxes or menus
+        that combine multiple techniques. If you're interested in these or need
+        them for implementation, please search for additional resources.
+      </p>
+
+      <h3>Handling Events</h3>
+      <p>
+        You can handle the <code>Click</code> event of individual
+        <code>ToolStripMenuItem</code> objects to perform actions when a menu
+        item is clicked.
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+// Event handler for the "New" menu item click
+newToolStripMenuItem.Click += NewToolStripMenuItem_Click;
+      </code></pre>
+
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+// Event handler for the "New" menu item click
+private void NewToolStripMenuItem_Click(object sender, EventArgs e)
+{
+    MessageBox.Show("New file created!");
+}
+      </code></pre>
+    </div>
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

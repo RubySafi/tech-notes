@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: StatusStrip</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>StatusStrip Control in C# (WinForms)</h2>
+      <p>
+        In C# Windows Forms applications, the <code>StatusStrip</code> control
+        is used to display status information at the bottom of the form. It’s
+        often used to provide feedback to users, such as progress updates,
+        status messages, or other details about the application's state.
+      </p>
+
+      <h3>Creating a StatusStrip</h3>
+      <p>
+        The following code demonstrates how to create a
+        <code>StatusStrip</code> with a label to display a message and a
+        progress bar.
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+
+private StatusStrip statusStrip1;
+private ToolStripStatusLabel toolStripStatusLabel1;
+private ToolStripProgressBar toolStripProgressBar1;
+
+private void InitializeComponent()
+{
+    statusStrip1 = new StatusStrip();
+    toolStripStatusLabel1 = new ToolStripStatusLabel("Ready");
+    toolStripProgressBar1 = new ToolStripProgressBar();
+
+    // Adding items to the StatusStrip
+    statusStrip1.Items.Add(toolStripStatusLabel1);
+    statusStrip1.Items.Add(toolStripProgressBar1);
+
+    // Adding the StatusStrip to the form
+    Controls.Add(statusStrip1);
+}
+        </code></pre>
+
+      <h3>Adding Different ToolStrip Items</h3>
+      <p>
+        A <code>StatusStrip</code> can also contain various types of items
+        similar to a <code>ToolStrip</code>. Although most
+        <code>ToolStrip</code> items can be added via code, some items — such as
+        <code>ToolStripSeparator</code> — are not compatible with
+        <code>StatusStrip</code>.
+      </p>
+      <p>
+        The method for adding items is similar to that of a
+        <code>ToolStrip</code>. See the <code>ToolStrip</code> page for details.
+      </p>
+
+      <h3>ToolStripProgressBar</h3>
+      <p>
+        When using a <code>ToolStripProgressBar</code>, we usually set the
+        following properties:
+      </p>
+
+      <pre><code class="language-csharp">
+toolStripProgressBar1.Value = 50;   // Set the progress bar value to 50%
+toolStripProgressBar1.Maximum = 100; // Set the maximum value
+toolStripProgressBar1.Minimum = 0;   // Set the minimum value
+        </code></pre>
+
+      <h3>Use Case Example</h3>
+      <p>
+        The <code>StatusStrip</code> is useful for providing user feedback
+        without disrupting the main interface. It's commonly used in
+        applications that need to show progress updates, such as file transfers
+        or background data processing tasks.
+      </p>
+    </div>
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

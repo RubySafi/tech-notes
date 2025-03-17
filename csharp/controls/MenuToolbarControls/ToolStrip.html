@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: ToolStrip</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>ToolStrip Control in C# (WinForms)</h2>
+      <p>
+        The <code>ToolStrip</code> control in C# Windows Forms is used to create
+        a toolbar-like UI element that can hold a variety of controls such as
+        buttons, labels, combo boxes, and other ToolStrip items. It is often
+        used to provide quick access to common actions in an application.
+      </p>
+
+      <h3>Creating a ToolStrip</h3>
+      <p>
+        Here's how you can create a simple <code>ToolStrip</code> with a few
+        buttons:
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+
+private ToolStrip toolStrip1;
+private ToolStripButton toolStripButton1;
+private ToolStripButton toolStripButton2;
+
+private void InitializeComponent()
+{
+    toolStrip1 = new ToolStrip();
+    
+    toolStripButton1 = new ToolStripButton();
+    toolStripButton1.Name = "toolStripButton1";
+    toolStripButton1.Size = new Size(65, 24);
+    toolStripButton1.Text = "Button1";
+    toolStripButton1.Click += toolStripButton1_Click;
+    
+    toolStripButton2 = new ToolStripButton();
+    toolStripButton2.Name = "toolStripButton2";
+    toolStripButton2.Size = new Size(65, 24);
+    toolStripButton2.Text = "Button2";
+    toolStripButton2.Click += toolStripButton2_Click;
+
+    // Adding buttons to the ToolStrip
+    toolStrip1.Items.Add(toolStripButton1);
+    toolStrip1.Items.Add(toolStripButton2);
+    toolStrip1.Location = new Point(0, 0);
+    toolStrip1.Name = "toolStrip1";
+    toolStrip1.Size = new Size(800, 27);
+    toolStrip1.TabIndex = 0;
+
+    // Adding the ToolStrip to the form
+    Controls.Add(toolStrip1);
+}
+      </code></pre>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+private void toolStripButton1_Click(object sender, EventArgs e)
+{
+    MessageBox.Show("Button 1 clicked!");
+}
+
+private void toolStripButton2_Click(object sender, EventArgs e)
+{
+    MessageBox.Show("Button 2 clicked!");
+}
+      </code></pre>
+
+      <h3>Setting an Icon for ToolStrip Items</h3>
+      <p>
+        Instead of text, you can set an icon for ToolStrip items using the
+        <code>Image</code> property. Here's how you can add an icon to a
+        <code>ToolStripButton</code>:
+      </p>
+
+      <pre><code class="language-csharp">
+toolStripButton1 = new ToolStripButton();
+toolStripButton1.Image = Image.FromFile("path\\to\\icon.png");
+toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image; 
+toolStrip1.Items.Add(toolStripButton1);
+      </code></pre>
+
+      <p>
+        The <code>DisplayStyle</code> property ensures that only the icon
+        appears without text. If you want both text and an icon, set
+        <code>DisplayStyle</code> to
+        <code>ToolStripItemDisplayStyle.ImageAndText</code>.
+      </p>
+
+      <h3>Handling Events</h3>
+      <p>
+        To handle events, such as when a user clicks a button, you can subscribe
+        to the button's <code>Click</code> event. Here's an example of how to
+        handle the click event for a <code>ToolStripButton</code>:
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+// Adding an event handler for ToolStripButton1
+toolStripButton1.Click += toolStripButton1_Click;
+      </code></pre>
+
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+// Event handler for ToolStripButton click
+private void toolStripButton1_Click(object sender, EventArgs e)
+{
+    MessageBox.Show("Button 1 clicked!");
+}
+      </code></pre>
+
+      <h3>Adding Different ToolStrip Items</h3>
+      <p>
+        A <code>ToolStrip</code> can contain various types of items, such as
+        buttons, labels, combo boxes, and more. Below are examples of how to add
+        different types of items:
+      </p>
+
+      <h4>ToolStripButton</h4>
+      <pre><code class="language-csharp">
+ToolStripButton button1 = new ToolStripButton("Click Me");
+toolStrip1.Items.Add(button1);
+      </code></pre>
+
+      <h4>ToolStripLabel</h4>
+      <pre><code class="language-csharp">
+ToolStripLabel label1 = new ToolStripLabel("ToolStrip Label");
+toolStrip1.Items.Add(label1);
+      </code></pre>
+
+      <h4>ToolStripComboBox</h4>
+      <pre><code class="language-csharp">
+ToolStripComboBox comboBox1 = new ToolStripComboBox();
+comboBox1.Items.Add("Option 1");
+comboBox1.Items.Add("Option 2");
+toolStrip1.Items.Add(comboBox1);
+      </code></pre>
+      <h4>ToolStripDropDownButton</h4>
+<pre><code class="language-csharp">
+ToolStripDropDownButton dropDownButton = new ToolStripDropDownButton("Options");
+fooToolStripMenuItem = new ToolStripMenuItem();
+barToolStripMenuItem = new ToolStripMenuItem();
+
+fooToolStripMenuItem.Name = "fooToolStripMenuItem";
+fooToolStripMenuItem.Size = new Size(224, 26);
+fooToolStripMenuItem.Text = "Foo";
+
+barToolStripMenuItem.Name = "barToolStripMenuItem";
+barToolStripMenuItem.Size = new Size(224, 26);
+barToolStripMenuItem.Text = "Bar";
+
+// Adding items to the DropDownButton
+dropDownButton.DropDownItems.AddRange(new ToolStripItem[] 
+{ 
+    fooToolStripMenuItem, 
+    barToolStripMenuItem 
+});
+
+// Adding the DropDownButton to the ToolStrip
+toolStrip1.Items.Add(dropDownButton);
+</code></pre>
+<p>
+The <code>ToolStripDropDownButton</code> allows you to create a dropdown menu
+within the <code>ToolStrip</code>, similar to a <code>MenuStrip</code>. 
+You can nest additional items to create a hierarchical menu structure. 
+For more advanced menu structures, refer to the <code>MenuStrip</code> page.
+</p>
+
+
+      <h3>ToolStrip with ToolStripSeparator</h3>
+      <p>
+        A <code>ToolStripSeparator</code> is useful for visually separating
+        items within the <code>ToolStrip</code> for better organization. Here's
+        how you can add it:
+      </p>
+
+      <pre><code class="language-csharp">
+ToolStripSeparator separator = new ToolStripSeparator();
+toolStrip1.Items.Add(separator);
+      </code></pre>
+
+      <h3>Use Case Example</h3>
+      <p>
+        ToolStrips are commonly used in applications to create toolbars that
+        provide users with easy access to frequently used commands. These
+        toolbars can contain buttons, dropdowns, and other elements that make it
+        easier to interact with the application. ToolStrips can be docked to any
+        edge of the form, making them flexible for different design preferences.
+      </p>
+
+    </div>
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

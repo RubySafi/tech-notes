@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: ContextMenuStrip</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>ContextMenuStrip Control in C# (WinForms)</h2>
+      <p>
+        The <code>ContextMenuStrip</code> control in C# Windows Forms is used to
+        create a context menu that appears when the user right-clicks on an
+        element, such as a form, button, or other control. It allows you to
+        provide actions relevant to the item the user interacts with.
+      </p>
+
+      <h3>Creating a ContextMenuStrip</h3>
+      <p>
+        To create and display a <code>ContextMenuStrip</code> when
+        right-clicking on a control, follow these steps:
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+
+protected override void Dispose(bool disposing)
+{
+    if (disposing)
+    {
+        // Ensure the context menu is properly disposed
+        contextMenuStrip1?.Dispose();  
+    }
+    base.Dispose(disposing); // Always call base.Dispose
+}
+
+private ContextMenuStrip contextMenuStrip1;
+private ToolStripMenuItem option1;
+private ToolStripMenuItem option2;
+
+private void InitializeComponent()
+{
+    contextMenuStrip1 = new ContextMenuStrip();
+    option1 = new ToolStripMenuItem("Option 1");
+    option2 = new ToolStripMenuItem("Option 2");
+
+    // Add menu items to the ContextMenuStrip
+    contextMenuStrip1.Items.Add(option1);
+    contextMenuStrip1.Items.Add(option2);
+
+    // Handle the click events for each option
+    option1.Click += Option1_Click;
+    option2.Click += Option2_Click;
+
+    // Assign the ContextMenuStrip to a control (in this case, the form itself)
+    ContextMenuStrip = contextMenuStrip1;
+}
+</code></pre>
+
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+private void Option1_Click(object sender, EventArgs e)
+{
+    MessageBox.Show("Option 1 clicked!");
+}
+
+private void Option2_Click(object sender, EventArgs e)
+{
+    MessageBox.Show("Option 2 clicked!");
+}
+</code></pre>
+
+      <h4>Important Note on Disposal</h4>
+      <p>
+        Since the <code>ContextMenuStrip</code> is created manually (without the
+        Visual Studio designer's <code>components</code> container), you must
+        manually dispose of it in the <code>Dispose</code> method to prevent
+        memory leaks.
+      </p>
+
+      <h3>Adding Submenus (Deeper Structure)</h3>
+      <p>
+        Customizing a <code>ContextMenuStrip</code> to include submenus follows
+        the same pattern as customizing a <code>MenuStrip</code>. For detailed
+        instructions, refer to the MenuStrip customization guide.
+      </p>
+
+      <h3>Assigning a ContextMenuStrip to Controls</h3>
+      <p>
+        The above example assigns the <code>ContextMenuStrip</code> to the form
+        itself. However, you can also assign it to other controls, such as a
+        <code>ListView</code>.
+      </p>
+      <p>
+        To assign a <code>ContextMenuStrip</code> to a control, set the
+        control's <code>ContextMenuStrip</code> property to the prepared
+        <code>ContextMenuStrip</code>.
+      </p>
+
+      <h3>Use Case Example</h3>
+      <p>
+        The <code>ContextMenuStrip</code> is widely used in desktop applications
+        to provide right-click context menus for items such as list boxes, text
+        boxes, buttons, and other controls. For example, you might implement a
+        context menu that provides actions such as "Cut", "Copy", "Paste", or
+        "Delete" when right-clicking on a list item or text box.
+      </p>
+    </div>
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>
