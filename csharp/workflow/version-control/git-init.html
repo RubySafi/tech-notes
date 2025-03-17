@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Initializing Git</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Initializing Git</h2>
+
+      <p>
+        This page provides a simple guide to initializing a Git repository,
+        creating a <code>.gitignore</code> file, and optionally connecting your
+        project to GitHub.
+      </p>
+
+      <h3>Step 1: Initialize the Repository</h3>
+      <p>
+        To start version control with Git, you can initialize a repository using
+        either:
+      </p>
+
+      <li>Command Line Method: Run the following command in your terminal:</li>
+      <p>
+      <div class="code-block">
+        <pre>  git init</pre>
+      </div></p>
+      <li>
+        VSCode UI Method: Click on the <strong>Source Control</strong> icon in
+        the Activity Bar, then click <strong>Initialize Repository</strong>.
+      </li>
+
+      <h3>Step 2: Create a <code>.gitignore</code> File</h3>
+      <p>
+        To prevent unwanted files from being tracked, create a file named
+        <code>.gitignore</code> in the root of your project with the following
+        content:
+      </p>
+      <div class="code-block">
+        <pre>
+  obj
+  bin</pre
+        >
+      </div>
+      <p>
+        These folders are automatically generated when you build your project,
+        so they should be excluded from version control.
+      </p>
+
+      <h3>Step 3 (Optional): Connect to GitHub</h3>
+      <p>You can connect your project to GitHub in one of two ways:</p>
+
+      <li>
+        VSCode UI Method: Click on the <strong>Source Control</strong> icon,
+        then click <strong>Publish to GitHub</strong> or <string>Publish to Branch</string> and follow the prompts.
+      </li>
+      <li>
+        Command Line Method: Use the following commands:
+        <p>
+        <div class="code-block">
+          <pre>
+  git remote add origin https://github.com/your-username/your-repository.git
+  git branch -M main
+  git push -u origin main</pre
+          >
+        </div></p>
+      </li>
+      <p>
+        The UI method is simpler for beginners, while the command line method
+        gives you more flexibility if needed.
+      </p>
+
+      <h2>Summary</h2>
+      <ul>
+        <li>
+          Run <code>git init</code> or use the "Initialize Repository" button.
+        </li>
+        <li>
+          Create a <code>.gitignore</code> file with <code>obj</code> and
+          <code>bin</code> inside.
+        </li>
+        <li>
+          (Optional) Connect your project to GitHub using either the UI or the
+          command line.
+        </li>
+      </ul>
+
+      <p>You're now ready to track your project with Git!</p>
+    </div>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

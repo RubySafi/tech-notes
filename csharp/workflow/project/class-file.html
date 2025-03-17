@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adding a Class File</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Class Files</h2>
+
+      <p>
+        This page explains how to add a class file to your project. Unlike
+        Visual Studio, creating a class file in VSCode produces an empty file.
+        Therefore, you'll need to add some template code manually. In this
+        example, we'll assume the project name is
+        <strong>SampleProject</strong>, and the class file is named
+        <strong>SampleClass.cs</strong>.
+      </p>
+
+      <h3>
+        1. Add a new file to your project and name it
+        <code>SampleClass.cs</code>.
+      </h3>
+      <h3>2. Manually add the following template code:</h3>
+
+      <p>The recommended template for a class file is as follows:</p>
+
+      <code>SampleClass.cs</code>
+      <div class="code-block">
+        <pre><code class="language-csharp">using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SampleProject
+{
+    internal class SampleClass
+    {
+    }
+}
+</code></pre>
+      </div>
+
+      <h2>Tips</h2>
+      <p>
+        If you are using the "C# Extension", there's an easier way to add a
+        class file. Right-click on the Explorer in VSCode, select
+        <strong>"New C# > Class"</strong>, and follow the prompts.
+      </p>
+    </div>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

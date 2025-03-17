@@ -31,3 +31,10 @@ function loadDefaultContent() {
     loadContent(defaultItem);
   }
 }
+
+function loadDefaultWorkflowContent() {
+  const defaultItem = document.querySelector('.left-panel li[data-file="workflow/About.html"]');
+  if (defaultItem) {
+    loadContent(defaultItem);
+  }
+}

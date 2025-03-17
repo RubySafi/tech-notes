@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adding an Enum File</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Enum Files</h2>
+
+      <p>
+        This page explains how to add an enum file to your project. In this
+        example, we'll assume the project name is
+        <strong>SampleProject</strong>, the enum file is named
+        <strong>SampleEnum.cs</strong>, and the enum name is
+        <strong>EnumTest</strong>.
+      </p>
+
+      <h3>
+        1. Add a new file to your project and name it
+        <code>SampleEnum.cs</code>.
+      </h3>
+      <h3>2. Manually add the following template code:</h3>
+
+      <p>The recommended template for an enum file is as follows:</p>
+
+      <code>SampleEnum.cs</code>
+      <div class="code-block">
+        <pre><code class="language-csharp">namespace SampleProject
+{
+    public enum EnumTest
+    {
+        Number_A, // 0
+        Number_B, // 1
+        Number_C  // 2
+    }
+}          
+</code></pre>
+      </div>
+
+      <h3>3. Enum Value Notes</h3>
+      <p>
+        By default, the first value in an enum starts at <strong>0</strong>,
+        and each subsequent value increments by <strong>1</strong>. 
+      </p>
+      <p>
+        If you'd like to start with a different value, you can specify it manually. For example:
+      </p>
+      <div class="code-block">
+        <pre><code class="language-csharp">public enum EnumTest
+{
+    Number_A = 1, // 1
+    Number_B,      // 2
+    Number_C       // 3
+}          
+</code></pre>
+      </div>
+
+    </div>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

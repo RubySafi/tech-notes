@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adding a Form File</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Form Files</h2>
+
+      <p>
+        This page explains how to add a form file to your project. Unlike
+        Visual Studio, you need to manually create both <code>SampleForm.cs</code> 
+        and <code>SampleForm.Designer.cs</code> with the appropriate templates.
+        In this example, we'll assume the project name is 
+        <strong>SampleProject</strong>, and the form file is named 
+        <strong>SampleForm.cs</strong>.
+      </p>
+
+      <h3>
+        1. Add two new files to your project and name them 
+        <code>SampleForm.cs</code> and <code>SampleForm.Designer.cs</code>.
+      </h3>
+      <h3>2. Manually add the following template code:</h3>
+
+      <p>The recommended templates for class files are as follows:</p>
+
+      <code>SampleForm.cs</code>
+      <div class="code-block">
+        <pre><code class="language-csharp">using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace SampleProject
+{
+    public partial class SampleForm : Form
+    {
+        public SampleForm()
+        {
+            InitializeComponent(); // Ensure this matches the method in SampleForm.Designer.cs
+        }
+    }
+}          
+</code></pre>
+      </div>
+
+      <p></p>
+
+      <code>SampleForm.Designer.cs</code>
+      <div class="code-block">
+        <pre><code class="language-csharp">namespace SampleProject
+{
+    partial class SampleForm
+    {
+        /// <summary>
+        /// Holds the form's components. Dispose them properly if modified.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">
+        /// True to release managed resources; otherwise, false.
+        /// </param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Template code for Windows Form Designer support (manually added)
+
+        /// <summary>
+        /// Initializes the form's components. 
+        /// Modify this method if you add controls.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "SampleForm";
+        }
+
+        #endregion
+    }
+}
+</code></pre>
+      </div>
+
+    </div>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>
