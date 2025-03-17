@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: ComboBox</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>ComboBox Control in C# (WinForms)</h2>
+      <p>
+        In C# Windows Forms applications, the <code>ComboBox</code> control is used to display a dropdown list of items from which the user can select one. It is useful for situations where you want to limit the user's input to a predefined set of options.
+      </p>
+
+      <h3>ComboBox Creation Template</h3>
+      <p>The following code shows how to create a <code>ComboBox</code> control and set its properties:</p>
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+using System.Drawing;
+
+private ComboBox comboBox1;
+
+private void InitializeComponent()
+{
+    comboBox1 = new ComboBox();
+
+    // comboBox1 properties
+    comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;  // Prevents user input
+    comboBox3.Items.AddRange(new object[] { "foo", "bar", "hoge" });
+    comboBox1.Location = new Point(147, 150);
+    comboBox1.Name = "comboBox1";
+    comboBox1.Size = new Size(121, 28);
+    comboBox1.TabIndex = 0;
+
+    // Adding items to the ComboBox
+    comboBox1.Items.Add("Option 1");
+    comboBox1.Items.Add("Option 2");
+    comboBox1.Items.Add("Option 3");
+
+    // Add the ComboBox to the form
+    Controls.Add(comboBox1);
+}
+      </code></pre>
+      <h3>Common Properties</h3>
+      <p>Here are some commonly used properties for the <code>ComboBox</code> control:</p>
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+comboBox1.SelectedIndex = 0;  // Set the selected item by index
+comboBox1.SelectedItem = "Option 2";  // Set the selected item by value
+      </code></pre>
+      <p><strong>Note:</strong> These properties should be set in <code>Form.cs</code>, not in <code>Form.Designer.cs</code>.</p>
+      
+
+      <h3>Handling Events</h3>
+      <p>You can handle the <code>SelectedIndexChanged</code> event to perform an action when the selected item in the ComboBox changes:</p>
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+      </code></pre>
+
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+{
+    // Code to handle the change in selected item
+    MessageBox.Show("Selected Item: " + comboBox1.SelectedItem.ToString());
+}
+      </code></pre>
+
+      <h3>Binding an Enum to a ComboBox</h3>
+      <p>It is convenient to use data binding for this purpose. Below is an example of how to bind enum values:</p>
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+this.comboBox1 = new ComboBox();
+
+// Initialize the ComboBox
+this.comboBox1.FormattingEnabled = true;
+this.comboBox1.Location = new Point(50, 50);
+this.comboBox1.Size = new Size(200, 30);
+
+// Add the ComboBox to the form
+this.Controls.Add(this.comboBox1);
+      </code></pre>
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+// Bind the enum to the ComboBox
+comboBox1.DataSource = Enum.GetValues(typeof(DayOfTheWeek));
+
+// Set the default selected value
+comboBox1.SelectedItem = DayOfTheWeek.Wed;
+      </code></pre>
+      <code>Enum.cs</code>
+      <pre><code class="language-csharp">
+public enum DayOfTheWeek
+{
+    Mon,
+    Tue,
+    Wed,
+    Thu,
+    Fri,
+    Sat,
+    Sun
+}
+      </code></pre>
+
+      
+      <h3>Binding a List of Classes to a ComboBox</h3>
+      <p>You can also bind a list of objects to the ComboBox. Below is an example:</p>
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+this.comboBox1 = new ComboBox();
+
+// Initialize the ComboBox
+this.comboBox1.FormattingEnabled = true;
+this.comboBox1.Location = new Point(50, 50);
+this.comboBox1.Size = new Size(200, 30);
+
+// Add the ComboBox to the form
+this.Controls.Add(this.comboBox1);
+      </code></pre>
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+List<ClassA> classList = new List<ClassA>
+{
+    new ClassA { Name = "Item1", Id = 1 },
+    new ClassA { Name = "Item2", Id = 2 }
+};
+
+// Bind the list of ClassA objects to the ComboBox
+this.comboBox1.DisplayMember = "Name"; // Display the 'Name' property of ClassA
+this.comboBox1.DataSource = classList;
+
+// Set the default selected value
+comboBox1.SelectedItem = classList[1];
+      </code></pre>
+      <code>ClassA.cs</code>
+      <pre><code class="language-csharp">
+public class ClassA
+{
+    public string Name { get; set; }
+    public int Id { get; set; }
+}
+      </code></pre>
+
+    </div>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

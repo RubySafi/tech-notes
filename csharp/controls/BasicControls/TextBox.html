@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: TextBox</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>TextBox Control in C# (WinForms)</h2>
+      <p>
+        The <code>TextBox</code> control is a common input field in C# Windows Forms
+        applications. It allows users to enter and edit text. Text boxes are useful
+        for capturing user data such as names, email addresses, and other text-based information.
+      </p>
+
+      <h3>TextBox Creation Template</h3>
+      <p>The following code demonstrates how to create a simple <code>TextBox</code> in your form's designer file:</p>
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+using System.Drawing;
+
+private TextBox textBox1;
+
+private void InitializeComponent()
+{
+    textBox1 = new TextBox();
+
+    // TextBox properties
+    textBox1.Location = new Point(110, 82); // Position on the form
+    textBox1.Name = "textBox1";
+    textBox1.Size = new Size(125, 27);      // Width and height
+    textBox1.TabIndex = 0;                  // Tab order for keyboard navigation
+
+    // Add the text box to the form
+    Controls.Add(textBox1);
+}
+      </code></pre>
+
+      <h3>Common Properties</h3>
+      <p>
+        Here are some commonly used properties for the
+        <code>TextBox</code> control:
+      </p>
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+// Resizes the text box when the form is resized
+textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+// Makes the text box read-only (ideal for displaying data)
+textBox1.ReadOnly = true;
+
+// Sets placeholder text (available in .NET 6 and later)
+textBox1.PlaceholderText = "Enter your name...";
+
+// Masks text input, useful for passwords
+textBox1.UseSystemPasswordChar = true;
+
+// Enables multi-line input
+textBox1.Multiline = true;
+
+// Adds a scrollbar for longer text
+textBox1.ScrollBars = ScrollBars.Vertical;  // Vertical scrollbar only (ideal for paragraphs)
+
+// Alternative scrollbar options
+// textBox1.ScrollBars = ScrollBars.Horizontal; // Horizontal scrollbar only (less common)
+// textBox1.ScrollBars = ScrollBars.Both;       // Both vertical and horizontal (for wide content)
+      </code></pre>
+
+      <h3>Practical Tips</h3>
+      <ul>
+        <li>
+          Use the <code>ReadOnly</code> property instead of <code>Enabled = false</code>
+          if you want to prevent editing while maintaining the default text color.
+        </li>
+        <li>
+          The <code>PlaceHolderText</code> property is supported in .NET 6 and newer versions. 
+          For earlier versions, consider adding a label for guidance.
+        </li>
+        <li>
+          For password entry, set <code>UseSystemPasswordChar = true</code> to mask the text.
+        </li>
+      </ul>
+    </div>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

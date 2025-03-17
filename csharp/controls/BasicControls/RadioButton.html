@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: RadioButton</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>RadioButton Control in C# (WinForms)</h2>
+      <p>
+        In C# Windows Forms applications, the <code>RadioButton</code> control
+        is used to allow the user to select one option from a group of options.
+        It is typically used in scenarios where only one selection is allowed
+        within a set of choices, such as a set of options on a form.
+      </p>
+
+      <h3>RadioButton Creation Template (Single Group)</h3>
+      <p>
+        The following code shows how to create and add two radio buttons to your
+        form, allowing the user to select one of the options:
+      </p>
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+using System.Drawing;
+
+private RadioButton radioButton1;
+private RadioButton radioButton2;
+
+private void InitializeComponent()
+{
+  radioButton1 = new RadioButton();
+  radioButton2 = new RadioButton();
+  
+  // radioButton1 properties
+  radioButton1.AutoSize = true;
+  radioButton1.Location = new Point(147, 150);
+  radioButton1.Name = "radioButton1";
+  radioButton1.Size = new Size(117, 24);
+  radioButton1.TabIndex = 0;
+  radioButton1.TabStop = true;
+  radioButton1.Text = "Option 1";
+  radioButton1.UseVisualStyleBackColor = true;
+
+  // radioButton2 properties
+  radioButton2.AutoSize = true;
+  radioButton2.Location = new Point(147, 180);
+  radioButton2.Name = "radioButton2";
+  radioButton2.Size = new Size(117, 24);
+  radioButton2.TabIndex = 1;
+  radioButton2.TabStop = true;
+  radioButton2.Text = "Option 2";
+  radioButton2.UseVisualStyleBackColor = true;
+
+  // Add the radio buttons to the form
+  Controls.Add(radioButton1);
+  Controls.Add(radioButton2);
+}
+      </code></pre>
+      <p>
+        In this case, only one radio button can be selected at a time, as both
+        have <code>TabStop = true</code> and are placed in the same container.
+      </p>
+
+      <h3>Common Properties</h3>
+      <p>
+        Here are some commonly used properties for the
+        <code>RadioButton</code> control:
+      </p>
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+radioButton1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+radioButton1.Checked = true;  // Set the radio button to be initially selected
+      </code></pre>
+      <p>
+        The <code>Checked</code> property sets whether the radio button is
+        selected, while <code>TabStop</code> determines if the radio button is
+        part of the tab order. The <code>Anchor</code> property ensures that the
+        radio button resizes correctly with the form.
+      </p>
+
+      <h3>Handling Events</h3>
+      <p>
+        To handle the event when a radio button is checked, you can use the
+        <code>CheckedChanged</code> event. This event fires whenever the state
+        of a radio button changes (either checked or unchecked).
+      </p>
+      <p>
+        Here’s an example of handling the <code>CheckedChanged</code> event:
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+radioButton1.CheckedChanged += radioButton_CheckedChanged;
+radioButton2.CheckedChanged += radioButton_CheckedChanged;
+      </code></pre>
+
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+private void radioButton_CheckedChanged(object sender, EventArgs e)
+{
+    if (radioButton1.Checked)
+    {
+        MessageBox.Show("Option 1 selected");
+    }
+    else if (radioButton2.Checked)
+    {
+        MessageBox.Show("Option 2 selected");
+    }
+}
+      </code></pre>
+      <p>
+        This code displays a message box when the user selects either Option 1
+        or Option 2, depending on which radio button is checked.
+      </p>
+
+      <h3>RadioButton Creation Template (Multiple Groups)</h3>
+      <p>
+        If you have multiple groups of radio buttons (e.g., different categories
+        of options), you can separate them by using different containers (such
+        as <code>GroupBox</code> or <code>Panel</code>) to group them. Each
+        group of radio buttons allows only one selection within that group, but
+        selections can be made in different groups independently.
+      </p>
+      <p>Here’s how you might create multiple groups of radio buttons:</p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+private GroupBox groupBox1;
+private RadioButton radioButton1;
+private RadioButton radioButton2;
+private GroupBox groupBox2;
+private RadioButton radioButton3;
+private RadioButton radioButton4;
+
+private void InitializeComponent()
+{
+    groupBox1 = new GroupBox();
+    groupBox2 = new GroupBox();
+    radioButton1 = new RadioButton();
+    radioButton2 = new RadioButton();
+    radioButton3 = new RadioButton();
+    radioButton4 = new RadioButton();
+
+    // groupBox1 properties
+    groupBox1.Text = "Group 1";
+    groupBox1.Location = new Point(20, 20);
+    groupBox1.Size = new Size(200, 100);
+    
+    // radioButton1 properties
+    radioButton1.Text = "Option 1";
+    radioButton1.Location = new Point(20, 30);
+    radioButton1.Checked = true;  // Default selection in Group 1
+    groupBox1.Controls.Add(radioButton1);
+
+    // radioButton2 properties
+    radioButton2.Text = "Option 2";
+    radioButton2.Location = new Point(20, 60);
+    groupBox1.Controls.Add(radioButton2);
+
+    // groupBox2 properties
+    groupBox2.Text = "Group 2";
+    groupBox2.Location = new Point(20, 140);
+    groupBox2.Size = new Size(200, 100);
+
+    // radioButton3 properties
+    radioButton3.Text = "Option A";
+    radioButton3.Location = new Point(20, 30);
+    radioButton3.Checked = true;  // Default selection in Group 2
+    groupBox2.Controls.Add(radioButton3);
+
+    // radioButton4 properties
+    radioButton4.Text = "Option B";
+    radioButton4.Location = new Point(20, 60);
+    groupBox2.Controls.Add(radioButton4);
+
+    // Add the GroupBoxes to the form
+    Controls.Add(groupBox1);
+    Controls.Add(groupBox2);
+}
+      </code></pre>
+      <p>
+        In this example, there are two groups of radio buttons: Group 1 and
+        Group 2. Each group can have one selected radio button, but selecting an
+        option in one group does not affect the other group. For more details on
+        using the <code>GroupBox</code> control, refer to the GroupBox page.
+      </p>
+    </div>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>
