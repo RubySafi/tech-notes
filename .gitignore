@@ -1,1 +1,6 @@
 git/drawio/
+csharp/controls/ContainerControls
+csharp/controls/DataGridControls
+csharp/controls/FileDialogControls
+csharp/controls/MenuToolbarControls
+csharp/controls/Miscellaneous
