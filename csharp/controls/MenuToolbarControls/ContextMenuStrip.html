@@ -34,10 +34,9 @@ using System.Windows.Forms;
 
 protected override void Dispose(bool disposing)
 {
-    if (disposing)
+    if (disposing && (components != null))
     {
-        // Ensure the context menu is properly disposed
-        contextMenuStrip1?.Dispose();  
+        components.Dispose();
     }
     base.Dispose(disposing); // Always call base.Dispose
 }
@@ -48,7 +47,8 @@ private ToolStripMenuItem option2;
 
 private void InitializeComponent()
 {
-    contextMenuStrip1 = new ContextMenuStrip();
+    components = new System.ComponentModel.Container();
+    contextMenuStrip1 = new ContextMenuStrip(components);
     option1 = new ToolStripMenuItem("Option 1");
     option2 = new ToolStripMenuItem("Option 2");
 
@@ -77,14 +77,6 @@ private void Option2_Click(object sender, EventArgs e)
     MessageBox.Show("Option 2 clicked!");
 }
 </code></pre>
-
-      <h4>Important Note on Disposal</h4>
-      <p>
-        Since the <code>ContextMenuStrip</code> is created manually (without the
-        Visual Studio designer's <code>components</code> container), you must
-        manually dispose of it in the <code>Dispose</code> method to prevent
-        memory leaks.
-      </p>
 
       <h3>Adding Submenus (Deeper Structure)</h3>
       <p>
