@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: OpenFileDialog</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>OpenFileDialog Control in C# (WinForms)</h2>
+      <p>
+        The <code>OpenFileDialog</code> control in C# Windows Forms allows the
+        user to select one or more files from the file system. It's typically
+        used to open files such as documents, images, or other types of files.
+      </p>
+
+      <h3>Basic Setup</h3>
+      <p>
+        You can create an <code>OpenFileDialog</code> instance programmatically,
+        and configure its properties to specify filters, initial directory, and
+        other options.
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System;
+using System.Windows.Forms;
+
+private OpenFileDialog openFileDialog1;
+private Button button1;
+
+private void InitializeComponent()
+{
+    openFileDialog1 = new OpenFileDialog();
+    button1 = new Button();
+
+    // button1
+    // 
+    button1.Location = new Point(12, 12);
+    button1.Name = "button1";
+    button1.Size = new Size(94, 29);
+    button1.TabIndex = 0;
+    button1.Text = "Open File";
+    button1.UseVisualStyleBackColor = true;
+    button1.Click += button1_Click;
+    
+    // openFileDialog1
+    openFileDialog1.InitialDirectory = "C:\\";  // Set the initial directory
+    openFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";  // File type filter
+    openFileDialog1.Title = "Select a File";  // Title of the dialog
+    
+    Controls.Add(button1);
+}
+      </code></pre>
+
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+private void button1_Click(object sender, EventArgs e)
+{
+    DialogResult result = openFileDialog1.ShowDialog();
+    
+    // Check if the user selected a file
+    if (result == DialogResult.OK)
+    {
+        string filePath = openFileDialog1.FileName;
+        MessageBox.Show($"File selected: {filePath}");
+    }
+    else
+    {
+        MessageBox.Show("No file selected.");
+    }
+}
+      </code></pre>
+
+      <h3>Properties</h3>
+      <p>
+        Here are some of the most commonly used properties of the
+        <code>OpenFileDialog</code>:
+      </p>
+      <ul>
+        <li>
+          <strong><code>InitialDirectory</code>:</strong> Specifies the
+          directory that the dialog will display when opened. For example,
+          <code>"C:\\"</code>.
+        </li>
+        <li>
+          <strong><code>Filter</code>:</strong> Defines the types of files that
+          are visible in the dialog. For example,
+          <code>"Text files (*.txt)|*.txt|All files (*.*)|*.*"</code> allows the
+          user to choose between text files and all file types.
+        </li>
+        <li>
+          <strong><code>Title</code>:</strong> Sets the title of the dialog
+          window. For example, <code>"Select a File"</code>.
+        </li>
+        <li>
+          <strong><code>FileName</code>:</strong> Contains the full path of the
+          selected file after the user has made their selection.
+        </li>
+        <li>
+          <strong><code>Multiselect</code>:</strong> A boolean property that
+          determines whether the user can select multiple files at once. Default
+          is <code>false</code>.
+        </li>
+        <li>
+          <strong><code>RestoreDirectory</code>:</strong> When set to
+          <code>true</code>, this property causes the dialog to restore the last
+          directory when opened again.
+        </li>
+      </ul>
+
+      <h3>Handling Multiple File Selection</h3>
+      <p>
+        After the user selects a file (or multiple files), the file(s) can be
+        accessed using the <code>FileName</code> property (for a single file) or
+        the <code>FileNames</code> property (if <code>Multiselect</code> is set
+        to <code>true</code>).
+      </p>
+      <p>
+        To handle multiple file selection, use the
+        <code>FileNames</code> property, which returns an array of selected file
+        paths.
+      </p>
+      <pre><code class="language-csharp">
+private void button1_Click(object sender, EventArgs e)
+{
+    openFileDialog1.Multiselect = true; // Allow multiple file selection
+    DialogResult result = openFileDialog1.ShowDialog();
+
+    if (result == DialogResult.OK)
+    {
+        foreach (string filePath in openFileDialog1.FileNames)
+        {
+            MessageBox.Show($"File selected: {filePath}");
+        }
+    }
+    else
+    {
+        MessageBox.Show("No files selected.");
+    }
+}
+      </code></pre>
+    </div>
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

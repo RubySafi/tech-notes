@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: FolderBrowserDialog</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>FolderBrowserDialog Control in C# (WinForms)</h2>
+      <p>
+        The <code>FolderBrowserDialog</code> control in C# Windows Forms allows
+        the user to select a folder from the file system. It is useful when you
+        need to prompt the user to choose a folder to save files, open files
+        from, or work with folders in other ways.
+      </p>
+
+      <h3>Basic Setup</h3>
+      <p>
+        You can create a <code>FolderBrowserDialog</code> instance
+        programmatically, and configure its properties to specify the starting
+        directory and other options.
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System;
+using System.Windows.Forms;
+
+private FolderBrowserDialog folderBrowserDialog1;
+private Button button1;
+
+private void InitializeComponent()
+{
+    folderBrowserDialog1 = new FolderBrowserDialog();
+    button1 = new Button();
+
+    // button1
+    // 
+    button1.Location = new Point(12, 12);
+    button1.Name = "button1";
+    button1.Size = new Size(94, 29);
+    button1.TabIndex = 0;
+    button1.Text = "Select Folder";
+    button1.UseVisualStyleBackColor = true;
+    button1.Click += button1_Click;
+    
+    // folderBrowserDialog1
+    folderBrowserDialog1.SelectedPath = "C:\\";  // Set the initial folder
+    
+    Controls.Add(button1);
+}
+      </code></pre>
+
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+private void button1_Click(object sender, EventArgs e)
+{
+    DialogResult result = folderBrowserDialog1.ShowDialog();
+
+    // Check if the user selected a folder
+    if (result == DialogResult.OK)
+    {
+        string folderPath = folderBrowserDialog1.SelectedPath;
+        MessageBox.Show($"Folder selected: {folderPath}");
+    }
+    else
+    {
+        MessageBox.Show("No folder selected.");
+    }
+}
+      </code></pre>
+
+      <h3>Properties</h3>
+      <p>
+        Here are some of the most commonly used properties of the
+        <code>FolderBrowserDialog</code>:
+      </p>
+      <ul>
+        <li>
+          <strong><code>SelectedPath</code>:</strong> Specifies the initial
+          folder that the dialog will display when opened. For example,
+          <code>"C:\\"</code>.
+        </li>
+        <li>
+          <strong><code>Description</code>:</strong> Sets a description that
+          appears in the dialog box, guiding the user on what to do. For
+          example, <code>"Select a folder to work with"</code>.
+        </li>
+        <li>
+          <strong><code>ShowNewFolderButton</code>:</strong> A boolean property
+          that controls whether the "New Folder" button is displayed. Set to
+          <code>true</code> to allow the user to create new folders. The default
+          is <code>true</code>.
+        </li>
+        <li>
+          <strong><code>RootFolder</code>:</strong> Defines the root folder that
+          the dialog will start in, such as
+          <code>Environment.SpecialFolder.MyComputer</code> or
+          <code>Environment.SpecialFolder.Desktop</code>.
+        </li>
+      </ul>
+      <p>
+        <strong>Tip:</strong> The <code>Description</code> property does not
+        change the title bar message! Instead, the message appears just above
+        the input box where the user selects the folder.
+      </p>
+    </div>
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

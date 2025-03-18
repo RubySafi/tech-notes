@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: SaveFileDialog</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>SaveFileDialog Control in C# (WinForms)</h2>
+      <p>
+        The <code>SaveFileDialog</code> control in C# Windows Forms allows the
+        user to select a file location and specify a file name for saving data.
+        It is typically used when saving documents, images, or other files.
+      </p>
+
+      <h3>Basic Setup</h3>
+      <p>
+        You can create a <code>SaveFileDialog</code> instance programmatically,
+        and configure its properties to specify filters, initial directory,
+        default file name, and other options.
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System;
+using System.Windows.Forms;
+
+private SaveFileDialog saveFileDialog1;
+private Button button1;
+
+private void InitializeComponent()
+{
+    saveFileDialog1 = new SaveFileDialog();
+    button1 = new Button();
+
+    // button1
+    // 
+    button1.Location = new Point(12, 12);
+    button1.Name = "button1";
+    button1.Size = new Size(94, 29);
+    button1.TabIndex = 0;
+    button1.Text = "Save File";
+    button1.UseVisualStyleBackColor = true;
+    button1.Click += button1_Click;
+    
+    // saveFileDialog1
+    saveFileDialog1.InitialDirectory = "C:\\";  // Set the initial directory
+    saveFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";  // File type filter
+    saveFileDialog1.Title = "Save a File";  // Title of the dialog
+    saveFileDialog1.DefaultExt = "txt"; // Default file extension
+    
+    Controls.Add(button1);
+}
+      </code></pre>
+
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+private void button1_Click(object sender, EventArgs e)
+{
+    DialogResult result = saveFileDialog1.ShowDialog();
+    
+    // Check if the user chose a location to save the file
+    if (result == DialogResult.OK)
+    {
+        string filePath = saveFileDialog1.FileName;
+        MessageBox.Show($"File saved at: {filePath}");
+    }
+    else
+    {
+        MessageBox.Show("File was not saved.");
+    }
+}
+      </code></pre>
+
+      <h3>Properties</h3>
+      <p>
+        Here are some of the most commonly used properties of the
+        <code>SaveFileDialog</code>:
+      </p>
+      <ul>
+        <li>
+          <strong><code>InitialDirectory</code>:</strong> Specifies the
+          directory that the dialog will display when opened. For example,
+          <code>"C:\\"</code>.
+        </li>
+        <li>
+          <strong><code>Filter</code>:</strong> Defines the types of files that
+          are visible in the dialog. For example,
+          <code>"Text files (*.txt)|*.txt|All files (*.*)|*.*"</code> allows the
+          user to choose between text files and all file types.
+        </li>
+        <li>
+          <strong><code>Title</code>:</strong> Sets the title of the dialog
+          window. For example, <code>"Save a File"</code>.
+        </li>
+        <li>
+          <strong><code>FileName</code>:</strong> Contains the full path of the
+          file the user selects or enters for saving.
+        </li>
+        <li>
+          <strong><code>DefaultExt</code>:</strong> Specifies the default file
+          extension for the saved file. For example, <code>"txt"</code>.
+        </li>
+        <li>
+          <strong><code>OverwritePrompt</code>:</strong> A boolean property that
+          determines whether the user is prompted before overwriting an existing
+          file. Default is <code>true</code>.
+        </li>
+      </ul>
+    </div>
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>
