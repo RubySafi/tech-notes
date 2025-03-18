@@ -19,13 +19,13 @@
         The <code>FolderBrowserDialog</code> control in C# Windows Forms allows
         the user to select a folder from the file system. It is useful when you
         need to prompt the user to choose a folder to save files, open files
-        from, or work with folders in other ways.
+        from, or perform other folder-related tasks.
       </p>
 
       <h3>Basic Setup</h3>
       <p>
         You can create a <code>FolderBrowserDialog</code> instance
-        programmatically, and configure its properties to specify the starting
+        programmatically and configure its properties to specify the starting
         directory and other options.
       </p>
 
@@ -80,7 +80,7 @@ private void button1_Click(object sender, EventArgs e)
 
       <h3>Properties</h3>
       <p>
-        Here are some of the most commonly used properties of the
+        Below are some of the most commonly used properties of the
         <code>FolderBrowserDialog</code>:
       </p>
       <ul>
@@ -98,7 +98,7 @@ private void button1_Click(object sender, EventArgs e)
           <strong><code>ShowNewFolderButton</code>:</strong> A boolean property
           that controls whether the "New Folder" button is displayed. Set to
           <code>true</code> to allow the user to create new folders. The default
-          is <code>true</code>.
+          value is <code>true</code>.
         </li>
         <li>
           <strong><code>RootFolder</code>:</strong> Defines the root folder that
@@ -109,8 +109,20 @@ private void button1_Click(object sender, EventArgs e)
       </ul>
       <p>
         <strong>Tip:</strong> The <code>Description</code> property does not
-        change the title bar message! Instead, the message appears just above
-        the input box where the user selects the folder.
+        change the title bar message! Instead, the description appears just
+        above the input box where the user selects the folder.
+      </p>
+
+      <h3>Alternative Folder Browser Dialog</h3>
+      <p>
+        If you prefer an older-style folder browser dialog, there are other ways
+        to implement it. One such approach is to use the
+        <code
+          >System.Windows.Forms.Design.FolderNameEditor.FolderBrowser()</code
+        >
+        method, which provides a simpler, legacy dialog for folder selection.
+        For more information, you can explore other resources or search online
+        for implementation details.
       </p>
     </div>
     <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
