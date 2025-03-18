@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: Timer</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Timer Control in C# (WinForms)</h2>
+      <p>
+        The <code>Timer</code> control in C# Windows Forms provides an easy way
+        to execute code at regular intervals without blocking the user
+        interface. It is commonly used for tasks such as refreshing data,
+        updating UI components, or performing background operations.
+      </p>
+
+      <h3>Basic Setup</h3>
+      <p>
+        To use a <code>Timer</code>, you need to create an instance of the
+        <code>Timer</code> class, set its interval, and connect an event handler
+        to its <code>Tick</code> event. The <code>Tick</code> event fires at
+        regular intervals specified by the <code>Interval</code> property.
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System;
+using System.Windows.Forms;
+
+protected override void Dispose(bool disposing)
+{
+    if (disposing && (components != null))
+    {
+        components.Dispose();
+    }
+}
+
+private Timer timer1;
+
+private void InitializeComponent()
+{
+    components = new System.ComponentModel.Container();
+    timer1 = new Timer(components);
+    
+    // Configure timer1
+    timer1.Tick += timer1_Tick;
+    timer1.Interval = 1000; // Set interval to 1 second (1000 ms)
+    
+    // Configure textBox1
+    textBox1.Dock = DockStyle.Fill;
+    textBox1.Location = new Point(0, 0);
+    textBox1.Multiline = true;
+    textBox1.Name = "textBox1";
+    textBox1.Size = new Size(800, 850);
+    textBox1.TabIndex = 0;
+
+    Controls.Add(textBox1);
+}
+      </code></pre>
+
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+public Form()
+{
+    InitializeComponent();
+    timer1.Start();  // Start the timer when the form is loaded
+}
+
+private int count = 0; // Variable to track the count
+
+private void timer1_Tick(object sender, EventArgs e)
+{
+    textBox1.Text += $"{count}" + System.Environment.NewLine;
+    count++;
+}
+      </code></pre>
+
+      <h3>Properties, Methods, and Events</h3>
+      <p>
+        Below are important properties, methods, and events of the
+        <code>Timer</code> control:
+      </p>
+      <ul>
+        <li>
+          <strong>Interval</strong>: Specifies the time (in milliseconds)
+          between each <code>Tick</code> event. You can set this property to
+          define how often the event fires. For example,
+          <code>timer1.Interval = 1000;</code> sets the interval to 1 second.
+        </li>
+        <li>
+          <strong>Start()</strong>: Starts the timer, which begins raising
+          <code>Tick</code> events at the specified interval.
+        </li>
+        <li>
+          <strong>Stop()</strong>: Stops the timer, preventing further
+          <code>Tick</code> events from being raised.
+        </li>
+        <li>
+          <strong>Tick</strong>: This event is triggered when the timer reaches
+          the specified interval. You can use this event to execute the code
+          that needs to run periodically.
+        </li>
+        <li>
+          <strong>Enabled</strong>: This property indicates whether the timer is
+          running or not. Setting it to <code>true</code> starts the timer, and
+          setting it to <code>false</code> stops it. It is the same as calling
+          <code>Start()</code> and <code>Stop()</code>.
+        </li>
+      </ul>
+      <p>
+        These properties and methods allow you to control the behavior of the
+        <code>Timer</code> and handle the recurring events effectively.
+      </p>
+    </div>
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

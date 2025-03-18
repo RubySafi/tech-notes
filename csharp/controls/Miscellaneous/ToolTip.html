@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: ToolTip</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>ToolTip Control in C# (WinForms)</h2>
+      <p>
+        The <code>ToolTip</code> control in C# Windows Forms allows you to
+        display small pop-up text bubbles when the user hovers over a control,
+        such as a button or label. It provides additional information or
+        descriptions for UI elements.
+      </p>
+
+      <h3>Basic Setup</h3>
+      <p>
+        To use a <code>ToolTip</code>, create an instance of the
+        <code>ToolTip</code> class and associate it with the control you want to
+        display the tip for. The tooltip text is set using the
+        <code>SetToolTip</code> method.
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System;
+using System.Windows.Forms;
+
+private Button button1;
+private ToolTip toolTip1;
+
+private void InitializeComponent()
+{
+    components = new System.ComponentModel.Container();
+    button1 = new Button();
+    toolTip1 = new ToolTip(components);
+    
+    // Set up the ToolTip text for a button
+    toolTip1.SetToolTip(button1, "Click to submit the form");
+
+    // button1
+    button1.Location = new Point(12, 12);
+    button1.Name = "button1";
+    button1.Size = new Size(94, 29);
+    button1.TabIndex = 0;
+    button1.Text = "button1";
+    toolTip1.SetToolTip(button1, "Show Dialog");
+    button1.UseVisualStyleBackColor = true;
+    button1.Click += button1_Click;
+}
+      </code></pre>
+
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+private void button1_Click(object sender, EventArgs e)
+{
+    MessageBox.Show("Hello!");
+}
+      </code></pre>
+
+      <h3>Key Properties of ToolTip</h3>
+      <p>
+        Here are some important properties of the <code>ToolTip</code> control:
+      </p>
+      <ul>
+        <li>
+          <code>BackColor</code>: Sets the background color of the tooltip.
+        </li>
+        <li><code>ForeColor</code>: Sets the text color of the tooltip.</li>
+        <li>
+          <code>IsBalloon</code>: Determines whether the tooltip is displayed in
+          a balloon shape (true or false).
+        </li>
+        <li>
+          <code>ShowAlways</code>: If true, the tooltip is displayed even if the
+          form is not active.
+        </li>
+        <li>
+          <code>AutoPopDelay</code>: Sets the duration (in milliseconds) for how
+          long the tooltip remains visible.
+        </li>
+        <li>
+          <code>InitialDelay</code>: Sets the delay (in milliseconds) before the
+          tooltip is shown after the user hovers over a control.
+        </li>
+        <li>
+          <code>ReshowDelay</code>: Sets the delay (in milliseconds) between
+          subsequent tooltip displays when the user keeps the mouse on a
+          control.
+        </li>
+      </ul>
+
+      <h3>Key Methods of ToolTip</h3>
+      <p>
+        Here are some useful methods for working with the
+        <code>ToolTip</code> control:
+      </p>
+      <ul>
+        <li>
+          <code>SetToolTip(Control, string)</code>: Sets the tooltip text for a
+          specific control.
+        </li>
+        <li>
+          <code>RemoveAll()</code>: Removes all tooltips associated with
+          controls.
+        </li>
+        <li>
+          <code>Show(string, Point)</code>: Manually displays the tooltip at a
+          specific location (optional, typically used for programmatically
+          triggered tooltips).
+        </li>
+      </ul>
+    </div>
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>
