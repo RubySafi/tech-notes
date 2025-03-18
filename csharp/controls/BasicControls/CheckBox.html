@@ -16,11 +16,17 @@
     <div class="container">
       <h2>CheckBox Control in C# (WinForms)</h2>
       <p>
-        In C# Windows Forms applications, the <code>CheckBox</code> control is used to allow the user to select or deselect an option. It provides an easy way to handle boolean-like choices such as "Yes/No" or "True/False."
+        In C# Windows Forms applications, the <code>CheckBox</code> control is
+        used to allow the user to select or deselect an option. It provides an
+        easy way to handle boolean-like choices such as "Yes/No" or
+        "True/False."
       </p>
 
       <h3>CheckBox Creation Template</h3>
-      <p>The following code shows how to create and add a <code>CheckBox</code> to your form:</p>
+      <p>
+        The following code shows how to create and add a
+        <code>CheckBox</code> to your form:
+      </p>
       <code>Form.Designer.cs</code>
       <pre><code class="language-csharp">
 using System.Windows.Forms;
@@ -47,7 +53,10 @@ private void InitializeComponent()
       </code></pre>
 
       <h3>Common Properties</h3>
-      <p>Here are some commonly used properties for the <code>CheckBox</code> control:</p>
+      <p>
+        Here are some commonly used properties for the
+        <code>CheckBox</code> control:
+      </p>
       <code>Form.Designer.cs</code>
       <pre><code class="language-csharp">
 checkBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -56,9 +65,16 @@ checkBox1.CheckState = CheckState.Checked;  // Indicate the checkbox is checked
       </code></pre>
 
       <h3>Handling Events</h3>
-      <p>The <code>CheckedChanged</code> event is triggered whenever the state of the checkbox changes. You can handle this event to perform actions based on the user's selection.</p>
-      <p>The following example demonstrates how to handle the <code>CheckedChanged</code> event:</p>
-      
+      <p>
+        The <code>CheckedChanged</code> event is triggered whenever the state of
+        the checkbox changes. You can handle this event to perform actions based
+        on the user's selection.
+      </p>
+      <p>
+        The following example demonstrates how to handle the
+        <code>CheckedChanged</code> event:
+      </p>
+
       <code>Form.Designer.cs</code>
       <pre><code class="language-csharp">
 checkBox1.CheckedChanged += checkBox1_CheckedChanged;
@@ -79,7 +95,10 @@ private void checkBox1_CheckedChanged(object sender, EventArgs e)
 }
       </code></pre>
 
-      <p>In this example, when the user changes the checkbox state, a message box will appear indicating whether the checkbox is checked or unchecked.</p>
+      <p>
+        In this example, when the user changes the checkbox state, a message box
+        will appear indicating whether the checkbox is checked or unchecked.
+      </p>
     </div>
 
     <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>

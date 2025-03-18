@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: DateTimePicker</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>DateTimePicker Control in C# (WinForms)</h2>
+      <p>
+        The <code>DateTimePicker</code> control in C# Windows Forms allows users
+        to select a date and time using a calendar-style interface. This control
+        provides a convenient way to pick dates and times, with options to
+        customize its format and appearance.
+      </p>
+
+      <h3>Basic Setup</h3>
+      <p>
+        The following example demonstrates how to add a <code>DateTimePicker</code>
+        control to your form and configure its basic properties.
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+
+private DateTimePicker dateTimePicker1;
+
+private void InitializeComponent()
+{
+    dateTimePicker1 = new DateTimePicker();
+
+    // Set size and location of the DateTimePicker control
+    dateTimePicker1.Location = new Point(12, 12);
+    dateTimePicker1.Name = "dateTimePicker1";
+    dateTimePicker1.Size = new Size(200, 27);
+    dateTimePicker1.TabIndex = 0;
+
+    // Add the DateTimePicker control to the form
+    this.Controls.Add(dateTimePicker1);
+}
+      </code></pre>
+
+      <h3>Properties</h3>
+      <p>
+        Below are some frequently used properties for the 
+        <code>DateTimePicker</code> control:
+      </p>
+
+      <ul>
+        <li><code>Value</code>: Gets or sets the current date and time displayed in the control.</li>
+        <li><code>Format</code>: Sets the format in which the date and time are displayed. Possible values include <code>Long</code>, <code>Short</code>, and <code>Custom</code>.</li>
+        <li><code>MinDate</code>: Sets the minimum date that can be selected.</li>
+        <li><code>MaxDate</code>: Sets the maximum date that can be selected.</li>
+        <li><code>CustomFormat</code>: Defines a custom date and time format string when the format is set to <code>Custom</code>.</li>
+        <li><code>ShowUpDown</code>: Determines whether the control displays the calendar dropdown or uses up/down arrows to select the date.</li>
+      </ul>
+
+    </div>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

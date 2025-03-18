@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: DataGridView</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>DataGridView Control in C# (WinForms)</h2>
+      <p>
+        The <code>DataGridView</code> control in C# Windows Forms is used to
+        display tabular data in a grid format. It allows users to view, edit,
+        and interact with data in a flexible and customizable way. You can bind
+        data from various sources, such as databases, lists, or arrays.
+      </p>
+
+      <h3>Basic Setup</h3>
+      <p>
+        To use the <code>DataGridView</code> control, you first need to add it
+        to a form and set up some basic properties, such as its size, position,
+        and other configurations. Here's a basic setup example:
+      </p>
+
+      <code>Form.DataGridView.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+
+private DataGridView dataGridView1;
+
+private void InitializeComponent()
+{
+  dataGridView1 = new DataGridView();
+  
+  // Configure the DataGridView
+  dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+  dataGridView1.Location = new Point(180, 562);
+  dataGridView1.Name = "dataGridView1";
+  dataGridView1.RowHeadersWidth = 51;
+  dataGridView1.Size = new Size(300, 188);
+  dataGridView1.TabIndex = 0;
+
+  // Add the DataGridView to the form's controls
+  this.Controls.Add(dataGridView1);
+}
+      </code></pre>
+
+      <p>
+        This is a minimal setup. However, to fully utilize the
+        <code>DataGridView</code>, additional settings and configurations are
+        required. These will be explained in the sections below.
+      </p>
+      
+      <h3>DataGridView - Custom List View</h3>
+      <p>
+        In this section, we will explore how to create a
+        <code>DataGridView</code> with manually added columns and rows, allowing
+        users to add new rows through the GUI. The
+        <code>AllowUserToAddRows</code> property is set to <code>true</code> by
+        default, so users can add rows interactively.
+      </p>
+
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+private void InitializeCustomDataGridView()
+{
+    // Add columns to the DataGridView
+    dataGridView1.Columns.Add("ID", "ID");
+    dataGridView1.Columns.Add("Name", "Name");
+    dataGridView1.Columns.Add("Age", "Age");
+
+    // Add some initial rows
+    dataGridView1.Rows.Add(1, "Alice", 30);
+    dataGridView1.Rows.Add(2, "Bob", 25);
+    dataGridView1.Rows.Add(3, "Charlie", 35);
+}
+
+private void Form_Load(object sender, EventArgs e)
+{
+    InitializeCustomDataGridView();
+}
+      </code></pre>
+
+      <p>
+        In this example:
+        <ul>
+          <li>The columns are manually added using <code>Columns.Add()</code>, specifying the column name (used internally) and the column header text (displayed to the user).</li>
+          <li>Initial rows are added manually using <code>Rows.Add()</code>, where each call adds a new row with values for the "ID", "Name", and "Age" columns.</li>
+          <li>The <code>AllowUserToAddRows</code> property is <code>true</code> by default, enabling the user to add new rows through the GUI (by typing in the last empty row at the bottom).</li>
+        </ul>
+      </p>
+
+      <h3>Properties</h3>
+      <p>Below is a list of frequently used properties for the <code>DataGridView</code> control in C#:</p>
+      
+      <ul>
+        <li><strong>Dock</strong>: Specifies how the control is docked within its parent container. Setting <code>Dock</code> to <code>DockStyle.Fill</code> allows the <code>DataGridView</code> to fill the parent container.</li>
+        <li><strong>AllowUserToAddRows</strong>: Determines whether the user can add new rows to the <code>DataGridView</code> through the GUI. By default, this is set to <code>true</code>.</li>
+        <li><strong>AllowUserToDeleteRows</strong>: Specifies whether the user can delete rows. This is set to <code>true</code> by default.</li>
+        <li><strong>ColumnHeadersHeightSizeMode</strong>: Controls how the height of the column headers is set. For example, <code>DataGridViewColumnHeadersHeightSizeMode.AutoSize</code> automatically adjusts the height based on the content.</li>
+        <li><strong>ReadOnly</strong>: Sets whether the <code>DataGridView</code> is in read-only mode. If set to <code>true</code>, users cannot edit any cells.</li>
+        <li><strong>RowHeadersVisible</strong>: Determines whether the row headers (the small numeric indicators on the left side of the grid) are visible. Set to <code>false</code> to hide them.</li>
+        <li><strong>SelectionMode</strong>: Defines the selection behavior for rows and columns. For instance, <code>DataGridViewSelectionMode.FullRowSelect</code> allows the user to select entire rows.</li>
+        <li><strong>AutoSizeColumnsMode</strong>: Defines how the columns automatically adjust their size to fit their content. Options like <code>DataGridViewAutoSizeColumnsMode.Fill</code> can make columns resize to fill the available space.</li>
+        <li><strong>BackgroundColor</strong>: Sets the background color of the <code>DataGridView</code> control. You can set it to any <code>Color</code>.</li>
+        <li><strong>Font</strong>: Allows you to set the font for the entire <code>DataGridView</code>, including text size, family, and style.</li>
+        <li><strong>CellBorderStyle</strong>: Determines the border style for the cells. Options include <code>DataGridViewCellBorderStyle.Single</code>, <code>DataGridViewCellBorderStyle.None</code>, etc.</li>
+        <li><strong>DefaultCellStyle</strong>: A collection that allows customization of the cell appearance, such as font, alignment, and background color.</li>
+      </ul>
+      
+      <p>You can modify these properties programmatically or through the designer to customize the behavior and appearance of the <code>DataGridView</code>.</p>
+      
+
+      <h3>DataGridView - Binding List of Classes</h3>
+      <p>
+        You can populate the <code>DataGridView</code> with data from various
+        sources, such as a list of objects or a database query result. Below is
+        an example where we bind a <code>List</code> of custom objects to the
+        <code>DataGridView</code>:
+      </p>
+
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+private void PopulateDataGridView()
+{
+    var data = new List&lt;MyData&gt;
+    {
+        new MyData { Name = "Alice", Age = 30 },
+        new MyData { Name = "Bob", Age = 25 },
+        new MyData { Name = "Charlie", Age = 35 }
+    };
+
+    dataGridView1.DataSource = data;
+    
+    // Adding more data dynamically
+    data.Add(new MyData { Name = "A", Age = 30 });
+}
+
+public class MyData
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+}
+      </code></pre>
+
+      <h3>Configuring Columns</h3>
+      <p>
+        You can customize the columns in the <code>DataGridView</code> by
+        modifying their headers, width, and other properties programmatically.
+        Here's an example of how to configure the column headers and adjust
+        their width:
+      </p>
+
+      <pre><code class="language-csharp">
+private void ConfigureColumns()
+{
+    // Set column names
+    dataGridView1.Columns[0].HeaderText = "Full Name";
+    dataGridView1.Columns[1].HeaderText = "Age";
+
+    // Set column width
+    dataGridView1.Columns[0].Width = 200;
+    dataGridView1.Columns[1].Width = 100;
+}
+      </code></pre>
+      <h3>Handling Cell Events</h3>
+      <p>
+          The <code>DataGridView</code> control supports various events, such as when a cell is clicked or edited. You can handle these events to add interactivity to your data grid. Below is an example of how to handle the <code>CellClick</code> event:
+      </p>
+      
+      <pre><code class="language-csharp">
+private void InitializeEvents()
+{
+    // Handle cell click event
+    dataGridView1.CellClick += DataGridView1_CellClick;
+}
+
+private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+{
+    // Display the value of the clicked cell
+    MessageBox.Show($"Cell clicked: {dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value}");
+}
+      </code></pre>
+      
+      <h3>Customizing Appearance</h3>
+      <p>
+          You can customize the appearance of the <code>DataGridView</code> in various ways, such as changing the background color of specific cells, rows, or columns. You can also modify text alignment, font colors, and more. Below are some examples:
+      </p>
+      
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+private void CustomizeAppearance()
+{
+    // Change background color of a specific cell
+    dataGridView1.Rows[0].Cells[0].Style.BackColor = Color.LightYellow;
+    
+    // Change the font color of a specific row
+    dataGridView1.Rows[1].DefaultCellStyle.ForeColor = Color.Blue;
+    
+    // Set text alignment for a specific column
+    dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+    
+    // Change header text alignment
+    dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+    
+    // Set the background color for the entire DataGridView
+    dataGridView1.BackgroundColor = Color.LightGray;
+}
+      </code></pre>
+      
+      <p>
+          In this example: 
+          <ul>
+              <li>The background color of the first cell in the first row is set to light yellow.</li>
+              <li>The font color of all cells in the second row is set to blue.</li>
+              <li>The text alignment of the "Age" column is set to center.</li>
+              <li>The column header text is also centered.</li>
+              <li>The background color of the entire <code>DataGridView</code> is set to light gray.</li>
+          </ul>
+      </p>
+      
+    </div>
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

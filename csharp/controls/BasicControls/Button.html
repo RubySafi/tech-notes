@@ -16,13 +16,16 @@
     <div class="container">
       <h2>Button Control in C# (WinForms)</h2>
       <p>
-        In C# Windows Forms applications, the <code>Button</code> control is commonly used
-        to trigger actions when clicked. This page explains how to create and configure
-        a button using Visual Studio and C#.
+        In C# Windows Forms applications, the <code>Button</code> control is
+        commonly used to trigger actions when clicked. This page explains how to
+        create and configure a button using Visual Studio and C#.
       </p>
 
       <h3>Button Creation Template</h3>
-      <p>The following code demonstrates how to create a simple button in your form's designer file:</p>
+      <p>
+        The following code demonstrates how to create a simple button in your
+        form's designer file:
+      </p>
       <code>Form.Designer.cs</code>
       <pre><code class="language-csharp">using System.Windows.Forms;
 using System.Drawing;
@@ -46,16 +49,20 @@ private void InitializeComponent()
 }</code></pre>
 
       <h3>Common Properties</h3>
-      <p>Here are some commonly used properties for the <code>Button</code> control:</p>
+      <p>
+        Here are some commonly used properties for the
+        <code>Button</code> control:
+      </p>
       <code>Form.Designer.cs</code>
       <pre><code class="language-csharp">button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 button1.Enabled = false; // Disables the button</code></pre>
 
       <h3>Handling Events</h3>
       <p>
-        When you double-click a button in Visual Studio's Form Designer,
-        the IDE automatically generates an event handler for the <code>Click</code> event.
-        The following code shows the generated code and the corresponding event handler:
+        When you double-click a button in Visual Studio's Form Designer, the IDE
+        automatically generates an event handler for the
+        <code>Click</code> event. The following code shows the generated code
+        and the corresponding event handler:
       </p>
 
       <code>Form.Designer.cs</code>
@@ -66,8 +73,11 @@ button1.Enabled = false; // Disables the button</code></pre>
 {
     MessageBox.Show("Button clicked!");
 }</code></pre>
-      
-      <p>In this example, clicking the button will display a message box with the text "Button clicked!"</p>
+
+      <p>
+        In this example, clicking the button will display a message box with the
+        text "Button clicked!"
+      </p>
     </div>
 
     <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>

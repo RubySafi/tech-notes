@@ -16,11 +16,17 @@
     <div class="container">
       <h2>ComboBox Control in C# (WinForms)</h2>
       <p>
-        In C# Windows Forms applications, the <code>ComboBox</code> control is used to display a dropdown list of items from which the user can select one. It is useful for situations where you want to limit the user's input to a predefined set of options.
+        In C# Windows Forms applications, the <code>ComboBox</code> control is
+        used to display a dropdown list of items from which the user can select
+        one. It is useful for situations where you want to limit the user's
+        input to a predefined set of options.
       </p>
 
       <h3>ComboBox Creation Template</h3>
-      <p>The following code shows how to create a <code>ComboBox</code> control and set its properties:</p>
+      <p>
+        The following code shows how to create a <code>ComboBox</code> control
+        and set its properties:
+      </p>
       <code>Form.Designer.cs</code>
       <pre><code class="language-csharp">
 using System.Windows.Forms;
@@ -50,17 +56,25 @@ private void InitializeComponent()
 }
       </code></pre>
       <h3>Common Properties</h3>
-      <p>Here are some commonly used properties for the <code>ComboBox</code> control:</p>
+      <p>
+        Here are some commonly used properties for the
+        <code>ComboBox</code> control:
+      </p>
       <code>Form.cs</code>
       <pre><code class="language-csharp">
 comboBox1.SelectedIndex = 0;  // Set the selected item by index
 comboBox1.SelectedItem = "Option 2";  // Set the selected item by value
       </code></pre>
-      <p><strong>Note:</strong> These properties should be set in <code>Form.cs</code>, not in <code>Form.Designer.cs</code>.</p>
-      
+      <p>
+        <strong>Note:</strong> These properties should be set in
+        <code>Form.cs</code>, not in <code>Form.Designer.cs</code>.
+      </p>
 
       <h3>Handling Events</h3>
-      <p>You can handle the <code>SelectedIndexChanged</code> event to perform an action when the selected item in the ComboBox changes:</p>
+      <p>
+        You can handle the <code>SelectedIndexChanged</code> event to perform an
+        action when the selected item in the ComboBox changes:
+      </p>
       <code>Form.Designer.cs</code>
       <pre><code class="language-csharp">
 comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
@@ -76,7 +90,10 @@ private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
       </code></pre>
 
       <h3>Binding an Enum to a ComboBox</h3>
-      <p>It is convenient to use data binding for this purpose. Below is an example of how to bind enum values:</p>
+      <p>
+        It is convenient to use data binding for this purpose. Below is an
+        example of how to bind enum values:
+      </p>
       <code>Form.Designer.cs</code>
       <pre><code class="language-csharp">
 this.comboBox1 = new ComboBox();
@@ -111,9 +128,11 @@ public enum DayOfTheWeek
 }
       </code></pre>
 
-      
       <h3>Binding a List of Classes to a ComboBox</h3>
-      <p>You can also bind a list of objects to the ComboBox. Below is an example:</p>
+      <p>
+        You can also bind a list of objects to the ComboBox. Below is an
+        example:
+      </p>
       <code>Form.Designer.cs</code>
       <pre><code class="language-csharp">
 this.comboBox1 = new ComboBox();
@@ -128,7 +147,7 @@ this.Controls.Add(this.comboBox1);
       </code></pre>
       <code>Form.cs</code>
       <pre><code class="language-csharp">
-List<ClassA> classList = new List<ClassA>
+List&lt;ClassA&gt; classList = new List&lt;ClassA&gt;
 {
     new ClassA { Name = "Item1", Id = 1 },
     new ClassA { Name = "Item2", Id = 2 }
@@ -149,7 +168,6 @@ public class ClassA
     public int Id { get; set; }
 }
       </code></pre>
-
     </div>
 
     <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>

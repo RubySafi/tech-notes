@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: NumericUpDown</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>NumericUpDown Control in C# (WinForms)</h2>
+      <p>
+        The <code>NumericUpDown</code> control in C# Windows Forms provides a
+        user-friendly way to enter numeric values within a specified range. It
+        features buttons that allow the user to increment or decrement the
+        value, along with input validation to ensure the value stays within a
+        defined minimum and maximum range.
+      </p>
+
+      <h3>Basic Setup</h3>
+      <p>
+        The following example demonstrates how to add a <code>NumericUpDown</code> 
+        control to your form and configure its basic properties.
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+
+private NumericUpDown numericUpDown1;
+
+private void InitializeComponent()
+{
+    numericUpDown1 = new NumericUpDown();
+
+    // Set size and location of the NumericUpDown control
+    numericUpDown1.Location = new Point(12, 12);
+    numericUpDown1.Name = "numericUpDown1";
+    numericUpDown1.Size = new Size(150, 27);
+    numericUpDown1.TabIndex = 0;
+    numericUpDown1.ThousandsSeparator = true;
+
+    // Add the NumericUpDown control to the form
+    this.Controls.Add(numericUpDown1);
+}
+      </code></pre>
+
+      <h3>Properties</h3>
+      <p>
+        Below are some frequently used properties for the 
+        <code>NumericUpDown</code> control:
+      </p>
+
+      <ul>
+        <li><code>Minimum</code>: Sets the minimum value that can be selected.</li>
+        <li><code>Maximum</code>: Sets the maximum value that can be selected.</li>
+        <li><code>Increment</code>: Specifies the step value when clicking the up or down arrows.</li>
+        <li><code>Value</code>: Gets or sets the current numeric value in the control.</li>
+        <li><code>DecimalPlaces</code>: Sets the number of decimal places displayed.</li>
+        <li><code>ThousandsSeparator</code>: Displays a comma separator for thousands when enabled.</li>
+        <li><code>ReadOnly</code>: Prevents direct text entry, allowing only changes via the arrow buttons.</li>
+      </ul>
+
+      <p>
+        Note: The <code>NumericUpDown</code> control's <code>Value</code> property 
+        uses the <code>decimal</code> type. This allows for high precision when dealing with fractional values.
+      </p>
+    </div>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Controls: ListView</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>ListView Control in C# (WinForms)</h2>
+      <p>
+        The <code>ListView</code> control in C# Windows Forms is used to display
+        a collection of items in a list, where each item can be customized with
+        text, images, and subitems. It supports different views, such as
+        Details, List, and LargeIcon.
+      </p>
+
+      <h3>Basic Setup</h3>
+      <p>
+        The <code>ListView</code> control can be added to a form and populated
+        with items. You can also specify the view mode and other settings.
+      </p>
+
+      <code>Form.Designer.cs</code>
+      <pre><code class="language-csharp">
+using System.Windows.Forms;
+
+private ListView listView1;
+
+private void InitializeComponent()
+{
+    listView1 = new ListView();
+
+    // Set the size and location of the ListView
+    listView1.FullRowSelect = true;
+    listView1.GridLines = true;
+    listView1.Location = new Point(0, 0);
+    listView1.Name = "listView1";
+    listView1.Size = new Size(800, 850);
+    listView1.TabIndex = 0;
+    listView1.UseCompatibleStateImageBehavior = false;
+    listView1.View = View.Details;
+
+    // Add ListView to the form
+    this.Controls.Add(listView1);
+}
+      </code></pre>
+
+      <p>
+        This is a basic setup for the <code>ListView</code>. To fully utilize
+        the control, additional settings and configurations are required. These
+        will be explained in the sections below.
+      </p>
+
+      <h3>Populating ListView - Adding Items Manually</h3>
+      <p>
+        You can populate the <code>ListView</code> with items, and each item can
+        have subitems and tags.
+      </p>
+
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+private void PopulateListView()
+{
+    // Set the view mode to Details
+    listView1.View = View.Details;
+
+    // Add columns
+    listView1.Columns.Add("Name", 150);
+    listView1.Columns.Add("Age", 100);
+
+    // Add items
+    var item1 = new ListViewItem("Alice");
+    item1.SubItems.Add("30");
+    item1.Tag = "1"; // Tag to identify the item uniquely
+    listView1.Items.Add(item1);
+
+    var item2 = new ListViewItem("Bob");
+    item2.SubItems.Add("25");
+    item2.Tag = "2"; // Tag for item 2
+    listView1.Items.Add(item2);
+
+    var item3 = new ListViewItem("Charlie");
+    item3.SubItems.Add("35");
+    item3.Tag = "3"; // Tag for item 3
+    listView1.Items.Add(item3);
+}
+      </code></pre>
+
+      <p>
+        The <code>Tag</code> property is useful for storing additional data that
+        you don't need to display. It can hold any type of data, including
+        primitive types, collections, or even instances of custom classes. In
+        this case, the tag helps distinguish each item uniquely, allowing for
+        easy identification or manipulation later.
+      </p>
+
+      <h3>Basic List Operations</h3>
+      <p>
+        Here are some basic operations that can be performed on the
+        <code>ListView</code>:
+      </p>
+      <ul>
+        <li>
+          <strong>Insert an item at the last index:</strong>
+          <pre><code class="language-csharp">
+listView1.Items.Add(new ListViewItem("New Item"));
+          </code></pre>
+        </li>
+        <li>
+          <strong>Insert an item at a specific index:</strong>
+          <pre><code class="language-csharp">
+listView1.Items.Insert(1, new ListViewItem("Inserted Item"));
+          </code></pre>
+        </li>
+        <li>
+          <strong>Delete an item:</strong>
+          <pre><code class="language-csharp">
+listView1.Items.Remove(item1);
+          </code></pre>
+        </li>
+        <li>
+          <strong>Modify an item:</strong>
+          <pre><code class="language-csharp">
+listView1.Items[0].SubItems[1].Text = "Updated Age";
+          </code></pre>
+        </li>
+      </ul>
+      <p>
+        <strong>Tip:</strong> The <code>ListView</code> control in WinForms does not provide a direct 
+        method like <code>RemoveAt(int index)</code> for deleting an item by its index. However, 
+        you can achieve this by calling <code>listView1.Items.RemoveAt(index)</code>, which effectively 
+        removes the item at the specified index.
+      </p>
+      
+      <h3>Populating ListView - Adding Items from a List</h3>
+      <p>
+          Displaying data from a list of classes in the <code>ListView</code> control
+          is straightforward. Here's how you can populate a <code>ListView</code>
+          with a list of objects:
+      </p>
+      
+      <code>Form.cs</code>
+      <pre><code class="language-csharp">
+public class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+}
+
+private void PopulateListView()
+{
+    List&lt;Person&gt; people = new List&lt;Person&gt;
+    {
+        new Person { Name = "Alice", Age = 30 },
+        new Person { Name = "Bob", Age = 25 },
+        new Person { Name = "Charlie", Age = 35 }
+    };
+
+    listView1.View = View.Details;
+    listView1.Columns.Add("Name", 150);
+    listView1.Columns.Add("Age", 100);
+
+    foreach (var person in people)
+    {
+        var item = new ListViewItem(person.Name);
+        item.SubItems.Add(person.Age.ToString());
+        listView1.Items.Add(item);
+    }
+}
+      </code></pre>
+      
+      <p>
+          In this example, a list of <code>Person</code> objects is displayed in the
+          <code>ListView</code>. Each <code>Person</code> object's properties are
+          shown as items and subitems.
+      </p>
+      <h3>Properties</h3>
+      <p>
+          Below are some important and useful properties of the
+          <code>ListView</code> control:
+      </p>
+      <ul>
+        <li><strong>View:</strong> Defines the display mode (e.g., <code>View.Details</code>, <code>View.List</code>)</li>
+        <li><strong>FullRowSelect:</strong> Enables selecting the entire row instead of just the first column</li>
+        <li><strong>GridLines:</strong> Displays gridlines between items</li>
+        <li><strong>MultiSelect:</strong> Allows selecting multiple items</li>
+        <li><strong>AllowColumnReorder:</strong> Enables users to reorder columns</li>
+        <li><strong>SelectedIndex:</strong> Gets the index of the first selected item (returns <code>-1</code> if no item is selected)</li>
+        <li><strong>SelectedItems:</strong> Gets a collection of all selected items</li>
+      </ul>
+    </div>
+
+    <footer>&copy; 2025 Tech-Notes. All rights reserved.</footer>
+  </body>
+</html>
